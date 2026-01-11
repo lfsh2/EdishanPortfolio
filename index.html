@@ -893,7 +893,41 @@
       <h2>Recent Projects</h2>
     </div>
     
+    <!-- Portfolio Filter -->
+    <div class="portfolio-filter">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="web">Web Development</button>
+      <button class="filter-btn" data-filter="design">Mobile/UI Design</button>
+      <button class="filter-btn" data-filter="automation">AI Automation</button>
+    </div>
+    
     <div class="portfolio-grid">
+      <div class="portfolio-item" data-category="automation">
+        <div class="portfolio-img">
+          <img src="assets/work/n8n/ai lead quaification/cover.png" alt="AI Lead Qualification Automation">
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h4>AI Lead Qualification Automation</h4>
+            <p>AI Automation</p>
+            <button class="view-project" data-project="project12"><i class="fas fa-eye"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="automation">
+        <div class="portfolio-img">
+          <img src="assets/work/n8n/ai lead qualitifcation and contact/cover.png" alt="AI Lead Qualification and Contact Management">
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h4>AI Lead Qualification and Contact Management</h4>
+            <p>AI Automation</p>
+            <button class="view-project" data-project="project13"><i class="fas fa-eye"></i></button>
+          </div>
+        </div>
+      </div>
+
       <div class="portfolio-item" data-category="web">
         <div class="portfolio-img">
           <img src="assets/work/meeplecrate/1.png" alt="MeepleCrate - Board Game Rental Platform">
@@ -1468,6 +1502,33 @@
           "assets/work/meeplecrate/19.png",
           "assets/work/meeplecrate/20.png",
         ]
+      },
+      project12: {
+        title: "AI Lead Qualification Automation",
+        category: "AI Automation",
+        description: "An intelligent automation workflow built with n8n that automatically qualifies leads using AI-powered analysis. The system integrates with CRM platforms to fetch lead data, processes it through AI models for qualification scoring, and automatically routes qualified leads to the appropriate sales team members. This automation reduces manual lead review time by 80% and improves lead response rates.",
+        client: "Sales Automation Client",
+        date: "January 2026",
+        technologies: ["n8n", "AI/OpenAI", "CRM Integration", "Webhook", "API Integration"],
+        link: "",
+        results: ["80% reduction in manual lead review", "Automated qualification scoring", "Intelligent lead routing", "Real-time processing"],
+        images: [
+          "assets/work/n8n/ai lead quaification/automation1.png",
+          "assets/work/n8n/ai lead quaification/automation2.png"
+        ]
+      },
+      project13: {
+        title: "AI Lead Qualification and Contact Management",
+        category: "AI Automation",
+        description: "A comprehensive n8n automation workflow that combines AI-powered lead qualification with intelligent contact management. The system automatically enriches contact data, scores leads based on predefined criteria using AI, and manages follow-up sequences. Features include automated email outreach, contact segmentation, and seamless integration with CRM and communication platforms for streamlined lead nurturing.",
+        client: "Marketing Automation Client",
+        date: "January 2026",
+        technologies: ["n8n", "AI/OpenAI", "Email Automation", "CRM Integration", "Contact Enrichment API"],
+        link: "",
+        results: ["Automated contact enrichment", "AI-powered lead scoring", "Intelligent follow-up sequences", "Multi-platform integration"],
+        images: [
+          "assets/work/n8n/ai lead qualitifcation and contact/automation3.png"
+        ]
       }
     };
 
@@ -1593,6 +1654,46 @@
       currentProject = null;
     }
     
+    // Portfolio Filter Functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        this.classList.add('active');
+        
+        const filterValue = this.getAttribute('data-filter');
+        
+        portfolioItems.forEach(item => {
+          if (filterValue === 'all') {
+            item.style.display = 'block';
+            setTimeout(() => {
+              item.style.opacity = '1';
+              item.style.transform = 'scale(1)';
+            }, 10);
+          } else {
+            const itemCategory = item.getAttribute('data-category');
+            if (itemCategory === filterValue) {
+              item.style.display = 'block';
+              setTimeout(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'scale(1)';
+              }, 10);
+            } else {
+              item.style.opacity = '0';
+              item.style.transform = 'scale(0.8)';
+              setTimeout(() => {
+                item.style.display = 'none';
+              }, 300);
+            }
+          }
+        });
+      });
+    });
+    
     projectButtons.forEach(button => {
       button.addEventListener('click', function() {
         const projectId = this.getAttribute('data-project');
@@ -1629,5 +1730,8 @@
     });
   });
   </script>
+
+  <elevenlabs-convai agent-id="agent_6501kepwdeabfp4bagmsntg96j1n"></elevenlabs-convai>
+  <script src="https://unpkg.com/@elevenlabs/convai-widget-embed@beta" async type="text/javascript"></script>
 </body>
 </html>
