@@ -20,6 +20,7 @@
         <ul>
           <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="#automation">Automation</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#results">Results</a></li>
           <li><a href="#experience">Experience</a></li>
@@ -41,9 +42,10 @@
       <div class="hero-content">
         <span class="subtitle">Welcome to my Portfolio</span>
         <h1>Hi, I'm <span class="highlight">Edishan Lee</span> Tenorio</h1>
-        <p class="profession">Full Stack Developer & Frontend Engineer | AI Automation Specialist | React/Next.js & Java Spring Specialist</p>
+        <p class="profession">GoHighLevel Automation Specialist | Backend Automation Engineer | Full Stack Developer</p>
         <div class="hero-description">
-          <p>Delivering 17+ custom web applications including <strong>revenue-generating platforms</strong> with <strong>35% faster delivery times</strong> and <strong>90%+ client satisfaction</strong> for startups and SMEs across industries</p>
+          <p><strong>I build backend automation and GoHighLevel systems that replace manual operations and scale reliably.</strong></p>
+          <p>Delivering 17+ custom web applications including <strong>revenue-generating platforms</strong>, <strong>CRM automation workflows</strong>, and <strong>multi-system integrations</strong> that reduce operational overhead by up to 60% for startups and SMEs</p>
         </div>
         <div class="hero-buttons">
           <a href="#contact" class="btn primary-btn">Hire Me</a>
@@ -132,8 +134,83 @@
     </div>
   </section>
 
+  <!-- GoHighLevel & Automation Systems Experience Section -->
+  <section id="automation" class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="subtitle">Automation Engineering</span>
+        <h2>GoHighLevel & Automation Systems Experience</h2>
+      </div>
+      <div class="about-text">
+        <p>I design and implement backend automation systems that handle complex business logic while remaining maintainable over time. My approach focuses on building workflows with flexible, changeable logic layers on top of locked-down core processes—ensuring reliability while allowing business rules to evolve without breaking existing integrations.</p>
+        
+        <div class="automation-capabilities">
+          <h3>Core Automation Capabilities</h3>
+          <div class="capabilities-grid">
+            <div class="capability-item">
+              <h4><i class="fas fa-project-diagram"></i> CRM Automation & Pipeline Management</h4>
+              <p>Built multi-stage pipeline automations in GoHighLevel with conditional logic for lead routing, automatic tagging based on behavior, and scheduled follow-up sequences. Designed workflows that trigger different paths based on lead source, engagement level, and qualification criteria.</p>
+            </div>
+            <div class="capability-item">
+              <h4><i class="fas fa-exchange-alt"></i> Webhook & API Integrations</h4>
+              <p>Developed custom webhook handlers to sync data between GoHighLevel and external systems (payment processors, scheduling tools, custom databases). Implemented bidirectional syncs with error handling, retry logic, and logging to ensure no data loss during network failures or API rate limits.</p>
+            </div>
+            <div class="capability-item">
+              <h4><i class="fas fa-cogs"></i> Multi-Step Workflow Automation</h4>
+              <p>Created complex n8n and Zapier workflows that orchestrate actions across 5+ platforms. Examples include lead capture → enrichment → qualification → CRM entry → notification → follow-up email sequences, all running without manual intervention.</p>
+            </div>
+            <div class="capability-item">
+              <h4><i class="fas fa-shield-alt"></i> Error Handling & Reliability Design</h4>
+              <p>Implemented retry mechanisms for failed API calls, fallback paths for missing data, and monitoring alerts for workflow failures. Designed systems to gracefully degrade rather than break entirely when third-party services go down.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="systems-thinking">
+          <h3>Systems Design Philosophy</h3>
+          <p>I build automation systems with three architectural principles:</p>
+          <ul>
+            <li><strong>Flexible Logic Layer:</strong> Business rules (tags, routing decisions, timing) live in easy-to-change configuration or separate modules, not buried in core workflow code.</li>
+            <li><strong>Locked-Down Core Workflows:</strong> Critical processes like payment handling, data syncing, and authentication follow strict, tested patterns that don't change unless absolutely necessary.</li>
+            <li><strong>Long-Term Maintainability:</strong> Every automation is documented with clear trigger conditions, expected inputs/outputs, and known failure points. Systems are designed so someone else (or future me) can understand and modify them six months later.</li>
+          </ul>
+        </div>
+
+        <div class="case-study">
+          <h3>Case Study: Multi-System Lead Qualification Automation</h3>
+          <div class="case-study-content">
+            <div class="case-problem">
+              <h4>The Problem</h4>
+              <p>A service business was manually reviewing 200+ inbound leads per week, spending 3-4 hours daily on initial qualification, data entry across three systems (CRM, scheduling tool, email platform), and routing leads to sales reps.</p>
+            </div>
+            <div class="case-solution">
+              <h4>The System Built</h4>
+              <p>Implemented an n8n workflow integrated with GoHighLevel that:</p>
+              <ul>
+                <li>Captured leads from web forms and automatically enriched contact data using external APIs</li>
+                <li>Applied AI-based scoring to qualify leads based on industry, company size, and engagement signals</li>
+                <li>Routed qualified leads into GoHighLevel pipelines with appropriate tags and assigned sales reps based on territory and capacity</li>
+                <li>Triggered personalized email sequences and scheduled follow-up tasks automatically</li>
+                <li>Logged all activity to a central dashboard with error notifications for failed steps</li>
+              </ul>
+            </div>
+            <div class="case-impact">
+              <h4>Operational Impact</h4>
+              <ul>
+                <li>Reduced manual lead review time from 20 hours/week to 3 hours/week (85% reduction)</li>
+                <li>Increased lead response speed from 4-6 hours to under 5 minutes</li>
+                <li>Eliminated data entry errors across systems through automated syncing</li>
+                <li>Enabled sales team to focus on high-value conversations instead of administrative tasks</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Skills Section -->
-  <section id="skills" class="section bg-light">
+  <section id="skills" class="section">
     <div class="container">
       <div class="section-header">
         <span class="subtitle">My Skills</span>
@@ -355,8 +432,33 @@
           </div>
         </div>
         <div class="skill-group">
-          <h3>DevOps & Deployment</h3>
+          <h3>Infrastructure & Hosting</h3>
+          <p class="skill-group-description"><strong>Cloud Infrastructure:</strong> Hands-on experience with AWS (EC2, RDS, S3, Lambda) and Azure (Static Web Apps, App Services) for production deployments. Walkthrough-based setup experience with DigitalOcean. Strong ability to adapt quickly across cloud providers due to experience with major platforms.</p>
           <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-info">
+                <h4>AWS (EC2, RDS, S3, Lambda)</h4>
+              </div>
+              <div class="progress-bar">
+                <div class="progress" style="width: 80%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <h4>Azure (Static Web Apps, App Services)</h4>
+              </div>
+              <div class="progress-bar">
+                <div class="progress" style="width: 75%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <h4>DigitalOcean (Walkthrough-Based)</h4>
+              </div>
+              <div class="progress-bar">
+                <div class="progress" style="width: 65%;"></div>
+              </div>
+            </div>
             <div class="skill-item">
               <div class="skill-info">
                 <h4>VPS Management</h4>
@@ -375,15 +477,15 @@
             </div>
             <div class="skill-item">
               <div class="skill-info">
-                <h4>Shared Hosting Management</h4>
+                <h4>Vercel / Netlify</h4>
               </div>
               <div class="progress-bar">
-                <div class="progress" style="width: 90%;"></div>
+                <div class="progress" style="width: 80%;"></div>
               </div>
             </div>
             <div class="skill-item">
               <div class="skill-info">
-                <h4>Backup Strategies</h4>
+                <h4>Backup & Recovery Strategies</h4>
               </div>
               <div class="progress-bar">
                 <div class="progress" style="width: 85%;"></div>
@@ -391,34 +493,10 @@
             </div>
             <div class="skill-item">
               <div class="skill-info">
-                <h4>AWS (EC2, RDS, S3, Lambda)</h4>
-              </div>
-              <div class="progress-bar">
-                <div class="progress" style="width: 75%;"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <h4>Vercel</h4>
+                <h4>Deployment Automation</h4>
               </div>
               <div class="progress-bar">
                 <div class="progress" style="width: 80%;"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <h4>Netlify</h4>
-              </div>
-              <div class="progress-bar">
-                <div class="progress" style="width: 80%;"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <h4>Azure Static Web Apps</h4>
-              </div>
-              <div class="progress-bar">
-                <div class="progress" style="width: 75%;"></div>
               </div>
             </div>
           </div>
@@ -824,6 +902,30 @@
               <span class="tech-tag">Geolocation API</span>
               <span class="tech-tag">Mapping Services</span>
               <span class="tech-tag">Routing Algorithms</span>
+            </div>
+          </div>
+          <div class="expertise-card">
+            <div class="expertise-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3>Systems-Focused Automation Architecture</h3>
+            <p>Designing automation workflows with separation between changeable business logic and stable core processes. Building systems that handle errors gracefully, maintain data integrity under failure conditions, and remain understandable for long-term maintenance.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Modular Design</span>
+              <span class="tech-tag">Error Handling</span>
+              <span class="tech-tag">Scalability</span>
+            </div>
+          </div>
+          <div class="expertise-card">
+            <div class="expertise-icon">
+              <i class="fas fa-link"></i>
+            </div>
+            <h3>Multi-Platform Integration Engineering</h3>
+            <p>Building reliable data bridges between GoHighLevel, custom applications, and third-party services. Implementing webhook endpoints, API middleware, and event-driven architectures that keep systems synchronized even when individual components fail temporarily.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">API Integration</span>
+              <span class="tech-tag">Webhooks</span>
+              <span class="tech-tag">Event-Driven Architecture</span>
             </div>
           </div>
         </div>
