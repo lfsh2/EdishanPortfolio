@@ -118,7 +118,7 @@
             </div>
             <div class="info-item">
               <span class="info-title">Age:</span>
-              <span class="info-value">22</span>
+              <span class="info-value" id="age" data-birthdate="2003-01-01">23</span>
             </div>
             <div class="info-item">
               <span class="info-title">Email:</span>
@@ -644,6 +644,46 @@
               </ul>
             </div>
             <div class="timeline-item">
+              <span class="date">Nov 2024 - Present</span>
+              <h4>GoHighLevel (GHL) Specialist</h4>
+              <p>Freelance - Digital Marketing Agencies & SMEs, Remote</p>
+              <ul>
+                <li><strong>Set up and configured GoHighLevel sub-accounts end-to-end</strong> for agencies and service businesses - pipelines, calendars, custom fields and values, user roles, and reporting dashboards</li>
+                <li><strong>Built funnels, landing pages, forms, and surveys inside GHL</strong>, connecting them directly to pipelines and automations so every lead is captured and tracked from first touch</li>
+                <li><strong>Designed multi-stage workflow automations</strong> with triggers, conditions, wait steps, behavior-based tagging, and lead routing - including missed-call text-back, appointment reminders, and nurture sequences via SMS and email</li>
+                <li><strong>Integrated GHL with external systems through webhooks and APIs</strong> (payment processors, scheduling tools, n8n, custom databases), implementing bidirectional syncs with error handling and retry logic</li>
+                <li><strong>Created reusable snapshots and workflow templates</strong> to standardize client setups and cut onboarding time for new sub-accounts</li>
+                <li><strong>Audited and optimized existing GHL accounts</strong>, cleaning up broken automations, consolidating pipelines, and improving deliverability and follow-up consistency</li>
+                <li><strong>Trained agency teams and clients</strong> on managing their GHL systems day-to-day, with documentation for every automation's triggers, inputs, and failure points</li>
+                <li><strong>Key capabilities gained:</strong> deep GoHighLevel platform expertise (workflows, pipelines, funnels, calendars, snapshots, SaaS-mode setups), webhook and API integration design, agency-scale client onboarding, and long-term automation maintenance</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <span class="date">Nov 2025 - Aug 2026</span>
+              <h4>Automation Specialist & Developer</h4>
+              <p>SoftlinkIQ - Remote</p>
+              <ul>
+                <li><strong>Developed multiple CRM systems and business applications</strong> tailored to client workflows, from requirements through production release</li>
+                <li><strong>Designed and built APIs</strong> to power application features and connect CRM data with external services</li>
+                <li><strong>Created multiple end-to-end automations using GoHighLevel (GHL) and n8n</strong>, covering lead capture, follow-ups, notifications, and data synchronization between systems</li>
+                <li><strong>Served as the go-to automation specialist and developer</strong>, translating business processes into reliable automated workflows</li>
+                <li><strong>Provided technical support</strong> for deployed CRMs, apps, and automations - troubleshooting issues, maintaining integrations, and keeping systems running smoothly</li>
+                <li><strong>Key capabilities gained:</strong> designing scalable automation architectures across GHL and n8n, API development and integration, multi-CRM delivery, and hands-on production support and troubleshooting</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <span class="date">Aug 2025 - Feb 2026</span>
+              <h4>Frontend Engineer & Mobile Developer</h4>
+              <p>Tippler Pty Ltd - Remote</p>
+              <ul>
+                <li><strong>Developed a CRM application for web and mobile</strong> using TypeScript, Tailwind CSS, and shadcn/ui, delivering a fast and consistent user experience</li>
+                <li><strong>Built a library of reusable, accessible UI components</strong> that standardized the design system and sped up feature development across the app</li>
+                <li><strong>Deployed and maintained the application in production</strong>, handling releases, bug fixes, and ongoing improvements</li>
+                <li><strong>Integrated multiple third-party APIs</strong> into the CRM, connecting external data and services into a unified interface</li>
+                <li><strong>Key capabilities gained:</strong> production-grade component architecture with shadcn/ui and Tailwind, strict type-safe TypeScript development, mobile app development, multi-API integration, and end-to-end ownership of deployment and maintenance</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
               <span class="date">Jan 2024 - Present</span>
               <h4>Frontend Engineer - React/Next.js/TypeScript</h4>
               <p>Cozy Cafe Finder - Revenue Generating Application</p>
@@ -1011,6 +1051,18 @@
     </div>
     
     <div class="portfolio-grid">
+      <div class="portfolio-item" data-category="web">
+        <div class="portfolio-img">
+          <img src="assets/work/teethly/cover.jpg" alt="Teethly.ph - Dental Marketplace & Clinic Management Platform">
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h4>Teethly.ph - Dental Marketplace & Clinic Platform</h4>
+            <p>Web Development</p>
+            <button class="view-project" data-project="project14"><i class="fas fa-eye"></i></button>
+          </div>
+        </div>
+      </div>
       <div class="portfolio-item" data-category="automation">
         <div class="portfolio-img">
           <img src="assets/work/n8n/ai lead quaification/cover.png" alt="AI Lead Qualification Automation">
@@ -1369,10 +1421,30 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="js/main.js"></script>
   <script src="js/contact-fix.js"></script>
+  <script src="js/age.js"></script>
   <script>
     
   document.addEventListener('DOMContentLoaded', function() {
     const projectsData = {
+      project14: {
+        title: "Teethly.ph - Dental Marketplace & Clinic Management Platform",
+        category: "Web Development",
+        description: "Teethly is a two-sided dental platform for the Philippines. Patients search for PRC-verified dentists near them and connect three ways - chat, video call, or booking - completely free, with no booking fees and encrypted private records. Clinics get a public profile in the patient marketplace plus an all-in-one operating system: smart scheduling with SMS reminders and double-booking prevention, a patient CRM with an interactive odontogram and immutable clinical notes, e-prescription PDF generation, billing and revenue analytics in Philippine pesos, automated review requests, and role-based staff access. Built with Next.js, TypeScript, Tailwind CSS, and shadcn/ui and deployed on Vercel, with a free clinic plan, a Pro tier with a 30-day trial, a pay-per-new-patient model, and companion iOS and Android apps.",
+        client: "Teethly.ph",
+        date: "2026",
+        technologies: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Lucide Icons", "Vercel"],
+        link: "https://www.teethly.ph/",
+        results: ["Patient marketplace with chat, video call & booking", "Full clinic OS: scheduling, records, billing, analytics", "Free plan + Pro tier with 30-day trial", "iOS & Android patient apps", "Encrypted records, Data Privacy Act (RA 10173) compliant"],
+        images: [
+          "assets/work/teethly/1-patient-home.jpg",
+          "assets/work/teethly/2-clinic-hero.png",
+          "assets/work/teethly/3-patient-channels.png",
+          "assets/work/teethly/4-clinic-os.png",
+          "assets/work/teethly/5-pricing.png",
+          "assets/work/teethly/6-comparison.png",
+          "assets/work/teethly/8-cta.png"
+        ]
+      },
       project1: {
         title: "Construction Portfolio & Appointment Booking System",
         category: "Web Development",
