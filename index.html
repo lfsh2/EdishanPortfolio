@@ -62,6 +62,49 @@
     </div>
   </section>
 
+  <!-- Featured Case Study Section -->
+  <section id="case-study" class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="subtitle">Featured Case Study</span>
+        <h2>Multi-System Lead Qualification Automation</h2>
+      </div>
+        <div class="case-study">
+          <figure class="case-study-image">
+            <img src="assets/work/n8n/ai-lead-qualification-contact/automation3.png" alt="n8n workflow canvas: webhook intake, AI lead qualification, priority routing, CRM upsert, email, calendar, and analytics logging">
+            <figcaption>The actual n8n canvas: webhook intake &rarr; AI qualification &rarr; priority routing &rarr; CRM upsert, email, calendar event, and analytics log</figcaption>
+          </figure>
+          <div class="case-study-content">
+            <div class="case-problem">
+              <h4>The Problem</h4>
+              <p>A service business was manually reviewing 200+ inbound leads per week, spending 3-4 hours daily on initial qualification, data entry across three systems (CRM, scheduling tool, email platform), and routing leads to sales reps.</p>
+            </div>
+            <div class="case-solution">
+              <h4>The System Built</h4>
+              <p>Implemented an n8n workflow integrated with GoHighLevel that:</p>
+              <ul>
+                <li>Captured leads from web forms and automatically enriched contact data using external APIs</li>
+                <li>Applied AI-based scoring to qualify leads based on industry, company size, and engagement signals</li>
+                <li>Routed qualified leads into GoHighLevel pipelines with appropriate tags and assigned sales reps based on territory and capacity</li>
+                <li>Triggered personalized email sequences and scheduled follow-up tasks automatically</li>
+                <li>Logged all activity to a central dashboard with error notifications for failed steps</li>
+              </ul>
+            </div>
+            <div class="case-impact">
+              <h4>Operational Impact</h4>
+              <ul>
+                <li>Reduced manual lead review time from 20 hours/week to 3 hours/week</li>
+                <li>Increased lead response speed from 4-6 hours to under 5 minutes</li>
+                <li>Eliminated data entry errors across systems through automated syncing</li>
+                <li>Enabled sales team to focus on high-value conversations instead of administrative tasks</li>
+              </ul>
+            </div>
+          </div>
+          <p class="case-stack"><strong>Stack:</strong> n8n &middot; OpenAI (structured-output qualification) &middot; Webhooks &middot; CRM integration &middot; Gmail &middot; Google Calendar &middot; Google Sheets</p>
+        </div>
+    </div>
+  </section>
+
   <!-- About Section -->
   <section id="about" class="section">
     <div class="container">
@@ -117,7 +160,7 @@
     <div class="container">
       <div class="section-header">
         <span class="subtitle">Automation Engineering</span>
-        <h2>GoHighLevel & Automation Systems Experience</h2>
+        <h2>GoHighLevel &amp; n8n Automation Capabilities</h2>
       </div>
       <div class="about-text">
         <p>I design and implement backend automation systems that handle complex business logic while remaining maintainable over time. My approach focuses on building workflows with flexible, changeable logic layers on top of locked-down core processes—ensuring reliability while allowing business rules to evolve without breaking existing integrations.</p>
@@ -154,35 +197,6 @@
           </ul>
         </div>
 
-        <div class="case-study">
-          <h3>Case Study: Multi-System Lead Qualification Automation</h3>
-          <div class="case-study-content">
-            <div class="case-problem">
-              <h4>The Problem</h4>
-              <p>A service business was manually reviewing 200+ inbound leads per week, spending 3-4 hours daily on initial qualification, data entry across three systems (CRM, scheduling tool, email platform), and routing leads to sales reps.</p>
-            </div>
-            <div class="case-solution">
-              <h4>The System Built</h4>
-              <p>Implemented an n8n workflow integrated with GoHighLevel that:</p>
-              <ul>
-                <li>Captured leads from web forms and automatically enriched contact data using external APIs</li>
-                <li>Applied AI-based scoring to qualify leads based on industry, company size, and engagement signals</li>
-                <li>Routed qualified leads into GoHighLevel pipelines with appropriate tags and assigned sales reps based on territory and capacity</li>
-                <li>Triggered personalized email sequences and scheduled follow-up tasks automatically</li>
-                <li>Logged all activity to a central dashboard with error notifications for failed steps</li>
-              </ul>
-            </div>
-            <div class="case-impact">
-              <h4>Operational Impact</h4>
-              <ul>
-                <li>Reduced manual lead review time from 20 hours/week to 3 hours/week (85% reduction)</li>
-                <li>Increased lead response speed from 4-6 hours to under 5 minutes</li>
-                <li>Eliminated data entry errors across systems through automated syncing</li>
-                <li>Enabled sales team to focus on high-value conversations instead of administrative tasks</li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -410,91 +424,212 @@
       </div>
     </div>
   </section>
-  <!-- Experience Section -->
-  <section id="experience" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="subtitle">My Journey</span>
-        <h2>Education & Experience</h2>
-      </div>
-      <div class="experience-content">
-        <div class="timeline-section">
-          <h3>Education</h3>
-          <div class="timeline">
-            <div class="timeline-item">
-              <span class="date">2021 - 2025</span>
-              <h4>Bachelor of Science in Information Technology</h4>
-              <p>Cavite State University - Graduated</p>
-              <span class="grade">Degree Completed</span>
-            </div>
-            <div class="timeline-item">
-              <span class="date">2019</span>
-              <h4>National Certificate 2 for Electrical Installation and Maintenance</h4>
-              <p>Community Vocational High School</p>
-            </div>
+<!-- Portfolio Section -->
+<section id="portfolio" class="section bg-light">
+  <div class="container">
+    <div class="section-header">
+      <span class="subtitle">My Work</span>
+      <h2>Selected Work</h2>
+    </div>
+    
+    <!-- Portfolio Filter -->
+    <div class="portfolio-filter">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="web">Web Development</button>
+      <button class="filter-btn" data-filter="automation">AI Automation</button>
+    </div>
+    
+    <div class="portfolio-grid">
+      <div class="portfolio-item" data-category="web">
+        <div class="portfolio-img">
+          <img src="assets/work/teethly/cover.jpg" alt="Teethly.ph - Dental Marketplace & Clinic Management Platform">
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h4>Teethly.ph - Dental Marketplace & Clinic Platform</h4>
+            <p>Web Development</p>
+            <button class="view-project" data-project="project14"><i class="fas fa-eye"></i></button>
           </div>
         </div>
-        <div class="timeline-section">
-          <h3>Professional Experience</h3>
-          <div class="timeline">
-                                    <div class="timeline-item">
-              <span class="date">Nov 2025 - Aug 2026</span>
-              <h4>Automation Specialist & Developer</h4>
-              <p>SoftlinkIQ - Remote</p>
-              <ul>
-                <li><strong>Developed multiple CRM systems and business applications</strong> tailored to client workflows, from requirements through production release</li>
-                <li><strong>Designed and built APIs</strong> to power application features and connect CRM data with external services</li>
-                <li><strong>Created multiple end-to-end automations using GoHighLevel (GHL) and n8n</strong>, covering lead capture, follow-ups, notifications, and data synchronization between systems</li>
-                <li><strong>Served as the go-to automation specialist and developer</strong>, translating business processes into reliable automated workflows</li>
-                <li><strong>Provided technical support</strong> for deployed CRMs, apps, and automations - troubleshooting issues, maintaining integrations, and keeping systems running smoothly</li>
-                <li><strong>Key capabilities gained:</strong> designing scalable automation architectures across GHL and n8n, API development and integration, multi-CRM delivery, and hands-on production support and troubleshooting</li>
+      </div>
+      <div class="portfolio-item" data-category="automation">
+        <div class="portfolio-img">
+          <img src="assets/work/n8n/ai-lead-qualification/cover.png" alt="AI Lead Qualification Automation">
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h4>AI Lead Qualification Automation</h4>
+            <p>AI Automation</p>
+            <button class="view-project" data-project="project12"><i class="fas fa-eye"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="automation">
+        <div class="portfolio-img">
+          <img src="assets/work/n8n/ai-lead-qualification-contact/cover.png" alt="AI Lead Qualification and Contact Management">
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h4>AI Lead Qualification and Contact Management</h4>
+            <p>AI Automation</p>
+            <button class="view-project" data-project="project13"><i class="fas fa-eye"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="web">
+        <div class="portfolio-img">
+          <img src="assets/work/meeplecrate/1.png" alt="MeepleCrate - Board Game Rental Platform">
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h4>MeepleCrate - Board Game Rental Platform</h4>
+            <p>Web Development</p>
+            <button class="view-project" data-project="project11"><i class="fas fa-eye"></i></button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="portfolio-item" data-category="web">
+        <div class="portfolio-img">
+          <img src="assets/work/vantrips/v1.png" alt="Vantrippers Travel and Tours Management System">
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h4>Vantrippers Travel and Tours Management System</h4>
+            <p>Web Development</p>
+            <button class="view-project" data-project="project9"><i class="fas fa-eye"></i></button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="portfolio-item" data-category="web">
+        <div class="portfolio-img">
+          <img src="assets/work/cozy-crave/1.png" alt="Cozy Crave Finder - Tinder-based Food Hunting">
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h4>Cozy Crave Finder - Tinder-based Food Hunting</h4>
+            <p>Web Development</p>
+            <button class="view-project" data-project="project10"><i class="fas fa-eye"></i></button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="portfolio-item" data-category="web">
+        <div class="portfolio-img">
+          <img src="assets/work/jkk/JKK.png" alt="Construction Portfolio Website">
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h4>Construction Portfolio Website</h4>
+            <p>Web Development</p>
+            <button class="view-project" data-project="project1"><i class="fas fa-eye"></i></button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="portfolio-item" data-category="web">
+        <div class="portfolio-img">
+          <img src="assets/work/inm/INMHP.png" alt="IEM Ecommerce Website with 3d Customization">
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h4>IEM Ecommerce Website with 3d Customization</h4>
+            <p>Web Development</p>
+            <button class="view-project" data-project="project2"><i class="fas fa-eye"></i></button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="portfolio-item" data-category="web">
+        <div class="portfolio-img">
+          <img src="assets/work/gym/h11.png" alt="ForeverLife Gym Management System">
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h4>Gym Management System</h4>
+            <p>Web Development</p>
+            <button class="view-project" data-project="project8"><i class="fas fa-eye"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="web">
+        <div class="portfolio-img">
+          <img src="assets/work/hoa/login1.png" alt="Hoa Management System">
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h4>Hoa Management System</h4>
+            <p>Web Development</p>
+            <button class="view-project" data-project="project7"><i class="fas fa-eye"></i></button>
+          </div>
+        </div>
+      </div>
+
+      
+      
+      
+    </div>
+  </div>
+</section>
+  
+  <!-- Portfolio Modal -->
+  <div id="portfolio-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="modal-header">
+        <h2 id="modal-title">Project Title</h2>
+        <p id="modal-category">Category</p>
+      </div>
+      <div class="modal-body">
+        <div class="project-gallery">
+          <div class="gallery-container">
+            <div id="gallery-images" class="gallery-images">
+            </div>
+            <div class="gallery-nav">
+              <button id="prev-img"><i class="fas fa-chevron-left"></i></button>
+              <button id="next-img"><i class="fas fa-chevron-right"></i></button>
+            </div>
+          </div>
+          <div id="gallery-indicators" class="gallery-indicators">
+          </div>
+        </div>
+        <div class="project-details">
+          <h3>Project Description</h3>
+          <p id="modal-description">Project description will be loaded here.</p>
+          
+          <div class="project-meta">
+            <div class="meta-item">
+              <h4>Client</h4>
+              <p id="modal-client">Client name</p>
+            </div>
+            <div class="meta-item">
+              <h4>Date</h4>
+              <p id="modal-date">Project date</p>
+            </div>
+            <div class="meta-item">
+              <h4>Technologies</h4>
+              <ul id="modal-tech">
               </ul>
             </div>
-            <div class="timeline-item">
-              <span class="date">Aug 2025 - Feb 2026</span>
-              <h4>Frontend Engineer & Mobile Developer</h4>
-              <p>Tippler Pty Ltd - Remote</p>
-              <ul>
-                <li><strong>Developed a CRM application for web and mobile</strong> using TypeScript, Tailwind CSS, and shadcn/ui, delivering a fast and consistent user experience</li>
-                <li><strong>Built a library of reusable, accessible UI components</strong> that standardized the design system and sped up feature development across the app</li>
-                <li><strong>Deployed and maintained the application in production</strong>, handling releases, bug fixes, and ongoing improvements</li>
-                <li><strong>Integrated multiple third-party APIs</strong> into the CRM, connecting external data and services into a unified interface</li>
-                <li><strong>Key capabilities gained:</strong> production-grade component architecture with shadcn/ui and Tailwind, strict type-safe TypeScript development, mobile app development, multi-API integration, and end-to-end ownership of deployment and maintenance</li>
+            <div class="meta-item">
+              <h4>Key Results</h4>
+              <ul id="modal-results">
               </ul>
             </div>
-<div class="timeline-item">
-              <span class="date">Nov 2023 - Present</span>
-              <h4>Automation Engineer &amp; Full Stack Developer</h4>
-              <p>Freelance - Remote &middot; Selected clients: digital marketing agencies, Cozy Cafe Finder, a Colorado board-rental delivery platform, startups and SMEs</p>
-              <ul>
-                <li><strong>Designed and implemented automated workflows in GoHighLevel, n8n, and Zapier</strong> for agencies and service businesses, cutting manual tasks by up to 60% - lead capture, qualification, routing, follow-ups, and appointment scheduling</li>
-                <li><strong>Built AI-powered lead qualification and CRM automation systems</strong>, connecting 15+ platforms through webhooks and APIs with retry logic, fallback paths, and failure alerts</li>
-                <li><strong>Engineered 17+ custom web applications</strong> with React/Next.js/TypeScript, Laravel, and Java Spring Boot - including a revenue-generating cafe discovery app and a board-rental delivery platform serving Colorado and neighboring states</li>
-                <li><strong>Integrated payment gateways (Stripe, PayMongo), geolocation services, and admin dashboards</strong>, and deployed on AWS (EC2, RDS, S3, Lambda), Vercel, Azure, and VPS/cPanel with CI/CD pipelines</li>
-                <li><strong>Configured GoHighLevel sub-accounts end-to-end</strong> - pipelines, funnels, calendars, custom fields, snapshots - and trained client teams to maintain their own systems, with documentation for every automation's triggers, inputs, and failure points</li>
-              </ul>
-            </div>
-                                                <div class="timeline-item">
-              <span class="date">Aug 2023 - Dec 2024</span>
-              <h4>React Developer</h4>
-              <p>Private Client - Part-time</p>
-              <ul>
-                <li><strong>Built and maintained responsive, reusable UI components</strong> using React, Context API, and Redux, improving development speed across 3 product modules</li>
-                <li><strong>Implemented role-based authentication, dynamic routing, and modular architecture</strong> for enhanced security and scalability</li>
-                <li><strong>Collaborated with back-end teams to integrate RESTful APIs</strong>, ensuring seamless data flow and optimal performance</li>
-                <li><strong>Led UI/UX improvements based on user feedback</strong>, iterating on real usage data with the product owner</li>
-              </ul>
-            </div>
-            <div class="timeline-item">
-              <span class="date">2021 - 2022</span>
-              <h4>Earlier Roles</h4>
-              <p>Virtual Assistant (CRM &amp; client operations), Freelance &middot; Quality Assurance, Almex Technologies Philippines</p>
-            </div>
-                                  </div>
+          </div>
+          
+          <div id="modal-link-container" class="project-link">
+            <a id="modal-link" href="#" target="_blank">View Live Project</a>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+
 
   <!-- Technical Expertise Section -->
   <section id="technical-expertise" class="section">
@@ -654,264 +789,94 @@
     </div>
   </section>
 
-<!-- Portfolio Section -->
-<section id="portfolio" class="section">
-  <div class="container">
-    <div class="section-header">
-      <span class="subtitle">My Work</span>
-      <h2>Recent Projects</h2>
-    </div>
-    
-    <!-- Portfolio Filter -->
-    <div class="portfolio-filter">
-      <button class="filter-btn active" data-filter="all">All Projects</button>
-      <button class="filter-btn" data-filter="web">Web Development</button>
-      <button class="filter-btn" data-filter="design">Mobile/UI Design</button>
-      <button class="filter-btn" data-filter="automation">AI Automation</button>
-    </div>
-    
-    <div class="portfolio-grid">
-      <div class="portfolio-item" data-category="web">
-        <div class="portfolio-img">
-          <img src="assets/work/teethly/cover.jpg" alt="Teethly.ph - Dental Marketplace & Clinic Management Platform">
-        </div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-info">
-            <h4>Teethly.ph - Dental Marketplace & Clinic Platform</h4>
-            <p>Web Development</p>
-            <button class="view-project" data-project="project14"><i class="fas fa-eye"></i></button>
-          </div>
-        </div>
+  <!-- Experience Section -->
+  <section id="experience" class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="subtitle">My Journey</span>
+        <h2>Education & Experience</h2>
       </div>
-      <div class="portfolio-item" data-category="automation">
-        <div class="portfolio-img">
-          <img src="assets/work/n8n/ai-lead-qualification/cover.png" alt="AI Lead Qualification Automation">
-        </div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-info">
-            <h4>AI Lead Qualification Automation</h4>
-            <p>AI Automation</p>
-            <button class="view-project" data-project="project12"><i class="fas fa-eye"></i></button>
-          </div>
-        </div>
-      </div>
-
-      <div class="portfolio-item" data-category="automation">
-        <div class="portfolio-img">
-          <img src="assets/work/n8n/ai-lead-qualification-contact/cover.png" alt="AI Lead Qualification and Contact Management">
-        </div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-info">
-            <h4>AI Lead Qualification and Contact Management</h4>
-            <p>AI Automation</p>
-            <button class="view-project" data-project="project13"><i class="fas fa-eye"></i></button>
-          </div>
-        </div>
-      </div>
-
-      <div class="portfolio-item" data-category="web">
-        <div class="portfolio-img">
-          <img src="assets/work/meeplecrate/1.png" alt="MeepleCrate - Board Game Rental Platform">
-        </div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-info">
-            <h4>MeepleCrate - Board Game Rental Platform</h4>
-            <p>Web Development</p>
-            <button class="view-project" data-project="project11"><i class="fas fa-eye"></i></button>
-          </div>
-        </div>
-      </div>
-      
-      <div class="portfolio-item" data-category="web">
-        <div class="portfolio-img">
-          <img src="assets/work/vantrips/v1.png" alt="Vantrippers Travel and Tours Management System">
-        </div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-info">
-            <h4>Vantrippers Travel and Tours Management System</h4>
-            <p>Web Development</p>
-            <button class="view-project" data-project="project9"><i class="fas fa-eye"></i></button>
-          </div>
-        </div>
-      </div>
-      
-      <div class="portfolio-item" data-category="web">
-        <div class="portfolio-img">
-          <img src="assets/work/cozy-crave/1.png" alt="Cozy Crave Finder - Tinder-based Food Hunting">
-        </div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-info">
-            <h4>Cozy Crave Finder - Tinder-based Food Hunting</h4>
-            <p>Web Development</p>
-            <button class="view-project" data-project="project10"><i class="fas fa-eye"></i></button>
-          </div>
-        </div>
-      </div>
-      
-      <div class="portfolio-item" data-category="web">
-        <div class="portfolio-img">
-          <img src="assets/work/jkk/JKK.png" alt="Construction Portfolio Website">
-        </div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-info">
-            <h4>Construction Portfolio Website</h4>
-            <p>Web Development</p>
-            <button class="view-project" data-project="project1"><i class="fas fa-eye"></i></button>
-          </div>
-        </div>
-      </div>
-      
-      <div class="portfolio-item" data-category="web">
-        <div class="portfolio-img">
-          <img src="assets/work/inm/INMHP.png" alt="IEM Ecommerce Website with 3d Customization">
-        </div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-info">
-            <h4>IEM Ecommerce Website with 3d Customization</h4>
-            <p>Web Development</p>
-            <button class="view-project" data-project="project2"><i class="fas fa-eye"></i></button>
-          </div>
-        </div>
-      </div>
-      
-      <div class="portfolio-item" data-category="web">
-        <div class="portfolio-img">
-          <img src="assets/work/gym/h11.png" alt="ForeverLife Gym Management System">
-        </div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-info">
-            <h4>Gym Management System</h4>
-            <p>Web Development</p>
-            <button class="view-project" data-project="project8"><i class="fas fa-eye"></i></button>
-          </div>
-        </div>
-      </div>
-
-      <div class="portfolio-item" data-category="web">
-        <div class="portfolio-img">
-          <img src="assets/work/hoa/login1.png" alt="Hoa Management System">
-        </div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-info">
-            <h4>Hoa Management System</h4>
-            <p>Web Development</p>
-            <button class="view-project" data-project="project7"><i class="fas fa-eye"></i></button>
-          </div>
-        </div>
-      </div>
-
-      <div class="portfolio-item" data-category="web">
-        <div class="portfolio-img">
-          <img src="assets/work/movie/1.png" alt="Ticketing Booking System">
-        </div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-info">
-            <h4>Ticketing Booking System</h4>
-            <p>Web Development</p>
-            <button class="view-project" data-project="project3"><i class="fas fa-eye"></i></button>
-          </div>
-        </div>
-      </div>
-      
-      <div class="portfolio-item" data-category="backend">
-        <div class="portfolio-img">
-          <img src="assets/work/work-2.jpg" alt="CRM System">
-        </div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-info">
-            <h4>UI/UX Wireframes and prototypes</h4>
-            <p>UI/UX design</p>
-            <button class="view-project" data-project="project4"><i class="fas fa-eye"></i></button>
-          </div>
-        </div>
-      </div>
-      
-      <div class="portfolio-item" data-category="web">
-        <div class="portfolio-img">
-          <img src="assets/work/ui/web.png" alt="EBA System">
-        </div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-info">
-            <h4>External Business And Affairs Websystem with CRM</h4>
-            <p>Web Development</p>
-            <button class="view-project" data-project="project5"><i class="fas fa-eye"></i></button>
-          </div>
-        </div>
-      </div>
-      
-      <div class="portfolio-item" data-category="design">
-        <div class="portfolio-img">
-          <img src="assets/work/ui/webweb.png" alt="Cvsu Shop Interface">
-        </div>
-        <div class="portfolio-overlay">
-          <div class="portfolio-info">
-            <h4>Cvsu Shop Interface</h4>
-            <p>UI/UX Design</p>
-            <button class="view-project" data-project="project6"><i class="fas fa-eye"></i></button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-  
-  <!-- Portfolio Modal -->
-  <div id="portfolio-modal" class="modal">
-    <div class="modal-content">
-      <span class="close-modal">&times;</span>
-      <div class="modal-header">
-        <h2 id="modal-title">Project Title</h2>
-        <p id="modal-category">Category</p>
-      </div>
-      <div class="modal-body">
-        <div class="project-gallery">
-          <div class="gallery-container">
-            <div id="gallery-images" class="gallery-images">
+      <div class="experience-content">
+        <div class="timeline-section">
+          <h3>Education</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="date">2021 - 2025</span>
+              <h4>Bachelor of Science in Information Technology</h4>
+              <p>Cavite State University - Graduated</p>
+              <span class="grade">Degree Completed</span>
             </div>
-            <div class="gallery-nav">
-              <button id="prev-img"><i class="fas fa-chevron-left"></i></button>
-              <button id="next-img"><i class="fas fa-chevron-right"></i></button>
+            <div class="timeline-item">
+              <span class="date">2019</span>
+              <h4>National Certificate 2 for Electrical Installation and Maintenance</h4>
+              <p>Community Vocational High School</p>
             </div>
           </div>
-          <div id="gallery-indicators" class="gallery-indicators">
-          </div>
         </div>
-        <div class="project-details">
-          <h3>Project Description</h3>
-          <p id="modal-description">Project description will be loaded here.</p>
-          
-          <div class="project-meta">
-            <div class="meta-item">
-              <h4>Client</h4>
-              <p id="modal-client">Client name</p>
-            </div>
-            <div class="meta-item">
-              <h4>Date</h4>
-              <p id="modal-date">Project date</p>
-            </div>
-            <div class="meta-item">
-              <h4>Technologies</h4>
-              <ul id="modal-tech">
+        <div class="timeline-section">
+          <h3>Professional Experience</h3>
+          <div class="timeline">
+                                    <div class="timeline-item">
+              <span class="date">Nov 2025 - Aug 2026</span>
+              <h4>Automation Specialist & Developer</h4>
+              <p>SoftlinkIQ - Remote</p>
+              <ul>
+                <li><strong>Developed multiple CRM systems and business applications</strong> tailored to client workflows, from requirements through production release</li>
+                <li><strong>Designed and built APIs</strong> to power application features and connect CRM data with external services</li>
+                <li><strong>Created multiple end-to-end automations using GoHighLevel (GHL) and n8n</strong>, covering lead capture, follow-ups, notifications, and data synchronization between systems</li>
+                <li><strong>Served as the go-to automation specialist and developer</strong>, translating business processes into reliable automated workflows</li>
+                <li><strong>Provided technical support</strong> for deployed CRMs, apps, and automations - troubleshooting issues, maintaining integrations, and keeping systems running smoothly</li>
+                <li><strong>Key capabilities gained:</strong> designing scalable automation architectures across GHL and n8n, API development and integration, multi-CRM delivery, and hands-on production support and troubleshooting</li>
               </ul>
             </div>
-            <div class="meta-item">
-              <h4>Key Results</h4>
-              <ul id="modal-results">
+            <div class="timeline-item">
+              <span class="date">Aug 2025 - Feb 2026</span>
+              <h4>Frontend Engineer & Mobile Developer</h4>
+              <p>Tippler Pty Ltd - Remote</p>
+              <ul>
+                <li><strong>Developed a CRM application for web and mobile</strong> using TypeScript, Tailwind CSS, and shadcn/ui, delivering a fast and consistent user experience</li>
+                <li><strong>Built a library of reusable, accessible UI components</strong> that standardized the design system and sped up feature development across the app</li>
+                <li><strong>Deployed and maintained the application in production</strong>, handling releases, bug fixes, and ongoing improvements</li>
+                <li><strong>Integrated multiple third-party APIs</strong> into the CRM, connecting external data and services into a unified interface</li>
+                <li><strong>Key capabilities gained:</strong> production-grade component architecture with shadcn/ui and Tailwind, strict type-safe TypeScript development, mobile app development, multi-API integration, and end-to-end ownership of deployment and maintenance</li>
               </ul>
             </div>
-          </div>
-          
-          <div id="modal-link-container" class="project-link">
-            <a id="modal-link" href="#" target="_blank">View Live Project</a>
-          </div>
+<div class="timeline-item">
+              <span class="date">Nov 2023 - Present</span>
+              <h4>Automation Engineer &amp; Full Stack Developer</h4>
+              <p>Freelance - Remote &middot; Selected clients: digital marketing agencies, Cozy Cafe Finder, a Colorado board-rental delivery platform, startups and SMEs</p>
+              <ul>
+                <li><strong>Designed and implemented automated workflows in GoHighLevel, n8n, and Zapier</strong> for agencies and service businesses, cutting manual tasks by up to 60% - lead capture, qualification, routing, follow-ups, and appointment scheduling</li>
+                <li><strong>Built AI-powered lead qualification and CRM automation systems</strong>, connecting 15+ platforms through webhooks and APIs with retry logic, fallback paths, and failure alerts</li>
+                <li><strong>Engineered 17+ custom web applications</strong> with React/Next.js/TypeScript, Laravel, and Java Spring Boot - including a revenue-generating cafe discovery app and a board-rental delivery platform serving Colorado and neighboring states</li>
+                <li><strong>Integrated payment gateways (Stripe, PayMongo), geolocation services, and admin dashboards</strong>, and deployed on AWS (EC2, RDS, S3, Lambda), Vercel, Azure, and VPS/cPanel with CI/CD pipelines</li>
+                <li><strong>Configured GoHighLevel sub-accounts end-to-end</strong> - pipelines, funnels, calendars, custom fields, snapshots - and trained client teams to maintain their own systems, with documentation for every automation's triggers, inputs, and failure points</li>
+              </ul>
+            </div>
+                                                <div class="timeline-item">
+              <span class="date">Aug 2023 - Dec 2024</span>
+              <h4>React Developer</h4>
+              <p>Private Client - Part-time</p>
+              <ul>
+                <li><strong>Built and maintained responsive, reusable UI components</strong> using React, Context API, and Redux, improving development speed across 3 product modules</li>
+                <li><strong>Implemented role-based authentication, dynamic routing, and modular architecture</strong> for enhanced security and scalability</li>
+                <li><strong>Collaborated with back-end teams to integrate RESTful APIs</strong>, ensuring seamless data flow and optimal performance</li>
+                <li><strong>Led UI/UX improvements based on user feedback</strong>, iterating on real usage data with the product owner</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <span class="date">2021 - 2022</span>
+              <h4>Earlier Roles</h4>
+              <p>Virtual Assistant (CRM &amp; client operations), Freelance &middot; Quality Assurance, Almex Technologies Philippines</p>
+            </div>
+                                  </div>
         </div>
       </div>
     </div>
-  </div>
-
+  </section>
 
   <!-- Testimonials Section -->
-  <section id="testimonials" class="section bg-light">
+  <section id="testimonials" class="section">
     <div class="container">
       <div class="section-header">
         <span class="subtitle">Client Feedback</span>
@@ -965,7 +930,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="section">
+  <section id="contact" class="section bg-light">
     <div class="container">
       <div class="section-header">
         <span class="subtitle">Get In Touch</span>
@@ -1107,74 +1072,6 @@
           "assets/work/inm/inmadin.png",
           "assets/work/inm/manageOrd.png",
           "assets/work/inm/modal.png"
-        ]
-      },
-      project3: {
-        title: "Theatre Ticketing System",
-        category: "Web Development",
-        description: "A modern theatre booking system with interactive UI, that allows user to browse shows, select seats, and purchase ticket online. Manage seat availablilty, show schedules, and payment processing, providing convinience to customers",
-        client: "Medallion Theatre",
-        date: "August 2023",
-        technologies: ["CodeIgniter", "Php", "MySql", "Html + Css + Js"],
-        link: "",
-        images: [
-        "assets/work/movie/1.png",
-        "assets/work/movie/2.png",
-        "assets/work/movie/3.png",
-        "assets/work/movie/4.png",
-        "assets/work/movie/5.png",
-        "assets/work/movie/6.png"
-        ]
-      },
-      project4: {
-        title: "UI/UX Wireframs",
-        category: "UI/UX Designn",
-        description: "A plot of ui/ux wireframes of previous project that worked on",
-        client: "",
-        date: "May 2024",
-        technologies: ["Figma"],
-        images: [
-          "assets/work/ui/1.png",
-          "assets/work/ui/2.png",
-          "assets/work/ui/3.png",
-          "assets/work/ui/7.png"
-        ]
-      },
-      project5: {
-        title: "CVSU External Business and Affairs Website",
-        category: "Web Development",
-        description: "A responsive website for a CVSU Eba page and EBA shop that showcase and offers various product of EBA. Also it has an Admin CRM that manage stocks, vire transaction, see schedule, manage announcement for the bulletin, and also manage shop",
-        client: "CVSU Tanza EBA",
-        date: "March 2024",
-        technologies: ["Reactjs", "NodeJs", "RestApi", "JavaScript", "MySQL"],
-        link: "",
-        images: [
-          "assets/work/ui/4.png",
-          "assets/work/ui/5.png",
-          "assets/work/ui/6.png",
-          "assets/work/mobile/7.png",
-          "assets/work/mobile/8.png",
-          "assets/work/mobile/9.png",
-          "assets/work/mobile/10.png",
-          "assets/work/mobile/11.png",
-          "assets/work/mobile/12.png"
-        ]
-      },
-      project6: {
-        title: "CVSU* Tanza EBA Shop",
-        category: "UI/UX Design",
-        description: "A clean, intuitive interface design for a shop application focusing on user experience, accessibility, and engaging visual elements. The app features a clean UI, user-friendly navigation, offering a convenient shopping experience on the go.",
-        client: "CVSU Tanza EBA",
-        date: "January 2024",
-        technologies: ["Figma"],
-        link: "",
-        images: [
-          "assets/work/mobile/1.png",
-          "assets/work/mobile/2.png",
-          "assets/work/mobile/3.png",
-          "assets/work/mobile/4.png",
-          "assets/work/mobile/5.png",
-          "assets/work/mobile/6.png"
         ]
       },
        project7: {

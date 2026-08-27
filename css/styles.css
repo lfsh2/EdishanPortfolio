@@ -1683,3 +1683,27 @@
     padding: 25px;
   }
 }
+/* Featured case study: workflow canvas + stack line */
+.case-study-image {
+  margin: 0 0 30px;
+}
+.case-study-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  display: block;
+}
+.case-study-image figcaption {
+  font-size: 0.9rem;
+  color: var(--text-light, #666);
+  text-align: center;
+  margin-top: 12px;
+}
+.case-stack {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 0.95rem;
+  color: var(--text-light, #666);
+}
