@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 
 import { BottomNav } from "@/components/bottom-nav";
 import { Footer } from "@/components/footer";
+import { Sidebar } from "@/components/sidebar";
 import { TopBar } from "@/components/top-bar";
 import { RevealObserver } from "@/components/ui/reveal-observer";
 import { site } from "@/lib/site";
@@ -77,9 +78,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
-        <TopBar />
-        <main id="main">{children}</main>
-        <Footer />
+        <Sidebar />
+        <div className="md:pl-60 lg:pl-[17.5rem]">
+          <TopBar />
+          <main id="main">{children}</main>
+          <Footer />
+        </div>
         <BottomNav />
         <RevealObserver />
       </body>

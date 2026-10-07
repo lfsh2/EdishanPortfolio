@@ -5,13 +5,88 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { LiveBadge } from "@/components/ui/live-badge";
-import { disciplineLabel, projectHref, projects, type Discipline } from "@/lib/projects";
+import { disciplineLabel, projectHref, projects, type Discipline, type Project } from "@/lib/projects";
 
 const filters: { key: "all" | Discipline; label: string }[] = [
   { key: "all", label: "All" },
   { key: "automation", label: disciplineLabel.automation },
   { key: "full-stack", label: disciplineLabel["full-stack"] },
 ];
+
+type Size = "wide" | "tall" | "normal";
+
+const sizes: Record<string, Size> = {
+  "ai-lead-qualification": "wide",
+  "jackson-properties": "tall",
+  meeplecrate: "wide",
+};
+const size = (p: Project): Size => sizes[p.slug] ?? "normal";
+
+const tileSpan: Record<Size, string> = {
+  wide: "md:col-span-2",
+  tall: "lg:row-span-2",
+  normal: "",
+};
+
+function ProjectTile({ project: p }: { project: Project }) {
+  const href = projectHref(p);
+  const external = href ? /^https?:/.test(href) : false;
+  const kind = size(p);
+
+  const body = (
+    <>
+      <div className={`flex flex-col p-6 ${kind === "wide" ? "md:w-[44%] md:shrink-0 md:pr-2" : ""}`}>
+        <div className="flex flex-wrap items-center gap-2.5">
+          {p.live ? <LiveBadge /> : null}
+          <span className="label text-faint">
+            {p.disciplines.map((d) => disciplineLabel[d]).join(" + ")} · {p.year}
+          </span>
+        </div>
+        <h2 className={`mt-4 font-display leading-[1.1] text-fg ${kind === "normal" ? "text-[1.6rem]" : "text-title"}`}>{p.shortTitle}</h2>
+        <p className={`mt-2 text-[0.95rem] leading-relaxed text-muted ${kind === "normal" ? "line-clamp-3" : ""}`}>{p.summary}</p>
+        {p.result ? <p className="mt-3 font-mono text-[0.75rem] text-accent">↳ {p.result}</p> : null}
+        {href ? (
+          <span className="mt-4 inline-flex items-center gap-2 text-sm text-fg">
+            {p.caseStudy ? "See how it was built" : external ? "Visit live site" : "See the build"}
+            <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">
+              {external ? "↗" : "→"}
+            </span>
+          </span>
+        ) : null}
+      </div>
+      <div
+        className={`overflow-hidden border-line bg-raised ${
+          kind === "wide"
+            ? "mx-6 mb-6 rounded-xl border md:mx-0 md:mb-0 md:mt-6 md:flex-1 md:rounded-b-none md:rounded-r-none md:border-b-0 md:border-r-0"
+            : "mx-6 mt-auto rounded-t-xl border border-b-0"
+        } ${kind === "tall" ? "flex-1" : ""}`}
+      >
+        <Image
+          src={p.cover.src}
+          alt=""
+          sizes={kind === "wide" ? "(min-width: 1024px) 480px, 100vw" : "(min-width: 1024px) 340px, 100vw"}
+          placeholder="blur"
+          className={`w-full object-cover object-top-left transition-transform duration-700 ease-[var(--ease-out-quart)] group-hover:scale-[1.03] ${
+            kind === "tall" ? "h-full min-h-56" : kind === "wide" ? "h-full min-h-48" : "aspect-[16/10]"
+          }`}
+        />
+      </div>
+    </>
+  );
+
+  const cls = `card group flex h-full overflow-hidden transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-24px_rgb(18_33_63/0.35)] ${
+    kind === "wide" ? "flex-col md:flex-row" : "flex-col"
+  }`;
+
+  return href ? (
+    <Link href={href} className={cls} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+      {body}
+      {external ? <span className="sr-only"> (opens live site in a new tab)</span> : null}
+    </Link>
+  ) : (
+    <div className={cls}>{body}</div>
+  );
+}
 
 export function WorkIndex() {
   // Server renders the full list; a ?type= filter in the URL is applied after hydration.
@@ -59,60 +134,14 @@ export function WorkIndex() {
         Showing {visible.length} projects
       </p>
 
-      <ol className="mt-10 border-b border-line [&>li:first-child>*]:border-fg/80">
-        {visible.map((p, i) => {
-          const href = projectHref(p);
-          const external = href ? /^https?:/.test(href) : false;
-          const Row = (
-            <>
-              <span className="label hidden pt-1.5 text-faint md:col-span-1 md:block">{String(i + 1).padStart(2, "0")}</span>
-              <span className="md:col-span-6">
-                <span className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                  <span className="text-2xl tracking-[-0.03em] text-fg transition-colors duration-200 group-hover:text-muted md:text-[1.75rem]">
-                    {p.shortTitle}
-                  </span>
-                  {p.live ? <LiveBadge /> : null}
-                </span>
-                <span className="mt-2 block max-w-xl leading-relaxed text-muted">{p.summary}</span>
-                <span className="label mt-4 block text-faint">
-                  {p.disciplines.map((d) => disciplineLabel[d]).join(" + ")} · {p.year}
-                </span>
-                {p.result ? <span className="mt-2 block font-mono text-[0.75rem] text-accent">↳ {p.result}</span> : null}
-              </span>
-              <span className="md:col-span-4 md:col-start-8">
-                <span className="block overflow-hidden rounded-lg border border-line bg-surface p-1.5">
-                  <Image
-                    src={p.cover.src}
-                    alt=""
-                    sizes="(min-width: 768px) 30vw, 100vw"
-                    placeholder="blur"
-                    className="aspect-[16/9] w-full rounded-[5px] object-cover object-top transition-transform duration-700 ease-[var(--ease-out-quart)] group-hover:scale-[1.03]"
-                  />
-                </span>
-              </span>
-              <span
-                aria-hidden
-                className="hidden pt-1 text-right font-mono text-faint transition-colors group-hover:text-muted md:col-span-1 md:col-start-12 md:block"
-              >
-                {href ? (external ? "↗" : "→") : ""}
-              </span>
-            </>
-          );
-          const rowClass = "group grid gap-6 border-t border-line py-8 md:grid-cols-12 md:gap-6 md:py-10";
-          return (
-            <li key={p.slug}>
-              {href ? (
-                <Link href={href} className={rowClass} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
-                  {Row}
-                  {external ? <span className="sr-only"> (opens live site in a new tab)</span> : null}
-                </Link>
-              ) : (
-                <div className={rowClass}>{Row}</div>
-              )}
-            </li>
-          );
-        })}
-      </ol>
+      {/* Bento grid: featured systems get larger tiles; dense flow fills gaps when filtering. */}
+      <ul className="mt-8 grid grid-flow-dense gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {visible.map((p) => (
+          <li key={p.slug} className={tileSpan[size(p)]}>
+            <ProjectTile project={p} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

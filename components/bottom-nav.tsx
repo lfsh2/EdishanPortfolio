@@ -67,7 +67,7 @@ export function BottomNav() {
   return (
     <nav
       aria-label="Primary"
-      className="fixed inset-x-0 bottom-0 z-50 flex justify-center px-[4vw] pb-[calc(env(safe-area-inset-bottom)+0.75rem)] md:px-0 md:pb-5"
+      className="fixed inset-x-0 bottom-0 z-50 flex justify-center md:hidden px-[4vw] pb-[calc(env(safe-area-inset-bottom)+0.75rem)] md:px-0 md:pb-5"
     >
       <ul className="flex w-full max-w-md items-center justify-between rounded-full border border-line bg-surface/90 p-1.5 shadow-[0_18px_40px_-18px_rgb(18_33_63/0.35)] backdrop-blur-xl md:w-auto md:max-w-none md:gap-1">
         {items.map((item) =>

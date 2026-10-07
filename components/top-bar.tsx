@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 /** Compact profile header: identity first, navigation lives in the bottom bar. */
 export function TopBar() {
   return (
-    <header className="shell flex items-center justify-between gap-4 pb-2 pt-5 md:pt-7">
+    <header className="shell flex items-center justify-between gap-4 pb-2 pt-5 md:hidden">
       <Link href="/" className="group flex min-h-11 items-center gap-3" aria-label="Edishan Lee Tenorio, home">
         <Image
           src={portrait}

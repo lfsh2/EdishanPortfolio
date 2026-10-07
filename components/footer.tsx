@@ -38,8 +38,8 @@ const linkClass = "inline-flex min-h-10 items-center text-[0.9375rem] text-muted
 export function Footer() {
   return (
     <footer className="border-t border-line bg-surface">
-      <div className="shell grid gap-14 py-16 md:grid-cols-12 md:py-24">
-        <div className="md:col-span-3">
+      <div className="shell grid gap-12 py-16 sm:grid-cols-2 md:py-24 lg:grid-cols-12 lg:gap-14">
+        <div className="lg:col-span-3">
           <Link href="/" className="font-display text-2xl text-fg">
             {site.name}
           </Link>
@@ -55,7 +55,7 @@ export function Footer() {
         </div>
 
         {columns.map((col) => (
-          <nav key={col.title} aria-label={col.title} className="md:col-span-2">
+          <nav key={col.title} aria-label={col.title} className="lg:col-span-2">
             <p className="label text-faint">{col.title}</p>
             <ul className="mt-4">
               {col.links.map((l) => {
@@ -72,7 +72,7 @@ export function Footer() {
           </nav>
         ))}
 
-        <nav aria-label="Live systems" className="md:col-span-3">
+        <nav aria-label="Live systems" className="lg:col-span-3">
           <p className="label flex items-center gap-2 text-faint">
             <span aria-hidden className="size-1.5 rounded-full bg-lime" />
             Live systems
@@ -96,7 +96,7 @@ export function Footer() {
         </nav>
       </div>
       <div className="border-t border-line">
-        <div className="shell flex flex-col gap-2 pb-32 pt-6 text-[0.8125rem] text-faint sm:flex-row sm:justify-between md:pb-28">
+        <div className="shell flex flex-col gap-2 pb-32 pt-6 text-[0.8125rem] text-faint sm:flex-row sm:justify-between md:pb-8">
           <p>
             © {new Date().getFullYear()} {site.name}
           </p>
