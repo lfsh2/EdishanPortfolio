@@ -5,7 +5,17 @@ import { proof, site, stepLabel } from "@/lib/site";
 import { SystemTrace } from "./system-trace";
 
 /** Real clients from shipped work: set as type, not logos. */
-const clients = ["Teethly", "MeepleCrate", "SoftlinkIQ", "Tippler", "INM Audio", "Vantrippers", "JKK Construction", "Forever Fitness"];
+const clients = [
+  "Jackson Investment Group",
+  "Teethly",
+  "MeepleCrate",
+  "SoftlinkIQ",
+  "Tippler",
+  "INM Audio",
+  "Vantrippers",
+  "JKK Construction",
+  "Forever Fitness",
+];
 
 export function Hero() {
   return (

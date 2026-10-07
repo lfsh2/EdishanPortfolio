@@ -3,6 +3,9 @@ import type { StaticImageData } from "next/image";
 import aiCanvasRouting from "@/assets/work/ai-lead-qualification/canvas-routing.png";
 import aiCanvasEnrichment from "@/assets/work/ai-lead-qualification/canvas-enrichment.png";
 import aiForm from "@/assets/work/ai-lead-qualification/automation1.png";
+import jacksonCrm from "@/assets/work/jackson/crm-pipeline.png";
+import jacksonIntake from "@/assets/work/jackson/intake-form.png";
+import jacksonSite from "@/assets/work/jackson/site-hero.png";
 import teethlyCover from "@/assets/work/teethly/cover.jpg";
 import teethlyClinicHero from "@/assets/work/teethly/2-clinic-hero.png";
 import teethlyChannels from "@/assets/work/teethly/3-patient-channels.png";
@@ -205,6 +208,122 @@ export const projects: Project[] = [
           src: aiForm,
           alt: "An n8n-hosted 'Request a demo' form with name, work email, company, job title, company size, challenges and timeline fields.",
           caption: "Intake form feeding the enrichment pipeline. Every field maps to a qualification signal.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "jackson-properties",
+    title: "Jackson Properties: Seller Acquisition Site & Built-in CRM",
+    shortTitle: "Jackson Properties",
+    client: "Jackson Investment Group",
+    year: "2026",
+    disciplines: ["full-stack", "automation"],
+    live: true,
+    summary:
+      "A direct-purchase real estate platform for the Austin metro: a public site that turns wary homeowners into structured seller leads, and a built-in CRM where the team nurtures every lead and tracks each deal from first contact to closing.",
+    stack: ["Next.js", "Laravel", "REST API", "Workflow automation", "Microsoft Clarity"],
+    liveUrl: "https://jacksonproperties.us/",
+    notes: [
+      { x: 33.5, y: 14.5, label: "Pipeline health: totals, new this week, under contract, due today" },
+      { x: 47.5, y: 31.4, label: "Seven stages, from new lead to closed or dead" },
+      { x: 37, y: 56, label: "Drag-and-drop kanban to move deals between stages" },
+      { x: 9.5, y: 66, label: "Leads segmented by source and quality" },
+      { x: 88.5, y: 43.4, label: "Priority sort by lead quality and contact signals" },
+    ],
+    cover: {
+      src: jacksonCrm,
+      alt: "Jackson Properties CRM: pipeline summary cards, stage filters, and a kanban board with New, Contacted, Appointment set, Offer made, Under contract and Closed columns. Lead details are blurred for privacy.",
+    },
+    result: "Lead capture, nurture and deal pipeline in one system",
+    caseStudy: {
+      kind: "Full-stack product + automation",
+      headline: "From a homeowner's first click to a signed contract, in one system.",
+      metrics: [
+        { value: "4 steps", label: "Seller intake, about 90 seconds" },
+        { value: "7", label: "Pipeline stages, new lead to closed" },
+        { value: "1", label: "System for capture, nurture and closing" },
+      ],
+      problem: [
+        "A direct-purchase team wins deals on speed and trust. Sellers in a hurry don't wait, so every lead has to be answered fast, followed up consistently, and tracked until the house either closes or the lead goes cold.",
+        'Leads arrive from different places: homeowners who find the website, and property lists the team researches itself. Generic CRMs model sales pipelines, not property deals. And the "we buy houses" category has earned homeowners\' distrust, so the public site had to win a form submission from people who are wary by default.',
+      ],
+      role: {
+        title: "Full-stack engineer, public site, CRM and automation",
+        scope: [
+          "Seller-facing site and multi-step intake form",
+          "Laravel backend and lead data model",
+          "Internal CRM: pipeline, kanban and filters",
+          "Lead nurture and follow-up automation",
+          "Deployment and production support",
+        ],
+      },
+      architecture: {
+        intro:
+          "A Next.js front end serves both sides: the public acquisition site and the authenticated CRM. One Laravel API owns the lead record, so a seller's form submission and a researched list entry become the same kind of deal.",
+        stages: [
+          {
+            label: "01 Attract",
+            title: "Seller site",
+            nodes: ["Trust-first landing page", "Service areas and FAQs", "Behaviour analytics"],
+          },
+          {
+            label: "02 Capture",
+            title: "Property file intake",
+            nodes: ["4-step form, ~90 seconds", "Live seller-record preview", "Lead created via API"],
+          },
+          {
+            label: "03 Nurture",
+            title: "Built-in automation",
+            nodes: ["Lead ID + source tagging", "Follow-ups and due actions", "Priority by quality + contact"],
+          },
+          { label: "04 Close", title: "CRM pipeline", nodes: ["7-stage kanban", "Offers and contracts tracked", "Archive and CSV export"] },
+        ],
+        crossCutting: ["Next.js front end", "Laravel REST API", "Authenticated admin", "Form input hidden from analytics"],
+      },
+      implementation: [
+        {
+          title: "A form that feels like opening a file",
+          body: 'Instead of a generic contact form, sellers open a "property file": four short steps that start with just the street address. A seller-intake record fills in beside the form as they type, so they can see exactly what they\'re sharing.',
+        },
+        {
+          title: "One lead model, every source",
+          body: "Website inquiries and researched property lists land in the same Laravel-backed lead record, each with a market-coded ID (AUS-2026-…) and a source tag, so the team can filter direct inquiries, scraped lists and high-quality leads.",
+        },
+        {
+          title: "A pipeline built around how deals move",
+          body: "Seven stages from New to Closed or Dead, as a drag-and-drop kanban or a board view. Quick filters surface what's due today, what's mine and what's under contract, and search is one keystroke away.",
+        },
+        {
+          title: "Nurture that doesn't depend on memory",
+          body: "Built-in automation tracks follow-ups and due actions and ranks leads by quality and contact signals, so the next call is always the right one.",
+        },
+        {
+          title: "Privacy designed into the funnel",
+          body: "What sellers type into the property form is masked from session analytics, and the site tells them plainly that their details are never sold or shared with other buyers.",
+        },
+      ],
+      outcome: [
+        "Live at jacksonproperties.us, serving Travis, Williamson and Hays counties",
+        "Seller acquisition and deal management run in one system the team owns",
+        "Every lead visible in a single pipeline, from intake to closing",
+        "Follow-ups and due actions surfaced automatically instead of tracked by hand",
+      ],
+      gallery: [
+        {
+          src: jacksonCrm,
+          alt: "Jackson Properties CRM pipeline with lead details blurred.",
+          caption: "Built-in CRM. Lead details are blurred to protect the client's sellers.",
+        },
+        {
+          src: jacksonSite,
+          alt: "Jackson Properties homepage: 'Sell your Austin house as-is, on your timeline, with a number you can check.'",
+          caption: "Seller site: a trust-first pitch to wary homeowners.",
+        },
+        {
+          src: jacksonIntake,
+          alt: "Four-step 'Open a property file' form beside a live seller intake record.",
+          caption: "Property file intake: four steps, with a live record of what the seller is sharing.",
         },
       ],
     },

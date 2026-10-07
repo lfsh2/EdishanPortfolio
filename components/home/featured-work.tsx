@@ -23,7 +23,10 @@ export function FeaturedWork() {
         }
         intro={
           <>
-            <p>An AI pipeline, a two-sided marketplace and an operations platform, all in production for real clients.</p>
+            <p>
+              An AI pipeline, a real estate acquisition CRM, a two-sided marketplace and an operations platform, all in production for real
+              clients.
+            </p>
             <ArrowLink href="/work" className="mt-2">
               All work
             </ArrowLink>

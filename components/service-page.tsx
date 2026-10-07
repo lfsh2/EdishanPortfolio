@@ -82,7 +82,13 @@ export function ServicePage({ slug }: { slug: string }) {
       </header>
 
       <section aria-labelledby="offer-title" className="shell py-24 md:py-32">
-        <SectionHeader label="Scope" id="offer-title" className="border-t border-fg/80 pt-12" title="What I build." intro={service.crossover.body} />
+        <SectionHeader
+          label="Scope"
+          id="offer-title"
+          className="border-t border-fg/80 pt-12"
+          title="What I build."
+          intro={service.crossover.body}
+        />
         <ol className="mt-14 grid gap-x-10 md:mt-20 md:grid-cols-2">
           {service.offerings.map((o, i) => (
             <li key={o.title} data-reveal style={revealDelay((i % 2) * 80)} className="grid grid-cols-[3rem_1fr] border-t border-line py-7">
