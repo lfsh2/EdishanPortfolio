@@ -1,1 +1,10 @@
+node_modules
+.next
+out
+.vercel
+*.tsbuildinfo
+next-env.d.ts
 .DS_Store
+
+# Private working docs
+Edishan_Portfolio_Premium_Design_Spec.pdf
