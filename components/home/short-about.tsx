@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import portrait from "@/assets/people/edishan.jpg";
+import portrait from "@/assets/people/headshot.jpg";
 import { ArrowLink } from "@/components/ui/button";
 
 export function ShortAbout() {
@@ -10,10 +10,10 @@ export function ShortAbout() {
         <div className="md:col-span-4 lg:col-span-3">
           <Image
             src={portrait}
-            alt="Edishan Lee Tenorio"
+            alt="Portrait of Edishan Lee Tenorio"
             sizes="(min-width: 768px) 260px, 100vw"
             placeholder="blur"
-            className="aspect-[4/5] w-full rounded-2xl object-cover object-[50%_30%] md:aspect-square"
+            className="aspect-[4/5] w-full rounded-2xl object-cover object-[50%_35%] md:aspect-square"
           />
         </div>
         <div className="md:col-span-8 lg:col-span-8 lg:col-start-5">

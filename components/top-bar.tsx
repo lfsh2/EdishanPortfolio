@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Fragment } from "react";
 import Link from "next/link";
 
-import portrait from "@/assets/people/edishan.jpg";
+import portrait from "@/assets/people/headshot-avatar.jpg";
 import { site } from "@/lib/site";
 
 /** Compact profile header: identity first, navigation lives in the bottom bar. */
@@ -16,7 +16,7 @@ export function TopBar() {
           width={44}
           height={44}
           priority
-          className="mt-0.5 size-11 shrink-0 rounded-full object-cover object-[50%_22%] ring-2 ring-surface"
+          className="mt-0.5 size-11 shrink-0 rounded-full object-cover object-center ring-2 ring-surface"
         />
         <span className="min-w-0 leading-tight">
           <span className="block text-[0.95rem] font-medium tracking-[-0.01em] text-fg">{site.name}</span>

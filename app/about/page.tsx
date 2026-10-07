@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 
-import portrait from "@/assets/people/edishan.jpg";
+import portrait from "@/assets/people/headshot.jpg";
 import { ContactCTA } from "@/components/contact-cta";
 import { Testimonials } from "@/components/testimonials";
 import { ProofStrip } from "@/components/home/proof-strip";
@@ -57,11 +57,11 @@ export default function AboutPage() {
           <div className="overflow-hidden rounded-xl border border-line bg-surface p-2">
             <Image
               src={portrait}
-              alt="Edishan Lee Tenorio, outdoors on a tree-lined road."
+              alt="Portrait of Edishan Lee Tenorio."
               sizes="(min-width: 1024px) 30vw, 90vw"
               placeholder="blur"
               priority
-              className="aspect-[4/5] w-full rounded-lg object-cover object-[50%_30%] grayscale-[0.35]"
+              className="aspect-[4/5] w-full rounded-lg object-cover object-[50%_35%]"
             />
           </div>
           <figcaption className="label mt-3 px-1 text-faint">Cavite, PH · UTC+8</figcaption>

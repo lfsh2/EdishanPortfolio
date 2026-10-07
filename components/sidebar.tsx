@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 
-import portrait from "@/assets/people/edishan.jpg";
+import portrait from "@/assets/people/headshot-avatar.jpg";
 import { site } from "@/lib/site";
 
 const icon = (d: ReactNode) => (
@@ -91,7 +91,7 @@ export function Sidebar() {
           width={112}
           height={112}
           priority
-          className="size-20 rounded-full object-cover lg:size-24 object-[50%_22%] shadow-[0_18px_40px_-20px_rgb(18_33_63/0.5)] ring-4 ring-surface"
+          className="size-20 rounded-full object-cover lg:size-24 object-center shadow-[0_18px_40px_-20px_rgb(18_33_63/0.5)] ring-4 ring-surface"
         />
         <span className="mt-4 font-display text-[1.45rem] leading-tight text-fg lg:text-[1.65rem]">{site.name}</span>
         <span className="mt-1.5 text-[0.8125rem] font-medium leading-snug text-fg">
