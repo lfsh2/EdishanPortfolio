@@ -1,24 +1,22 @@
 import { ContactCTA } from "@/components/contact-cta";
-import { Faq } from "@/components/faq";
-import { Capabilities } from "@/components/home/capabilities";
-import { Differentiator } from "@/components/home/differentiator";
-import { Experience } from "@/components/home/experience";
-import { FeaturedWork } from "@/components/home/featured-work";
+import { Explore } from "@/components/home/explore";
 import { Hero } from "@/components/home/hero";
-import { PipelineRail } from "@/components/pipeline-rail";
-import { faq } from "@/lib/content";
+import { ProofStrip } from "@/components/home/proof-strip";
+import { SelectedWork } from "@/components/home/selected-work";
+import { ShortAbout } from "@/components/home/short-about";
+import { ToolMarquee } from "@/components/home/tool-marquee";
 
+/** Seven blocks, scannable in 60–90 seconds. Depth lives one click away on Work, Services and About. */
 export default function HomePage() {
   return (
     <>
-      <PipelineRail />
       <Hero />
-      <Capabilities />
-      <FeaturedWork />
-      <Differentiator />
-      <Experience />
-      <Faq items={faq} />
-      <ContactCTA step />
+      <ProofStrip />
+      <ToolMarquee />
+      <Explore />
+      <SelectedWork />
+      <ShortAbout />
+      <ContactCTA />
     </>
   );
 }

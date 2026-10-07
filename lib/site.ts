@@ -5,7 +5,7 @@ export const site = {
   role: "Automation Engineer & Full-Stack Developer",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://edishan-portfolio.vercel.app",
   description:
-    "Independent engineer building AI automation, CRM systems and custom software for agencies and growing businesses. GoHighLevel, n8n, OpenAI, Next.js, Laravel.",
+    "AI automation and CRM systems for growing businesses: capturing leads, qualifying prospects, following up, booking appointments and keeping your CRM in sync. Automation when you can, custom software when you have to.",
   email: "edishanleetenorio03@gmail.com",
   calendar: "https://calendar.app.google/tsPLERd6vJ4yJGgL9",
   phone: "+63 929 950 3384",
@@ -19,48 +19,10 @@ export const site = {
   },
 } as const;
 
-export const nav = [
-  { href: "/work", label: "Work" },
-  {
-    label: "Services",
-    children: [
-      {
-        href: "/services/ai-automation",
-        label: "AI & CRM Automation",
-        hint: "GoHighLevel, n8n, AI workflows",
-      },
-      {
-        href: "/services/full-stack-development",
-        label: "Full-Stack Engineering",
-        hint: "Custom apps, APIs, integrations",
-      },
-    ],
-  },
-  { href: "/about", label: "About" },
-] as const;
-
-/** Figures carried over from the current portfolio. All come from shipped client work. */
+/** Figures carried over from shipped client work. Project-specific numbers say which project. */
 export const proof = [
-  { value: "17+", label: "Applications shipped to production" },
-  { value: "200+", label: "Leads / week in featured automation" },
-  { value: "15+", label: "Platforms connected via API & webhook" },
-  { value: "<5 min", label: "Lead response, down from 4–6 hours" },
+  { value: "17+", label: "Production applications" },
+  { value: "200+", label: "Leads a week · AI Lead Engine" },
+  { value: "<5 min", label: "Lead response · AI Lead Engine" },
+  { value: "15+", label: "Platform integrations" },
 ] as const;
-
-/**
- * The homepage is laid out as a pipeline: each section is a step of a workflow,
- * mirrored by the scroll rail on the left edge.
- */
-export const pipeline = [
-  { id: "intro", step: "01", node: "trigger", label: "Intro" },
-  { id: "services", step: "02", node: "qualify", label: "Capabilities" },
-  { id: "work", step: "03", node: "route", label: "Live work" },
-  { id: "platform", step: "04", node: "sync", label: "Platform + code" },
-  { id: "trust", step: "05", node: "verify", label: "Track record" },
-  { id: "contact", step: "06", node: "act", label: "Contact" },
-] as const;
-
-export const stepLabel = (id: (typeof pipeline)[number]["id"]) => {
-  const s = pipeline.find((p) => p.id === id)!;
-  return `${s.step} · ${s.node}`;
-};

@@ -1,8 +1,5 @@
-import Link from "next/link";
-
 import { Mark } from "@/components/ui/mark";
 import { SectionHeader } from "@/components/ui/section-header";
-import { stepLabel } from "@/lib/site";
 import { revealDelay } from "@/lib/utils";
 
 type Cover = "automation" | "engineering";
@@ -51,9 +48,8 @@ const coverLabel: Record<Cover, string> = { automation: "Automation", engineerin
 
 export function Capabilities() {
   return (
-    <section id="services" aria-labelledby="services-title" className="shell py-24 md:py-32">
+    <section id="layers" aria-labelledby="services-title" className="shell pb-20 md:pb-28">
       <SectionHeader
-        step={stepLabel("services")}
         label="Capabilities"
         id="services-title"
         title={
@@ -104,40 +100,6 @@ export function Capabilities() {
             </li>
           ))}
         </ol>
-
-        <div className="mt-10 grid gap-3 sm:grid-cols-2">
-          {[
-            { href: "/services/ai-automation", k: "Automation", title: "AI & CRM Automation", body: "GoHighLevel, n8n, AI workflows" },
-            {
-              href: "/services/full-stack-development",
-              k: "Engineering",
-              title: "Full-Stack Engineering",
-              body: "Custom apps, APIs, integrations",
-            },
-          ].map((s) => (
-            <Link
-              key={s.href}
-              href={s.href}
-              className="group flex items-center justify-between gap-6 rounded-lg border border-line p-5 transition-colors duration-200 hover:border-fg md:p-6"
-            >
-              <span>
-                <span
-                  className={`label rounded-[4px] px-1.5 py-0.5 ${s.k === "Automation" ? "bg-lime text-on-lime" : "bg-fg text-canvas"}`}
-                >
-                  {s.k}
-                </span>
-                <span className="mt-3 block text-xl tracking-[-0.02em] text-fg">{s.title}</span>
-                <span className="mt-1 block text-sm text-muted">{s.body}</span>
-              </span>
-              <span
-                aria-hidden
-                className="text-xl text-faint transition-transform duration-300 group-hover:translate-x-1 group-hover:text-fg"
-              >
-                →
-              </span>
-            </Link>
-          ))}
-        </div>
       </div>
     </section>
   );

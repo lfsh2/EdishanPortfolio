@@ -20,7 +20,7 @@ export const services: Service[] = [
     slug: "ai-automation",
     discipline: "automation",
     index: "01",
-    name: "AI & CRM Automation",
+    name: "AI Automation",
     headline: "Turn repetitive business operations into connected workflows.",
     intro:
       "I design and build automation systems for agencies and service businesses: GoHighLevel workflows, n8n pipelines, and the AI steps, APIs and webhooks that connect them. Each one is built to handle failure and stay understandable after handover.",
@@ -62,7 +62,7 @@ export const services: Service[] = [
       title: "When GoHighLevel can't, I write the code.",
       body: "Most automation freelancers stop at the edge of the platform. I'm also a full-stack engineer, so a missing feature becomes a custom API, a webhook service or a small app, not a dead end.",
       href: "/services/full-stack-development",
-      cta: "Full-stack engineering",
+      cta: "Custom software",
     },
     faq: [
       {
@@ -80,10 +80,73 @@ export const services: Service[] = [
     ],
   },
   {
+    slug: "crm-systems",
+    discipline: "automation",
+    index: "02",
+    name: "CRM Systems",
+    headline: "A CRM that matches how your business actually sells.",
+    intro:
+      "GoHighLevel set up properly, or a custom CRM when your process doesn't fit a template. Pipelines, stages and follow-ups designed around how your deals really move, with the integrations to keep every system in sync.",
+    highlights: [
+      "GoHighLevel sub-accounts, pipelines, calendars and snapshots",
+      "Custom CRMs when an off-the-shelf platform won't fit",
+      "Pipeline and stage design around your real sales process",
+      "Lead nurture, follow-up tasks and due-date automation",
+      "Two-way data sync with forms, calendars and billing",
+    ],
+    tools: ["GoHighLevel", "n8n", "Next.js", "Laravel", "REST APIs", "Webhooks", "Twilio"],
+    offerings: [
+      {
+        title: "GoHighLevel builds",
+        body: "Sub-accounts configured end to end: pipelines, funnels, calendars, custom fields and snapshots, documented so your team can run them.",
+      },
+      {
+        title: "Custom CRMs",
+        body: "When your process doesn't fit a template, a CRM built around it. Jackson Properties runs its seller pipeline on one; Teethly's clinics run patient records on another.",
+      },
+      {
+        title: "Pipeline design",
+        body: "Stages, priorities and filters that mirror how deals really move, so the team always knows what's due today and what's stuck.",
+      },
+      {
+        title: "Nurture automation",
+        body: "Follow-ups, reminders and due actions that fire on their own, so leads don't go cold because someone forgot.",
+      },
+      {
+        title: "Integrations & sync",
+        body: "Forms, calendars, payments and external databases connected through webhooks and APIs, with retries and logging.",
+      },
+      {
+        title: "Training & handover",
+        body: "Documentation for every pipeline and automation, and training so your team owns the system after launch.",
+      },
+    ],
+    crossover: {
+      title: "Built by someone who can write the CRM, not just configure it.",
+      body: "If GoHighLevel covers your process, I'll set it up properly. If it doesn't, I can build the missing piece or the whole CRM, on Next.js and Laravel.",
+      href: "/services/full-stack-development",
+      cta: "Custom software",
+    },
+    faq: [
+      {
+        q: "GoHighLevel or a custom CRM?",
+        a: "GoHighLevel first, whenever it fits: it's faster and cheaper to run. A custom CRM only makes sense when your process, data or integrations genuinely outgrow it.",
+      },
+      {
+        q: "Can you clean up the CRM we already have?",
+        a: "Yes. I audit the pipelines, automations and data first, then decide with you whether to restructure, extend or rebuild.",
+      },
+      {
+        q: "Will my team be able to use it?",
+        a: "That's the point. Every build ships with documentation and training, so your team runs it day to day without me.",
+      },
+    ],
+  },
+  {
     slug: "full-stack-development",
     discipline: "full-stack",
-    index: "02",
-    name: "Full-Stack Engineering",
+    index: "03",
+    name: "Custom Software",
     headline: "Build the applications and integration layers that automation platforms cannot.",
     intro:
       "Custom CRMs, SaaS products, dashboards and APIs, built in React and Next.js on the front and Node.js, Laravel or Java Spring Boot on the back. 17+ applications shipped to production, including revenue-generating platforms.",
@@ -166,7 +229,7 @@ export const principles = [
 export const process = [
   {
     step: "01",
-    title: "Map",
+    title: "Diagnose",
     body: "We walk through the workflow as it runs today: where time goes, where data is re-typed, where leads go cold.",
   },
   {
@@ -181,8 +244,20 @@ export const process = [
   },
   {
     step: "04",
-    title: "Hand over",
-    body: "Documentation for every trigger, input and failure point, team training, and ongoing support if you want it.",
+    title: "Launch",
+    body: "Go-live with documentation for every trigger, input and failure point, team training, and support if you want it.",
+  },
+];
+
+/** How engagements are structured. No prices published; scope is agreed per project. */
+export const engagements = [
+  {
+    title: "Project build",
+    body: "A defined system, scoped up front: an automation, a CRM build or an application, delivered and handed over with documentation.",
+  },
+  {
+    title: "Ongoing support",
+    body: "Maintenance, monitoring and improvements after launch, for teams that would rather not run the system themselves.",
   },
 ];
 

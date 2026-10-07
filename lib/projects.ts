@@ -31,8 +31,8 @@ import hoaCover from "@/assets/work/hoa/cover.png";
 export type Discipline = "automation" | "full-stack";
 
 export const disciplineLabel: Record<Discipline, string> = {
-  automation: "AI & CRM Automation",
-  "full-stack": "Full-Stack Engineering",
+  automation: "Automation & CRM",
+  "full-stack": "Custom Software",
 };
 
 export interface Shot {
@@ -72,6 +72,15 @@ export interface Note {
   label: string;
 }
 
+/** Short, outcome-led copy for the homepage flagship cards. */
+export interface Pitch {
+  eyebrow: string;
+  headline: string;
+  sub: string;
+  features: string[];
+  stack: string[];
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -85,6 +94,8 @@ export interface Project {
   stack: string[];
   cover: Shot;
   liveUrl?: string;
+  /** Homepage flagship card copy (flagship projects only). */
+  pitch?: Pitch;
   /** Callouts drawn on the cover screenshot. */
   notes?: Note[];
   /** Headline result for the Work index. */
@@ -107,6 +118,13 @@ export const projects: Project[] = [
     summary:
       "200+ inbound leads a week, qualified by AI, routed by priority and synced to the CRM. Manual review dropped from 20 hours a week to 3, and first response from 4–6 hours to under 5 minutes.",
     stack: ["n8n", "OpenAI", "GoHighLevel", "Webhooks", "Gmail", "Google Calendar", "Google Sheets"],
+    pitch: {
+      eyebrow: "AI Lead Engine",
+      headline: "Turn 200+ leads a week into a system that never sleeps.",
+      sub: "AI Lead Qualification & CRM Automation",
+      features: ["200+ leads/week", "20 hrs → 3 hrs manual review", "4–6 hrs → <5 min response"],
+      stack: ["n8n", "OpenAI", "GoHighLevel", "APIs"],
+    },
     notes: [
       { x: 6, y: 50, label: "Webhook intake from web forms" },
       { x: 25, y: 50, label: "AI agent returns typed score + priority" },
@@ -224,6 +242,13 @@ export const projects: Project[] = [
       "A direct-purchase real estate platform for the Austin metro: a public site that turns wary homeowners into structured seller leads, and a built-in CRM where the team nurtures every lead and tracks each deal from first contact to closing.",
     stack: ["Next.js", "Laravel", "REST API", "Workflow automation", "Microsoft Clarity"],
     liveUrl: "https://jacksonproperties.us/",
+    pitch: {
+      eyebrow: "Jackson Properties",
+      headline: "From a homeowner's first click to a signed contract.",
+      sub: "Seller acquisition site + built-in CRM",
+      features: ["Lead capture", "Nurture automation", "7-stage deal pipeline", "Offers & contracts"],
+      stack: ["Next.js", "Laravel", "REST API"],
+    },
     notes: [
       { x: 33.5, y: 14.5, label: "Pipeline health: totals, new this week, under contract, due today" },
       { x: 47.5, y: 31.4, label: "Seven stages, from new lead to closed or dead" },
@@ -340,6 +365,13 @@ export const projects: Project[] = [
       "A two-sided platform for the Philippines: a patient marketplace for finding verified dentists, and a clinic operating system for scheduling, records, billing and revenue, plus iOS and Android apps.",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Vercel"],
     liveUrl: "https://www.teethly.ph/",
+    pitch: {
+      eyebrow: "Teethly",
+      headline: "From fragmented clinic tools to one operating system.",
+      sub: "Marketplace + clinic operating platform",
+      features: ["Scheduling", "Patient records", "Billing", "Revenue intelligence", "Automated reminders"],
+      stack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    },
     notes: [
       { x: 19.5, y: 33.5, label: "Scheduling with SMS reminders" },
       { x: 43, y: 33.5, label: "Patient CRM with odontogram" },
@@ -683,6 +715,11 @@ export const projects: Project[] = [
 ];
 
 export const caseStudies = projects.filter((p): p is Project & { caseStudy: CaseStudy } => Boolean(p.caseStudy));
+
+/** The three systems featured on the homepage, in display order. */
+export const flagships = ["ai-lead-qualification", "jackson-properties", "teethly"].map((slug) =>
+  caseStudies.find((p) => p.slug === slug)!,
+);
 
 export function getCaseStudy(slug: string) {
   return caseStudies.find((p) => p.slug === slug);

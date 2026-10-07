@@ -2,13 +2,11 @@ import type { ReactNode } from "react";
 
 import { ButtonLink } from "@/components/ui/button";
 import { Mark } from "@/components/ui/mark";
-import { site, stepLabel } from "@/lib/site";
+import { site } from "@/lib/site";
 
 interface Props {
   title?: ReactNode;
   body?: string;
-  /** Show the pipeline step label (homepage only). */
-  step?: boolean;
 }
 
 const brief = [
@@ -24,25 +22,20 @@ export function ContactCTA({
     </>
   ),
   body = "Tell me about the workflow that's slowing you down, the systems you need connected, or the application you want to build. We'll work out the right approach.",
-  step = false,
 }: Props) {
   return (
-    <section id="contact" aria-labelledby="cta-title" className="border-t border-fg/80">
-      <div className="shell grid gap-14 py-24 md:py-32 lg:grid-cols-12 lg:gap-10">
+    <section id="contact" aria-labelledby="cta-title" className="shell pb-20 md:pb-28">
+      <div className="card grid gap-10 p-6 md:p-12 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-7">
-          <p className="label flex items-center gap-3 text-faint">
-            <span className="inline-flex items-center gap-2 text-fg">
-              <span aria-hidden className="size-1.5 rounded-full bg-lime ring-2 ring-lime/30" />
-              {step ? stepLabel("contact") : "Next step"}
-            </span>
-            <span aria-hidden className="h-px w-6 bg-line" />
-            Contact
+          <p className="label flex items-center gap-2.5 text-faint">
+            <span aria-hidden className="size-1.5 rounded-full bg-lime ring-2 ring-lime/30" />
+            Next step
           </p>
-          <h2 id="cta-title" data-reveal className="mt-8 text-display text-fg">
+          <h2 id="cta-title" data-reveal className="mt-6 text-headline text-fg">
             {title}
           </h2>
-          <p className="mt-8 max-w-xl text-lede text-muted">{body}</p>
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <p className="mt-6 max-w-xl text-lede text-muted">{body}</p>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
             <ButtonLink href={site.calendar}>Book a strategy call</ButtonLink>
             <ButtonLink href={`mailto:${site.email}`} variant="text">
               {site.email}
@@ -50,12 +43,12 @@ export function ContactCTA({
           </div>
         </div>
 
-        <aside aria-label="What to send" className="theme-dark panel-shadow self-end rounded-xl p-6 md:p-8 lg:col-span-5">
+        <aside aria-label="What to send" className="theme-dark self-end rounded-2xl p-6 md:p-8 lg:col-span-5">
           <p className="label flex items-center justify-between text-faint">
             <span>Project brief</span>
             <span className="text-accent">3 inputs</span>
           </p>
-          <p className="mt-5 text-xl tracking-[-0.02em] text-fg">Send me three things. I&apos;ll reply with a plan.</p>
+          <p className="mt-5 font-display text-2xl leading-snug text-fg">Send me three things. I&apos;ll reply with a plan.</p>
           <ol className="mt-6 border-t border-line">
             {brief.map((b, i) => (
               <li key={b.k} className="grid grid-cols-[2rem_1fr] gap-2 border-b border-line py-4">

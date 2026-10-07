@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { ReactNode } from "react";
 
 import { ContactCTA } from "@/components/contact-cta";
 import { Faq } from "@/components/faq";
@@ -12,6 +13,24 @@ import { getService, process } from "@/lib/content";
 import { projectHref, projects } from "@/lib/projects";
 import { site } from "@/lib/site";
 import { revealDelay } from "@/lib/utils";
+
+const heroTitles: Record<string, ReactNode> = {
+  "ai-automation": (
+    <>
+      Automation that <Mark onLoad>runs the busywork.</Mark>
+    </>
+  ),
+  "crm-systems": (
+    <>
+      A CRM that matches how you <Mark onLoad>actually sell.</Mark>
+    </>
+  ),
+  "full-stack-development": (
+    <>
+      Software that platforms <Mark onLoad>can&apos;t buy.</Mark>
+    </>
+  ),
+};
 
 export function ServicePage({ slug }: { slug: string }) {
   const service = getService(slug);
@@ -41,17 +60,7 @@ export function ServicePage({ slug }: { slug: string }) {
                 </li>
               </ol>
             </nav>
-            <h1 className="mt-9 text-display text-fg">
-              {automation ? (
-                <>
-                  Automation that <Mark onLoad>runs the busywork.</Mark>
-                </>
-              ) : (
-                <>
-                  Software that platforms <Mark onLoad>can&apos;t buy.</Mark>
-                </>
-              )}
-            </h1>
+            <h1 className="mt-9 text-display text-fg">{heroTitles[service.slug]}</h1>
             <p className="mt-8 max-w-xl text-lede text-muted">{service.intro}</p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
               <ButtonLink href={site.calendar}>Discuss a project</ButtonLink>

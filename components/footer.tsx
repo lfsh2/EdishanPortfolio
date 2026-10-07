@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Wordmark } from "@/components/wordmark";
 import { caseStudies } from "@/lib/projects";
 import { site } from "@/lib/site";
 
@@ -11,9 +10,16 @@ const columns = [
     links: [
       { href: "/", label: "Home" },
       { href: "/work", label: "Work" },
-      { href: "/services/ai-automation", label: "AI & CRM Automation" },
-      { href: "/services/full-stack-development", label: "Full-Stack Engineering" },
+      { href: "/services", label: "Services" },
       { href: "/about", label: "About" },
+    ],
+  },
+  {
+    title: "Services",
+    links: [
+      { href: "/services/ai-automation", label: "AI Automation" },
+      { href: "/services/crm-systems", label: "CRM Systems" },
+      { href: "/services/full-stack-development", label: "Custom Software" },
     ],
   },
   {
@@ -31,14 +37,14 @@ const linkClass = "inline-flex min-h-10 items-center text-[0.9375rem] text-muted
 
 export function Footer() {
   return (
-    <footer className="bg-surface">
+    <footer className="border-t border-line bg-surface">
       <div className="shell grid gap-14 py-16 md:grid-cols-12 md:py-24">
-        <div className="md:col-span-4">
-          <Link href="/" aria-label="Edishan Lee, home">
-            <Wordmark />
+        <div className="md:col-span-3">
+          <Link href="/" className="font-display text-2xl text-fg">
+            {site.name}
           </Link>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted">
-            {site.role}. Independent, based in Cavite, Philippines. Working with clients worldwide.
+            AI automation and CRM systems, with the custom software behind them. Independent, based in Cavite, Philippines.
           </p>
           <a
             href={`mailto:${site.email}`}
@@ -49,7 +55,7 @@ export function Footer() {
         </div>
 
         {columns.map((col) => (
-          <nav key={col.title} aria-label={col.title} className={col.title === "Pages" ? "md:col-span-3 md:col-start-5" : "md:col-span-2"}>
+          <nav key={col.title} aria-label={col.title} className="md:col-span-2">
             <p className="label text-faint">{col.title}</p>
             <ul className="mt-4">
               {col.links.map((l) => {
@@ -90,7 +96,7 @@ export function Footer() {
         </nav>
       </div>
       <div className="border-t border-line">
-        <div className="shell flex flex-col gap-2 py-6 text-[0.8125rem] text-faint sm:flex-row sm:justify-between">
+        <div className="shell flex flex-col gap-2 pb-32 pt-6 text-[0.8125rem] text-faint sm:flex-row sm:justify-between md:pb-28">
           <p>
             © {new Date().getFullYear()} {site.name}
           </p>

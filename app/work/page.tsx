@@ -32,8 +32,7 @@ export default function WorkPage() {
             </h1>
           </div>
           <p className="text-[1.0625rem] leading-relaxed text-muted lg:col-span-4 lg:pb-2">
-            Systems running for real clients, from n8n pipelines to multi-tenant platforms. Three featured builds are broken down end to
-            end.
+            Systems running for real clients, from n8n pipelines to multi-tenant platforms. Featured builds are broken down end to end.
           </p>
         </div>
       </header>

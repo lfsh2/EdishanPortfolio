@@ -1,37 +1,37 @@
 @import "tailwindcss";
 
 /*
- * Design tokens: warm editorial light, with dark "instrument" panels.
+ * Design tokens: warm off-white canvas, deep navy type, lime signal; dark navy "instrument" panels.
  *
  * Every colour is a variable so a section can flip to the dark palette with
  * `.theme-dark` and its children re-theme automatically (text-fg, bg-canvas…).
  * Lime is a fixed signal colour; `accent` is its text-safe counterpart per theme.
  */
 :root {
-  --canvas: #f6f5f1;
-  --surface: #eeece6;
-  --raised: #e5e2da;
-  --fg: #191816;
-  --muted: #55524b;
-  --faint: #75716a;
-  --quiet: #928d84;
-  --line: #d9d5cc;
-  --line-soft: #e6e3dc;
+  --canvas: #f7f6f1;
+  --surface: #ffffff;
+  --raised: #efede6;
+  --fg: #12213f;
+  --muted: #4a5468;
+  --faint: #667085;
+  --quiet: #98a2b3;
+  --line: #e2e0d8;
+  --line-soft: #ebe9e2;
   --accent: #4d7c0f;
   --accent-dim: #65a30d;
   color-scheme: light;
 }
 
 .theme-dark {
-  --canvas: #12110f;
-  --surface: #1b1916;
-  --raised: #25221e;
-  --fg: #f5f3ef;
-  --muted: #a8a29e;
-  --faint: #8a847e;
-  --quiet: #6f6963;
-  --line: #34302b;
-  --line-soft: #26231f;
+  --canvas: #0f1b33;
+  --surface: #16233f;
+  --raised: #1e2c4a;
+  --fg: #f3f4f6;
+  --muted: #a9b3c6;
+  --faint: #8a95ab;
+  --quiet: #66728a;
+  --line: #2a3858;
+  --line-soft: #1e2c4a;
   --accent: #c8f36a;
   --accent-dim: #a3c35a;
   color-scheme: dark;
@@ -55,20 +55,21 @@
 
 @theme {
   --color-lime: #c8f36a;
-  --color-on-lime: #1c1917;
+  --color-on-lime: #12213f;
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+  --font-display: var(--font-instrument-serif), ui-serif, Georgia, serif;
 
-  --text-display: clamp(2.75rem, 1.4rem + 5vw, 5.75rem);
-  --text-display--line-height: 0.98;
-  --text-display--letter-spacing: -0.045em;
-  --text-headline: clamp(2rem, 1.35rem + 2.3vw, 3.4rem);
-  --text-headline--line-height: 1.06;
-  --text-headline--letter-spacing: -0.035em;
-  --text-title: clamp(1.375rem, 1.15rem + 0.8vw, 1.875rem);
-  --text-title--line-height: 1.2;
-  --text-title--letter-spacing: -0.025em;
+  --text-display: clamp(2.75rem, 1.6rem + 4.6vw, 5.5rem);
+  --text-display--line-height: 1;
+  --text-display--letter-spacing: -0.02em;
+  --text-headline: clamp(2.25rem, 1.5rem + 2.6vw, 3.75rem);
+  --text-headline--line-height: 1.04;
+  --text-headline--letter-spacing: -0.015em;
+  --text-title: clamp(1.625rem, 1.3rem + 1vw, 2.25rem);
+  --text-title--line-height: 1.12;
+  --text-title--letter-spacing: -0.01em;
   --text-lede: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
   --text-lede--line-height: 1.6;
   --text-label: 0.6875rem;
@@ -118,13 +119,20 @@
     font-weight: 400;
   }
 
+  /* Editorial display face for the big type; Geist carries everything else. */
+  .text-display,
+  .text-headline,
+  .text-title {
+    font-family: var(--font-display);
+  }
+
   p {
     text-wrap: pretty;
   }
 }
 
 @layer components {
-  /* Page container: 1200px measure, 20/32px gutter. */
+  /* Page container: ~1200px measure, 20/32px gutter. */
   .shell {
     width: 100%;
     max-width: 76rem;
@@ -227,12 +235,22 @@
     transform: translate(-50%, -50%) scale(1.25);
   }
 
+  /* White card on the off-white canvas: hairline border, soft lift. */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 1.25rem;
+    box-shadow:
+      0 1px 2px rgb(18 33 63 / 0.04),
+      0 12px 32px -18px rgb(18 33 63 / 0.18);
+  }
+
   /* Soft warm glow behind dark panels: gives depth without a gradient "AI" look. */
   .panel-shadow {
     box-shadow:
       0 1px 0 rgb(255 255 255 / 0.04) inset,
-      0 40px 80px -40px rgb(28 25 23 / 0.45),
-      0 18px 36px -24px rgb(28 25 23 / 0.35);
+      0 40px 80px -40px rgb(18 33 63 / 0.45),
+      0 18px 36px -24px rgb(18 33 63 / 0.35);
   }
 }
 
@@ -274,6 +292,19 @@
   }
 }
 
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
 @keyframes draw-x {
   from {
     transform: scaleX(0);
@@ -294,6 +325,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
   *,
   *::before,
   *::after {

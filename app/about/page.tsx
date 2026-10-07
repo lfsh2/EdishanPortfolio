@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import portrait from "@/assets/people/edishan.jpg";
 import { ContactCTA } from "@/components/contact-cta";
+import { Testimonials } from "@/components/testimonials";
 import { ProofStrip } from "@/components/home/proof-strip";
 import { ButtonLink } from "@/components/ui/button";
 import { Mark } from "@/components/ui/mark";
@@ -138,6 +139,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <Testimonials />
 
       <section aria-labelledby="how-title" className="shell py-24 md:py-32">
         <SectionHeader
