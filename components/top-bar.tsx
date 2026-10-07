@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Fragment } from "react";
 import Link from "next/link";
 
-import portrait from "@/assets/people/headshot-avatar.jpg";
+import portrait from "@/assets/people/headshot.jpg";
 import { site } from "@/lib/site";
 
 /** Compact profile header: identity first, navigation lives in the bottom bar. */

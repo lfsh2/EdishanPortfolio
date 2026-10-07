@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 
-import portrait from "@/assets/people/headshot-avatar.jpg";
+import portrait from "@/assets/people/headshot.jpg";
 import { site } from "@/lib/site";
 
 const icon = (d: ReactNode) => (
