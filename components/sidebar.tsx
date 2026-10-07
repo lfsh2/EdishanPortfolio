@@ -94,7 +94,15 @@ export function Sidebar() {
           className="size-20 rounded-full object-cover lg:size-24 object-[50%_22%] shadow-[0_18px_40px_-20px_rgb(18_33_63/0.5)] ring-4 ring-surface"
         />
         <span className="mt-4 font-display text-[1.45rem] leading-tight text-fg lg:text-[1.65rem]">{site.name}</span>
-        <span className="mt-1 text-[0.8125rem] text-faint">AI Automation &amp; CRM Systems</span>
+        <span className="mt-1.5 text-[0.8125rem] font-medium leading-snug text-fg">
+          {/* Break between the two halves of the role, never mid-phrase. */}
+          <span className="whitespace-nowrap">AI Automation Specialist</span> <span className="whitespace-nowrap">&amp; CRM Developer</span>
+        </span>
+        <span className="mt-1.5 flex flex-col text-[0.75rem] leading-[1.5] text-faint">
+          {site.titles.map((t) => (
+            <span key={t}>{t}</span>
+          ))}
+        </span>
       </Link>
       <p className="mx-auto mt-4 inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-line bg-surface px-3 py-1.5 text-[0.75rem] text-fg">
         <span aria-hidden className="size-1.5 rounded-full bg-lime ring-2 ring-lime/30" />

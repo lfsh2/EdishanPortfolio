@@ -2,7 +2,9 @@ export const site = {
   name: "Edishan Lee Tenorio",
   shortName: "Edishan",
   wordmark: "EDISHAN.",
-  role: "Automation Engineer & Full-Stack Developer",
+  role: "AI Automation Specialist & CRM Developer",
+  /** Secondary titles shown under the role in the sidebar. */
+  titles: ["Software Engineer", "Full-Stack Developer", "Mobile Developer"],
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://edishan-portfolio.vercel.app",
   description:
     "AI automation and CRM systems for growing businesses: capturing leads, qualifying prospects, following up, booking appointments and keeping your CRM in sync. Automation when you can, custom software when you have to.",

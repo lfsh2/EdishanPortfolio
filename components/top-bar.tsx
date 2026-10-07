@@ -19,7 +19,7 @@ export function TopBar() {
         />
         <span className="leading-tight">
           <span className="block text-[0.95rem] font-medium tracking-[-0.01em] text-fg">{site.name}</span>
-          <span className="block text-[0.8125rem] text-faint">AI Automation &amp; CRM Systems</span>
+          <span className="block text-[0.8125rem] text-faint">{site.role}</span>
         </span>
       </Link>
       <p className="label hidden items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-fg sm:inline-flex">
