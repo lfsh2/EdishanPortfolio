@@ -5,7 +5,7 @@ import { AnnotatedShot } from "@/components/ui/annotated-shot";
 import { ArrowLink, ButtonLink } from "@/components/ui/button";
 import { LiveBadge } from "@/components/ui/live-badge";
 import { Mark } from "@/components/ui/mark";
-import { flagships } from "@/lib/projects";
+import { flagships, liveDomain } from "@/lib/projects";
 import { revealDelay } from "@/lib/utils";
 
 export function SelectedWork() {
@@ -62,7 +62,7 @@ export function SelectedWork() {
           const pitch = p.pitch!;
           return (
             <article key={p.slug} data-reveal style={revealDelay((i + 1) * 80)} aria-labelledby={`work-${p.slug}`}>
-              <Link href={`/work/${p.slug}`} className="card group flex h-full flex-col overflow-hidden">
+              <div className="card group relative flex h-full flex-col overflow-hidden">
                 <div className="aspect-[16/9] overflow-hidden border-b border-line bg-raised">
                   <Image
                     src={p.cover.src}
@@ -85,14 +85,33 @@ export function SelectedWork() {
                   <p className="mt-2 text-muted">{pitch.sub}</p>
                   <p className="mt-4 text-sm text-faint">{pitch.features.join(" · ")}</p>
                   <p className="mt-3 font-mono text-[0.75rem] text-faint">{pitch.stack.join(" · ")}</p>
-                  <span className="mt-auto inline-flex items-center gap-2 pt-6 text-[0.9375rem] text-fg">
-                    See how it was built
-                    <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">
-                      →
+                  <span className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-1 pt-6 text-[0.9375rem] text-fg">
+                    <span className="inline-flex items-center gap-2">
+                      See how it was built
+                      <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">
+                        →
+                      </span>
                     </span>
+                    {p.liveUrl ? (
+                      <a
+                        href={p.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative z-10 inline-flex min-h-11 items-center gap-1.5 text-sm text-faint underline decoration-line underline-offset-4 transition-colors hover:text-fg hover:decoration-fg"
+                      >
+                        {liveDomain(p.liveUrl)}
+                        <span aria-hidden>↗</span>
+                        <span className="sr-only"> (opens live site in a new tab)</span>
+                      </a>
+                    ) : null}
                   </span>
                 </div>
-              </Link>
+                <Link
+                  href={`/work/${p.slug}`}
+                  aria-label={`${pitch.eyebrow}: see how it was built`}
+                  className="absolute inset-0 rounded-[inherit]"
+                />
+              </div>
             </article>
           );
         })}

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { LiveBadge } from "@/components/ui/live-badge";
-import { disciplineLabel, projectHref, projects, type Discipline, type Project } from "@/lib/projects";
+import { disciplineLabel, liveDomain, projectHref, projects, type Discipline, type Project } from "@/lib/projects";
 
 const filters: { key: "all" | Discipline; label: string }[] = [
   { key: "all", label: "All" },
@@ -32,6 +32,21 @@ function ProjectTile({ project: p }: { project: Project }) {
   const href = projectHref(p);
   const external = href ? /^https?:/.test(href) : false;
   const kind = size(p);
+  const cta = p.caseStudy ? "See how it was built" : external ? "Visit live site" : "See the build";
+  // Projects with their own page also get a direct link to the live product, layered above the card link.
+  const liveLink =
+    p.caseStudy && p.liveUrl ? (
+      <a
+        href={p.liveUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="relative z-10 inline-flex min-h-11 items-center gap-1.5 text-faint underline decoration-line underline-offset-4 transition-colors hover:text-fg hover:decoration-fg"
+      >
+        {liveDomain(p.liveUrl)}
+        <span aria-hidden>↗</span>
+        <span className="sr-only"> (opens live site in a new tab)</span>
+      </a>
+    ) : null;
 
   const body = (
     <>
@@ -47,11 +62,14 @@ function ProjectTile({ project: p }: { project: Project }) {
         <p className={`mt-2 text-[0.95rem] leading-relaxed text-muted ${kind === "normal" ? "line-clamp-3" : ""}`}>{p.summary}</p>
         {p.result ? <p className="mt-3 font-mono text-[0.75rem] text-accent">↳ {p.result}</p> : null}
         {href ? (
-          <span className="mt-4 inline-flex items-center gap-2 text-sm text-fg">
-            {p.caseStudy ? "See how it was built" : external ? "Visit live site" : "See the build"}
-            <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">
-              {external ? "↗" : "→"}
+          <span className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-fg">
+            <span className="inline-flex items-center gap-2">
+              {cta}
+              <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">
+                {external ? "↗" : "→"}
+              </span>
             </span>
+            {liveLink}
           </span>
         ) : null}
       </div>
@@ -75,17 +93,23 @@ function ProjectTile({ project: p }: { project: Project }) {
     </>
   );
 
-  const cls = `card group flex h-full overflow-hidden transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-24px_rgb(18_33_63/0.35)] ${
+  const cls = `card group relative flex h-full overflow-hidden transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-24px_rgb(18_33_63/0.35)] ${
     kind === "wide" ? "flex-col md:flex-row" : "flex-col"
   }`;
 
-  return href ? (
-    <Link href={href} className={cls} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+  // Stretched link: the whole card opens the project, without nesting the live-site link inside it.
+  return (
+    <div className={cls}>
       {body}
-      {external ? <span className="sr-only"> (opens live site in a new tab)</span> : null}
-    </Link>
-  ) : (
-    <div className={cls}>{body}</div>
+      {href ? (
+        <Link
+          href={href}
+          aria-label={`${p.shortTitle}: ${cta}${external ? " (opens live site in a new tab)" : ""}`}
+          className="absolute inset-0 rounded-[inherit]"
+          {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        />
+      ) : null}
+    </div>
   );
 }
 

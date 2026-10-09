@@ -745,6 +745,11 @@ export function getCaseStudy(slug: string) {
   return caseStudies.find((p) => p.slug === slug);
 }
 
+/** "https://www.teethly.ph/" → "teethly.ph" */
+export function liveDomain(url: string) {
+  return url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+}
+
 export function projectHref(p: Project) {
   return p.caseStudy ? `/work/${p.slug}` : (p.href ?? p.liveUrl);
 }
