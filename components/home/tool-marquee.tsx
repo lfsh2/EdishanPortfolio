@@ -2,14 +2,30 @@ import Image from "next/image";
 
 /** Official marks, self-hosted in /public/logos. "APIs" is a capability, not a brand, so it gets a neutral glyph. */
 const tools: { name: string; logo?: string }[] = [
+  // Automation & AI
   { name: "GoHighLevel", logo: "/logos/gohighlevel.svg" },
   { name: "n8n", logo: "/logos/n8n.svg" },
+  { name: "Zapier", logo: "/logos/zapier.svg" },
   { name: "OpenAI", logo: "/logos/openai.svg" },
+  { name: "Claude", logo: "/logos/claude.svg" },
+  { name: "Claude Code", logo: "/logos/claude.svg" },
   { name: "Twilio", logo: "/logos/twilio.svg" },
   { name: "APIs" },
+  // Languages & frameworks
+  { name: "TypeScript", logo: "/logos/typescript.svg" },
   { name: "Next.js", logo: "/logos/nextdotjs.svg" },
   { name: "React", logo: "/logos/react.svg" },
+  { name: "shadcn/ui", logo: "/logos/shadcnui.svg" },
   { name: "Node.js", logo: "/logos/nodedotjs.svg" },
+  { name: "PHP", logo: "/logos/php.svg" },
+  { name: "Laravel", logo: "/logos/laravel.svg" },
+  { name: "Go", logo: "/logos/go.svg" },
+  // Infrastructure & editors
+  { name: "AWS", logo: "/logos/aws.svg" },
+  { name: "DigitalOcean", logo: "/logos/digitalocean.svg" },
+  { name: "Docker", logo: "/logos/docker.svg" },
+  { name: "VS Code", logo: "/logos/vscode.svg" },
+  { name: "Cursor", logo: "/logos/cursor.svg" },
 ];
 
 function ApiGlyph() {
@@ -31,8 +47,9 @@ function ApiGlyph() {
 
 /** A restrained, slowly scrolling toolkit strip. Tools are the delivery stack, not the identity. */
 export function ToolMarquee() {
-  // Each half of the track must be wider than the container for a seamless loop.
-  const half = [...tools, ...tools];
+  // The track is the list twice, so translating by -50% loops seamlessly. With this many
+  // tools one copy is already wider than the container; duration scales to keep a slow pace.
+  const half = tools;
   return (
     <section aria-labelledby="tools-title" className="shell py-12 md:py-16">
       <h2 id="tools-title" className="label text-faint">
@@ -44,7 +61,7 @@ export function ToolMarquee() {
             <li key={t.name}>{t.name}</li>
           ))}
         </ul>
-        <div aria-hidden className="marquee-track flex w-max gap-3">
+        <div aria-hidden className="marquee-track flex w-max gap-3" style={{ animationDuration: `${tools.length * 3.5}s` }}>
           {[...half, ...half].map((t, i) => (
             <span
               key={i}
