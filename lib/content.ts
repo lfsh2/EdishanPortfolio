@@ -51,7 +51,7 @@ export const services: Service[] = [
       },
       {
         title: "AI receptionists & booking",
-        body: "Voice and chat agents that answer, qualify and book appointments straight into the calendar, with a clean hand-off to a human when the conversation needs one.",
+        body: "Voice and chat agents that answer, qualify and book appointments straight into the calendar, with a clean hand-off to a human when the conversation needs one. Echo Call Solutions runs on one I built.",
       },
       {
         title: "Sub-account builds & team training",

@@ -23,6 +23,7 @@ import meepleLedger from "@/assets/work/meeplecrate/18.png";
 import meepleGameDetail from "@/assets/work/meeplecrate/v21.png";
 import vantrippersCover from "@/assets/work/vantrippers/cover.png";
 import cozyCover from "@/assets/work/cozy-crave/cover.png";
+import echoCover from "@/assets/work/echo/cover.png";
 import inmCover from "@/assets/work/inm/cover.png";
 import gymCover from "@/assets/work/gym/cover.png";
 import jkkCover from "@/assets/work/jkk/cover.png";
@@ -86,6 +87,7 @@ export interface Project {
   title: string;
   shortTitle: string;
   client: string;
+  /** Leave empty when unknown rather than guessing; the UI hides it. */
   year: string;
   disciplines: Discipline[];
   /** Deployed and in use by the client. */
@@ -613,6 +615,24 @@ export const projects: Project[] = [
         },
       ],
     },
+  },
+  {
+    slug: "echo-call-solutions",
+    title: "Echo Call Solutions: AI Receptionist & Website",
+    shortTitle: "Echo Call Solutions",
+    client: "Echo Call Solutions",
+    year: "",
+    disciplines: ["automation", "full-stack"],
+    live: true,
+    summary:
+      'A 24/7 AI receptionist service for small businesses. I built the voice agent on Vapi, which answers calls in a natural voice, books appointments and sends a summary after every call, plus the React marketing site with a live "Talk with AI" demo visitors can try from the browser.',
+    stack: ["Vapi", "Voice AI", "React", "Vite"],
+    cover: {
+      src: echoCover,
+      alt: "Echo Call Solutions homepage: 'Never miss a call ever again', with a 24/7 AI receptionist pitch and a Talk with AI button.",
+    },
+    liveUrl: "http://www.echocallsolutions.com/",
+    result: "AI receptionist that answers, books and summarises calls 24/7",
   },
   {
     slug: "lead-enrichment-agent",

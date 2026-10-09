@@ -167,7 +167,7 @@ export function ServicePage({ slug }: { slug: string }) {
                   </span>
                   <span className="mt-5 flex items-center gap-3 border-t border-line pt-4">
                     {p.live ? <LiveBadge /> : null}
-                    <span className="label text-faint">{p.year}</span>
+                    {p.year ? <span className="label text-faint">{p.year}</span> : null}
                   </span>
                   <span className="mt-3 block text-xl tracking-[-0.02em] text-fg transition-colors group-hover:text-muted">
                     {p.shortTitle}

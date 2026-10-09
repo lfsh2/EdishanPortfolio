@@ -39,7 +39,8 @@ function ProjectTile({ project: p }: { project: Project }) {
         <div className="flex flex-wrap items-center gap-2.5">
           {p.live ? <LiveBadge /> : null}
           <span className="label text-faint">
-            {p.disciplines.map((d) => disciplineLabel[d]).join(" + ")} · {p.year}
+            {p.disciplines.map((d) => disciplineLabel[d]).join(" + ")}
+            {p.year ? ` · ${p.year}` : ""}
           </span>
         </div>
         <h2 className={`mt-4 font-display leading-[1.1] text-fg ${kind === "normal" ? "text-[1.6rem]" : "text-title"}`}>{p.shortTitle}</h2>
