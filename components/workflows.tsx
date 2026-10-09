@@ -27,6 +27,30 @@ function Flow({ steps }: { steps: string[] }) {
   );
 }
 
+/** Real n8n canvas, opened full size in a new tab since node labels are small at card width. */
+function Canvas({ w, sizes }: { w: Workflow; sizes: string }) {
+  if (!w.image) return null;
+  return (
+    <a
+      href={w.image.src.src}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group/canvas relative block overflow-hidden rounded-xl border border-line bg-[#1d1d1d]"
+    >
+      <Image
+        src={w.image.src}
+        alt={w.image.alt}
+        sizes={sizes}
+        placeholder="blur"
+        className="h-auto w-full transition-transform duration-500 group-hover/canvas:scale-[1.02]"
+      />
+      <span className="absolute bottom-2 right-2 rounded-full bg-[#12213f]/85 px-2.5 py-1 text-[0.7rem] text-white backdrop-blur">
+        Open full size ↗<span className="sr-only"> (opens the workflow screenshot in a new tab)</span>
+      </span>
+    </a>
+  );
+}
+
 function Meta({ w }: { w: Workflow }) {
   return (
     <>
@@ -77,23 +101,12 @@ function Highlight({ w, n }: { w: Workflow; n: number }) {
       <p className="mt-4 text-[1rem] leading-relaxed text-muted">{w.pitch}</p>
 
       <div className="theme-dark mt-6 rounded-2xl p-3 md:p-4">
-        {w.image ? (
-          <Image
-            src={w.image.src}
-            alt={w.image.alt}
-            sizes="(min-width: 1024px) 560px, 100vw"
-            placeholder="blur"
-            className="h-auto w-full rounded-lg"
-          />
-        ) : (
-          <>
-            <p className="label mb-3 flex items-center gap-2 text-faint">
-              <span aria-hidden className="size-1.5 rounded-full bg-lime" />
-              Workflow
-            </p>
-            <Flow steps={w.steps} />
-          </>
-        )}
+        <Canvas w={w} sizes="(min-width: 1024px) 560px, 100vw" />
+        <p className="label mb-3 mt-4 flex items-center gap-2 text-faint">
+          <span aria-hidden className="size-1.5 rounded-full bg-lime" />
+          Workflow
+        </p>
+        <Flow steps={w.steps} />
       </div>
       <Meta w={w} />
     </article>
@@ -111,18 +124,11 @@ function Standard({ w, n }: { w: Workflow; n: number }) {
       </h3>
       <p className="mt-1.5 text-sm text-faint">For {w.forWho.charAt(0).toLowerCase() + w.forWho.slice(1)}</p>
       <p className="mt-3 text-[0.95rem] leading-relaxed text-muted">{w.pitch}</p>
-      <div className="mt-5 rounded-xl border border-line bg-canvas p-4">
-        {w.image ? (
-          <Image
-            src={w.image.src}
-            alt={w.image.alt}
-            sizes="(min-width: 1024px) 520px, 100vw"
-            placeholder="blur"
-            className="h-auto w-full rounded-md"
-          />
-        ) : (
+      <div className="mt-5 space-y-4">
+        <Canvas w={w} sizes="(min-width: 1024px) 520px, 100vw" />
+        <div className="rounded-xl border border-line bg-canvas p-4">
           <Flow steps={w.steps} />
-        )}
+        </div>
       </div>
       <Meta w={w} />
     </article>
