@@ -7,6 +7,7 @@ const tools: { name: string; logo?: string }[] = [
   { name: "n8n", logo: "/logos/n8n.svg" },
   { name: "Zapier", logo: "/logos/zapier.svg" },
   { name: "OpenAI", logo: "/logos/openai.svg" },
+  { name: "ElevenLabs", logo: "/logos/elevenlabs.svg" },
   { name: "Claude", logo: "/logos/claude.svg" },
   { name: "Claude Code", logo: "/logos/claude.svg" },
   { name: "Twilio", logo: "/logos/twilio.svg" },
