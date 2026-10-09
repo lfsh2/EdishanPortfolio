@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { ContactCTA } from "@/components/contact-cta";
 import { Mark } from "@/components/ui/mark";
 import { WorkIndex } from "@/components/work-index";
+import { WorkflowLibrary } from "@/components/workflows";
 import { projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
@@ -40,6 +41,8 @@ export default function WorkPage() {
       <section aria-label="Projects" className="shell pb-24 md:pb-32">
         <WorkIndex />
       </section>
+
+      <WorkflowLibrary />
 
       <ContactCTA />
     </>

@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 
 import { ContactCTA } from "@/components/contact-cta";
 import { Faq } from "@/components/faq";
+import { WorkflowLibrary } from "@/components/workflows";
 import { ArrowLink, ButtonLink } from "@/components/ui/button";
 import { LiveBadge } from "@/components/ui/live-badge";
 import { Mark } from "@/components/ui/mark";
@@ -110,6 +111,8 @@ export function ServicePage({ slug }: { slug: string }) {
           ))}
         </ol>
       </section>
+
+      {service.slug === "ai-automation" ? <WorkflowLibrary /> : null}
 
       <section aria-labelledby="process-title" className="theme-dark relative overflow-hidden">
         <div aria-hidden className="blueprint pointer-events-none absolute inset-0 opacity-60" />
