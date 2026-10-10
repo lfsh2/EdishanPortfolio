@@ -96,6 +96,8 @@ export interface Project {
   stack: string[];
   cover: Shot;
   liveUrl?: string;
+  /** Search title (site name appended) and meta description, kept within SERP limits. */
+  seo?: { title: string; description: string };
   /** Homepage flagship card copy (flagship projects only). */
   pitch?: Pitch;
   /** Callouts drawn on the cover screenshot. */
@@ -113,6 +115,11 @@ export const projects: Project[] = [
     slug: "ai-lead-qualification",
     title: "AI Lead Qualification & CRM Automation",
     shortTitle: "AI Lead Qualification",
+    seo: {
+      title: "AI Lead Qualification Automation (n8n)",
+      description:
+        "n8n + OpenAI lead qualification: 200+ leads a week scored, routed and synced to the CRM, cutting first response from 4–6 hours to under 5 minutes.",
+    },
     client: "Service business (name withheld)",
     year: "2026",
     disciplines: ["automation"],
@@ -236,6 +243,11 @@ export const projects: Project[] = [
     slug: "jackson-properties",
     title: "Jackson Properties: Seller Acquisition Site & Built-in CRM",
     shortTitle: "Jackson Properties",
+    seo: {
+      title: "Jackson Properties: Real Estate CRM",
+      description:
+        "Live real estate seller-acquisition site and built-in CRM in Next.js and Laravel: lead capture, nurture automation and a 7-stage deal pipeline.",
+    },
     client: "Jackson Investment Group",
     year: "2026",
     disciplines: ["full-stack", "automation"],
@@ -359,6 +371,11 @@ export const projects: Project[] = [
     slug: "teethly",
     title: "Teethly: Dental Marketplace & Clinic Platform",
     shortTitle: "Teethly",
+    seo: {
+      title: "Teethly: Dental Marketplace & Clinic OS",
+      description:
+        "Teethly.ph: a live dental marketplace plus clinic OS for scheduling, patient records, billing and revenue, built in Next.js and TypeScript.",
+    },
     client: "Teethly.ph",
     year: "2026",
     disciplines: ["full-stack"],
@@ -492,6 +509,11 @@ export const projects: Project[] = [
     slug: "meeplecrate",
     title: "MeepleCrate: Rental & Delivery Platform",
     shortTitle: "MeepleCrate",
+    seo: {
+      title: "MeepleCrate: Rental & Delivery Platform",
+      description:
+        "Board-game rental and delivery platform in Colorado: credit subscriptions, BoardGameGeek catalog sync, QR-tracked inventory and a 12-module admin.",
+    },
     client: "MeepleCrate",
     year: "2024–25",
     disciplines: ["full-stack"],

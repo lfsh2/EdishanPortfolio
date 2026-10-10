@@ -1,27 +1,41 @@
 import type { Metadata } from "next";
+
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 
 import { ContactCTA } from "@/components/contact-cta";
 import { Faq } from "@/components/faq";
+import { JsonLd } from "@/components/json-ld";
 import { Capabilities } from "@/components/home/capabilities";
 import { Differentiator } from "@/components/home/differentiator";
 import { ButtonLink } from "@/components/ui/button";
 import { Mark } from "@/components/ui/mark";
 import { SectionHeader } from "@/components/ui/section-header";
 import { engagements, faq, process, services } from "@/lib/content";
+import { breadcrumbs, faqSchema, graph, serviceSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 import { revealDelay } from "@/lib/utils";
 
-export const metadata: Metadata = {
-  title: "Services",
+export const metadata: Metadata = pageMeta({
+  title: "Services: AI Automation, CRM & Software",
   description:
     "AI automation, CRM systems and custom software for growing businesses. Automation when you can, custom software when you have to.",
-  alternates: { canonical: "/services" },
-};
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd
+        data={graph(
+          ...services.map(serviceSchema),
+          faqSchema(faq),
+          breadcrumbs([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+          ]),
+        )}
+      />
       <header className="shell grid gap-8 pb-14 pt-8 md:pb-20 md:pt-14 lg:grid-cols-12 lg:items-end lg:gap-12">
         <div className="lg:col-span-8">
           <p className="label flex items-center gap-2.5 text-faint">

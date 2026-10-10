@@ -84,7 +84,7 @@ export function Sidebar() {
       aria-label="Profile and navigation"
       className="fixed inset-y-0 left-0 z-40 hidden w-60 flex-col overflow-y-auto border-r border-line bg-canvas/95 px-4 py-7 backdrop-blur md:flex lg:w-[17.5rem] lg:px-5 lg:py-8"
     >
-      <Link href="/" className="flex flex-col items-center text-center" aria-label="Edishan Lee Tenorio, home">
+      <Link href="/" className="flex flex-col items-center text-center">
         <Image
           src={portrait}
           alt=""

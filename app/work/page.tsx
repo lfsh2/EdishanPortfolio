@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
 
+import { pageMeta } from "@/lib/seo";
+
 import { ContactCTA } from "@/components/contact-cta";
 import { Mark } from "@/components/ui/mark";
 import { WorkIndex } from "@/components/work-index";
 import { WorkflowLibrary } from "@/components/workflows";
 import { projects } from "@/lib/projects";
 
-export const metadata: Metadata = {
-  title: "Work",
+export const metadata: Metadata = pageMeta({
+  title: "Work: AI Automations & Custom Apps",
   description:
-    "Live client systems: AI lead qualification, CRM automation, a dental marketplace and clinic OS, a rental and delivery platform, and more.",
-  alternates: { canonical: "/work" },
-};
+    "Live client systems and automation workflows: AI lead qualification, real estate CRM, a dental platform, an AI receptionist and n8n + GoHighLevel builds.",
+  path: "/work",
+});
 
 export default function WorkPage() {
   return (

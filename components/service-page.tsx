@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 
 import { ContactCTA } from "@/components/contact-cta";
 import { Faq } from "@/components/faq";
+import { JsonLd } from "@/components/json-ld";
 import { WorkflowLibrary } from "@/components/workflows";
 import { ArrowLink, ButtonLink } from "@/components/ui/button";
 import { LiveBadge } from "@/components/ui/live-badge";
@@ -12,6 +13,7 @@ import { Mark } from "@/components/ui/mark";
 import { SectionHeader } from "@/components/ui/section-header";
 import { getService, process } from "@/lib/content";
 import { projectHref, projects } from "@/lib/projects";
+import { breadcrumbs, faqSchema, graph, serviceSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 import { revealDelay } from "@/lib/utils";
 
@@ -45,6 +47,17 @@ export function ServicePage({ slug }: { slug: string }) {
 
   return (
     <>
+      <JsonLd
+        data={graph(
+          serviceSchema(service),
+          faqSchema(service.faq),
+          breadcrumbs([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+            { name: service.name, path: `/services/${service.slug}` },
+          ]),
+        )}
+      />
       <header className="relative">
         <div aria-hidden className="paper-grid pointer-events-none absolute inset-x-0 top-0 h-[36rem]" />
         <div className="shell relative grid gap-14 pb-20 pt-12 md:pb-24 md:pt-20 lg:grid-cols-12 lg:gap-10">

@@ -77,7 +77,7 @@ export function BottomNav() {
                 href={item.href}
                 aria-current={isActive(item.href) ? "page" : undefined}
                 className={`relative flex min-h-12 min-w-14 flex-col items-center justify-center gap-0.5 rounded-full px-3 text-[0.6875rem] transition-colors duration-200 md:min-w-0 md:flex-row md:gap-2 md:px-4 md:text-sm ${
-                  isActive(item.href) ? "font-medium text-fg" : "text-faint hover:text-fg"
+                  isActive(item.href) ? "font-medium text-fg" : "text-muted hover:text-fg"
                 }`}
               >
                 {item.icon}

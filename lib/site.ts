@@ -7,7 +7,7 @@ export const site = {
   titles: ["Software Engineer", "Full-Stack Developer", "Mobile Developer"],
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://edishan-portfolio.vercel.app",
   description:
-    "AI automation and CRM systems for growing businesses: capturing leads, qualifying prospects, following up, booking appointments and keeping your CRM in sync. Automation when you can, custom software when you have to.",
+    "Edishan Lee Tenorio builds GoHighLevel, n8n and AI automations that capture, qualify and book leads, plus custom software when platforms fall short.",
   email: "edishanleetenorio03@gmail.com",
   calendar: "https://calendar.app.google/tsPLERd6vJ4yJGgL9",
   phone: "+63 929 950 3384",

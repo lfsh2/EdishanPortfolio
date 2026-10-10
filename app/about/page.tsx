@@ -1,27 +1,40 @@
 import type { Metadata } from "next";
+
+import { pageMeta } from "@/lib/seo";
 import Image from "next/image";
 
 import portrait from "@/assets/people/headshot.jpg";
 import { ContactCTA } from "@/components/contact-cta";
+import { JsonLd } from "@/components/json-ld";
 import { Testimonials } from "@/components/testimonials";
 import { ProofStrip } from "@/components/home/proof-strip";
 import { ButtonLink } from "@/components/ui/button";
 import { Mark } from "@/components/ui/mark";
 import { SectionHeader } from "@/components/ui/section-header";
 import { education, experience, principles, skills } from "@/lib/content";
+import { breadcrumbs, graph, profilePageSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 import { revealDelay } from "@/lib/utils";
 
-export const metadata: Metadata = {
-  title: "About",
+export const metadata: Metadata = pageMeta({
+  title: "About: AI Automation & CRM Developer",
   description:
-    "Edishan Lee Tenorio: automation engineer and full-stack developer in the Philippines, building GoHighLevel and n8n systems and the custom software underneath them.",
-  alternates: { canonical: "/about" },
-};
+    "Edishan Lee Tenorio is an AI automation specialist and CRM developer in the Philippines building GoHighLevel and n8n systems and the software beneath them.",
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (
     <>
+      <JsonLd
+        data={graph(
+          profilePageSchema,
+          breadcrumbs([
+            { name: "Home", path: "/" },
+            { name: "About", path: "/about" },
+          ]),
+        )}
+      />
       <header className="shell grid items-center gap-14 pb-20 pt-14 md:pb-24 md:pt-24 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-7">
           <p className="label flex items-center gap-2.5 text-faint">

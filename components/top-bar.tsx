@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 export function TopBar() {
   return (
     <header className="shell flex items-center justify-between gap-4 pb-2 pt-5 md:hidden">
-      <Link href="/" className="group flex min-h-11 min-w-0 items-start gap-3" aria-label="Edishan Lee Tenorio, home">
+      <Link href="/" className="group flex min-h-11 min-w-0 items-start gap-3">
         <Image
           src={portrait}
           alt=""

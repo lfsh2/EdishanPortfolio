@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 
 import { ContactCTA } from "@/components/contact-cta";
+import { JsonLd } from "@/components/json-ld";
 import { StageFlow } from "@/components/stage-flow";
 import { ButtonLink } from "@/components/ui/button";
 import { AnnotatedShot } from "@/components/ui/annotated-shot";
@@ -12,6 +13,8 @@ import { LiveBadge } from "@/components/ui/live-badge";
 import { Mark } from "@/components/ui/mark";
 import { StackList } from "@/components/ui/stack-list";
 import { caseStudies, getCaseStudy } from "@/lib/projects";
+import { breadcrumbs, graph, projectSchema } from "@/lib/schema";
+import { pageMeta } from "@/lib/seo";
 import { revealDelay } from "@/lib/utils";
 
 type Params = { slug: string };
@@ -26,12 +29,13 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { slug } = await params;
   const project = getCaseStudy(slug);
   if (!project) return {};
-  return {
-    title: project.title,
-    description: project.summary,
-    alternates: { canonical: `/work/${project.slug}` },
-    openGraph: { title: project.title, description: project.summary, url: `/work/${project.slug}`, type: "article" },
-  };
+  return pageMeta({
+    title: project.seo?.title ?? project.shortTitle,
+    description: project.seo?.description ?? project.summary,
+    path: `/work/${project.slug}`,
+    type: "article",
+    image: `/work/${project.slug}/opengraph-image`,
+  });
 }
 
 const sections = [
@@ -55,6 +59,16 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
 
   return (
     <article>
+      <JsonLd
+        data={graph(
+          projectSchema(project),
+          breadcrumbs([
+            { name: "Home", path: "/" },
+            { name: "Work", path: "/work" },
+            { name: project.shortTitle, path: `/work/${project.slug}` },
+          ]),
+        )}
+      />
       <header className="relative">
         <div aria-hidden className="paper-grid pointer-events-none absolute inset-x-0 top-0 h-[32rem]" />
         <div className="shell relative grid gap-12 pb-14 pt-12 md:pb-20 md:pt-20 lg:grid-cols-12 lg:gap-10">
@@ -72,15 +86,13 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
                 </li>
               </ol>
             </nav>
-            <h1 className="mt-9">
-              <span className="label flex flex-wrap items-center gap-3 text-faint">
-                <span className="text-fg">
-                  {number} · {cs.kind}
-                </span>
-                <span aria-hidden className="h-px w-6 bg-line" />
-                {project.title}
-              </span>
-              <span className="mt-6 block text-headline text-fg">{cs.headline}</span>
+            <p className="label mt-9 text-fg">
+              {number} · {cs.kind}
+            </p>
+            {/* The H1 names the project for search; the headline carries the pitch. */}
+            <h1 className="mt-4">
+              <span className="block text-[0.95rem] font-medium tracking-[-0.01em] text-muted">{project.title}</span>
+              <span className="mt-4 block text-headline text-fg">{cs.headline}</span>
             </h1>
             <p className="mt-8 max-w-2xl text-lede text-muted">{project.summary}</p>
           </div>

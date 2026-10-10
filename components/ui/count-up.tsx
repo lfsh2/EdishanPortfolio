@@ -43,7 +43,8 @@ export function CountUp({ value, duration = 1100 }: { value: string; duration?: 
   }, [value]);
 
   return (
-    <span ref={ref} aria-label={value}>
+    <span ref={ref}>
+      <span className="sr-only">{value}</span>
       <span aria-hidden>{shown}</span>
     </span>
   );

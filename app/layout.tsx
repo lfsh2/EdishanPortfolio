@@ -3,9 +3,11 @@ import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 
 import { BottomNav } from "@/components/bottom-nav";
 import { Footer } from "@/components/footer";
+import { JsonLd } from "@/components/json-ld";
 import { Sidebar } from "@/components/sidebar";
 import { TopBar } from "@/components/top-bar";
 import { RevealObserver } from "@/components/ui/reveal-observer";
+import { graph, personSchema, websiteSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 import "./globals.css";
@@ -23,7 +25,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | AI Automation & CRM Systems`,
+    default: "Edishan Lee Tenorio: GoHighLevel & n8n Automation Developer",
     template: `%s | ${site.name}`,
   },
   description: site.description,
@@ -34,14 +36,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    title: `${site.name} | AI Automation & CRM Systems`,
+    title: "Edishan Lee Tenorio: GoHighLevel & n8n Automation Developer",
     description: site.description,
     url: "/",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} | AI Automation & CRM Systems`,
+    title: "Edishan Lee Tenorio: GoHighLevel & n8n Automation Developer",
     description: site.description,
   },
 };
@@ -51,25 +53,13 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: site.name,
-  jobTitle: site.role,
-  url: site.url,
-  email: `mailto:${site.email}`,
-  address: { "@type": "PostalAddress", addressLocality: "Naic, Cavite", addressCountry: "PH" },
-  sameAs: [site.socials.linkedin, site.socials.github],
-  knowsAbout: ["GoHighLevel", "n8n", "AI automation", "CRM", "Next.js", "TypeScript", "Laravel", "Java Spring Boot"],
-};
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${geist.variable} ${geistMono.variable} ${instrumentSerif.variable}`} suppressHydrationWarning>
       <head>
         {/* Opt into scroll-reveal styles only when JS is running, so content never hides without it. */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <JsonLd data={graph(personSchema, websiteSchema)} />
       </head>
       <body>
         <a
