@@ -7,7 +7,7 @@ import { revealDelay } from "@/lib/utils";
 import { workflows, type Workflow } from "@/lib/workflows";
 
 /** Numbered step-by-step flow with a connecting line. */
-function Flow({ steps }: { steps: string[] }) {
+export function Flow({ steps }: { steps: string[] }) {
   return (
     <ol>
       {steps.map((step, i) => (
@@ -28,7 +28,7 @@ function Flow({ steps }: { steps: string[] }) {
 }
 
 /** Real n8n canvas, opened full size in a new tab since node labels are small at card width. */
-function Canvas({ w, sizes }: { w: Workflow; sizes: string }) {
+export function Canvas({ w, sizes }: { w: Workflow; sizes: string }) {
   if (!w.image) return null;
   return (
     <a
@@ -95,7 +95,9 @@ function Highlight({ w, n }: { w: Workflow; n: number }) {
         </span>
       </div>
       <h3 id={`wf-${w.slug}`} className="mt-4 text-title text-fg">
-        {w.title}
+        <Link href={`/automations/${w.slug}`} className="transition-colors hover:text-muted">
+          {w.title}
+        </Link>
       </h3>
       <p className="mt-1.5 text-sm text-faint">For {w.forWho.charAt(0).toLowerCase() + w.forWho.slice(1)}</p>
       <p className="mt-4 text-[1rem] leading-relaxed text-muted">{w.pitch}</p>
@@ -109,6 +111,12 @@ function Highlight({ w, n }: { w: Workflow; n: number }) {
         <Flow steps={w.steps} />
       </div>
       <Meta w={w} />
+      <Link href={`/automations/${w.slug}`} className="group mt-auto inline-flex min-h-11 items-center gap-2 pt-5 text-[0.9375rem] text-fg">
+        See the full breakdown
+        <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">
+          →
+        </span>
+      </Link>
     </article>
   );
 }
@@ -120,7 +128,9 @@ function Standard({ w, n }: { w: Workflow; n: number }) {
         W0{n + 1} · {w.category}
       </p>
       <h3 id={`wf-${w.slug}`} className="mt-3 font-display text-[1.6rem] leading-[1.1] text-fg">
-        {w.title}
+        <Link href={`/automations/${w.slug}`} className="transition-colors hover:text-muted">
+          {w.title}
+        </Link>
       </h3>
       <p className="mt-1.5 text-sm text-faint">For {w.forWho.charAt(0).toLowerCase() + w.forWho.slice(1)}</p>
       <p className="mt-3 text-[0.95rem] leading-relaxed text-muted">{w.pitch}</p>
@@ -131,29 +141,42 @@ function Standard({ w, n }: { w: Workflow; n: number }) {
         </div>
       </div>
       <Meta w={w} />
+      <Link href={`/automations/${w.slug}`} className="group mt-auto inline-flex min-h-11 items-center gap-2 pt-5 text-[0.9375rem] text-fg">
+        See the full breakdown
+        <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">
+          →
+        </span>
+      </Link>
     </article>
   );
 }
 
 /** The automation workflow library: two featured builds, then the rest. */
-export function WorkflowLibrary({ id = "workflows" }: { id?: string }) {
+export function WorkflowLibrary({ id = "workflows", header = true }: { id?: string; header?: boolean }) {
   const featured = workflows.filter((w) => w.highlight);
   const rest = workflows.filter((w) => !w.highlight);
   const index = (w: Workflow) => workflows.indexOf(w);
 
   return (
-    <section id={id} aria-labelledby={`${id}-title`} className="shell scroll-mt-8 pb-20 md:pb-28">
-      <SectionHeader
-        label="Automation workflows"
-        id={`${id}-title`}
-        title={
-          <>
-            Workflows I build, <Mark>end to end.</Mark>
-          </>
-        }
-        intro="The automations agencies and local service businesses ask for most, from the first trigger to the result on the contact record."
-      />
-      <div className="mt-12 grid gap-4 lg:grid-cols-2">
+    <section
+      id={id}
+      aria-labelledby={header ? `${id}-title` : undefined}
+      aria-label={header ? undefined : "Automation workflows"}
+      className="shell scroll-mt-8 pb-20 md:pb-28"
+    >
+      {header ? (
+        <SectionHeader
+          label="Automation workflows"
+          id={`${id}-title`}
+          title={
+            <>
+              Workflows I build, <Mark>end to end.</Mark>
+            </>
+          }
+          intro="The automations agencies and local service businesses ask for most, from the first trigger to the result on the contact record."
+        />
+      ) : null}
+      <div className={`grid gap-4 lg:grid-cols-2 ${header ? "mt-12" : ""}`}>
         {featured.map((w) => (
           <Highlight key={w.slug} w={w} n={index(w)} />
         ))}

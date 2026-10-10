@@ -33,9 +33,9 @@ ${live.map((p) => `- [${p.title}](${p.liveUrl}): ${p.summary}`).join("\n")}
 
 ## Automation workflows
 
-Built in n8n and GoHighLevel. Details: ${abs("/services/ai-automation#workflows")}
+Built in n8n and GoHighLevel. Overview: ${abs("/automations")}
 
-${workflows.map((w) => `- ${w.title} (${w.tools.join(", ")}): ${w.pitch}`).join("\n")}
+${workflows.map((w) => `- [${w.title}](${abs(`/automations/${w.slug}`)}) (${w.tools.join(", ")}): ${w.pitch}`).join("\n")}
 
 ## Contact
 

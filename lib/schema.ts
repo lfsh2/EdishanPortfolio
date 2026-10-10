@@ -88,6 +88,27 @@ export function projectSchema(project: Project) {
   };
 }
 
+/** A workflow breakdown page: TechArticle, authored by the Person, illustrated by the real canvas. */
+export function workflowSchema(w: { slug: string; h1: string; definition: string; tools: string[]; image?: { src: { src: string } } }) {
+  return {
+    "@type": "TechArticle",
+    headline: w.h1,
+    description: w.definition,
+    url: abs(`/automations/${w.slug}`),
+    author: { "@id": personId },
+    ...(w.image ? { image: abs(w.image.src.src) } : {}),
+    keywords: w.tools.join(", "),
+    inLanguage: "en",
+  };
+}
+
+export function itemList(items: { name: string; path: string }[]) {
+  return {
+    "@type": "ItemList",
+    itemListElement: items.map((it, i) => ({ "@type": "ListItem", position: i + 1, name: it.name, url: abs(it.path) })),
+  };
+}
+
 export const profilePageSchema = {
   "@type": "ProfilePage",
   url: abs("/about"),

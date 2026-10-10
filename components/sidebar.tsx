@@ -36,6 +36,17 @@ const items = [
     ),
   },
   {
+    href: "/automations",
+    label: "Automations",
+    icon: icon(
+      <>
+        <circle cx="6" cy="6" r="2.5" />
+        <circle cx="18" cy="18" r="2.5" />
+        <path d="M8.5 6H14a3 3 0 0 1 3 3v6.5M15.5 18H10a3 3 0 0 1-3-3V8.5" />
+      </>,
+    ),
+  },
+  {
     href: "/services",
     label: "Services",
     icon: icon(
