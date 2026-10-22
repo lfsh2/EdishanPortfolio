@@ -3,8 +3,11 @@ import type { StaticImageData } from "next/image";
 import aiCanvasRouting from "@/assets/work/ai-lead-qualification/canvas-routing.png";
 import aiCanvasEnrichment from "@/assets/work/ai-lead-qualification/canvas-enrichment.png";
 import aiForm from "@/assets/work/ai-lead-qualification/automation1.png";
+import jacksonBuyerList from "@/assets/work/jackson/buyer-list.png";
 import jacksonCrm from "@/assets/work/jackson/crm-pipeline.png";
 import jacksonIntake from "@/assets/work/jackson/intake-form.png";
+import jacksonCalculator from "@/assets/work/jackson/offer-calculator.png";
+import jacksonServiceArea from "@/assets/work/jackson/service-area.png";
 import jacksonSite from "@/assets/work/jackson/site-hero.png";
 import teethlyCover from "@/assets/work/teethly/cover.jpg";
 import teethlyClinicHero from "@/assets/work/teethly/2-clinic-hero.png";
@@ -241,27 +244,27 @@ export const projects: Project[] = [
   },
   {
     slug: "jackson-properties",
-    title: "Jackson Properties: Seller Acquisition Site & Built-in CRM",
+    title: "Jackson Properties: Real Estate Platform & Built-in CRM",
     shortTitle: "Jackson Properties",
     seo: {
-      title: "Jackson Properties: Real Estate CRM",
+      title: "Jackson Properties: Real Estate Platform & CRM",
       description:
-        "Live real estate seller-acquisition site and built-in CRM in Next.js and Laravel: lead capture, nurture automation and a 7-stage deal pipeline.",
+        "Live real estate platform: a 3D seller site with an offer calculator, property-file intake, a buyer list and a built-in CRM with a 7-stage deal pipeline.",
     },
     client: "Jackson Investment Group",
     year: "2026",
     disciplines: ["full-stack", "automation"],
     live: true,
     summary:
-      "A direct-purchase real estate platform for the Austin metro: a public site that turns wary homeowners into structured seller leads, and a built-in CRM where the team nurtures every lead and tracks each deal from first contact to closing.",
-    stack: ["Next.js", "Laravel", "REST API", "Workflow automation", "Microsoft Clarity"],
+      "A direct-purchase real estate platform for a Cedar Park, Texas team: a seller site that shows the offer math up front and turns wary homeowners into structured leads, a homes page with a buyer list, and a built-in CRM where every lead is nurtured and tracked to closing.",
+    stack: ["Next.js", "Laravel", "Three.js", "REST API", "Workflow automation", "Microsoft Clarity"],
     liveUrl: "https://jacksonproperties.us/",
     pitch: {
       eyebrow: "Jackson Properties",
       headline: "From a homeowner's first click to a signed contract.",
-      sub: "Seller acquisition site + built-in CRM",
-      features: ["Lead capture", "Nurture automation", "7-stage deal pipeline", "Offers & contracts"],
-      stack: ["Next.js", "Laravel", "REST API"],
+      sub: "Seller site, buyer list + built-in CRM",
+      features: ["Offer calculator", "Property-file intake", "Buyer list", "7-stage deal pipeline"],
+      stack: ["Next.js", "Laravel", "Three.js"],
     },
     notes: [
       { x: 33.5, y: 14.5, label: "Pipeline health: totals, new this week, under contract, due today" },
@@ -274,37 +277,38 @@ export const projects: Project[] = [
       src: jacksonCrm,
       alt: "Jackson Properties CRM: pipeline summary cards, stage filters, and a kanban board with New, Contacted, Appointment set, Offer made, Under contract and Closed columns. Lead details are blurred for privacy.",
     },
-    result: "Lead capture, nurture and deal pipeline in one system",
+    result: "Seller acquisition, buyer list and deal pipeline in one system",
     caseStudy: {
       kind: "Full-stack product + automation",
       headline: "From a homeowner's first click to a signed contract, in one system.",
       metrics: [
         { value: "4 steps", label: "Seller intake, about 90 seconds" },
         { value: "7", label: "Pipeline stages, new lead to closed" },
-        { value: "1", label: "System for capture, nurture and closing" },
+        { value: "1", label: "System for sellers, buyers and the pipeline" },
       ],
       problem: [
         "A direct-purchase team wins deals on speed and trust. Sellers in a hurry don't wait, so every lead has to be answered fast, followed up consistently, and tracked until the house either closes or the lead goes cold.",
-        'Leads arrive from different places: homeowners who find the website, and property lists the team researches itself. Generic CRMs model sales pipelines, not property deals. And the "we buy houses" category has earned homeowners\' distrust, so the public site had to win a form submission from people who are wary by default.',
+        'The "we buy houses" category has earned homeowners\' distrust: lowball offers, black-box numbers, pressure to sign. The site had to win a property file from people who are wary by default, and the business needed a second side too, a way to line up buyers for the homes it renovates. Generic CRMs model sales pipelines, not property deals.',
       ],
       role: {
         title: "Full-stack engineer, public site, CRM and automation",
         scope: [
-          "Seller-facing site and multi-step intake form",
+          "Seller site with a 3D hero, offer calculator and service-area map",
+          "Multi-step property-file intake",
+          "Homes for sale page and buyer list",
           "Laravel backend and lead data model",
           "Internal CRM: pipeline, kanban and filters",
           "Lead nurture and follow-up automation",
-          "Deployment and production support",
         ],
       },
       architecture: {
         intro:
-          "A Next.js front end serves both sides: the public acquisition site and the authenticated CRM. One Laravel API owns the lead record, so a seller's form submission and a researched list entry become the same kind of deal.",
+          "The public site is built to load fast and earn trust: a Three.js hero, then small, focused pieces for the offer math, the map and the intake. Behind it, one Laravel API owns the lead record, so a seller's property file, a researched list entry and a buyer sign-up all land in the same system the team works from.",
         stages: [
           {
             label: "01 Attract",
             title: "Seller site",
-            nodes: ["Trust-first landing page", "Service areas and FAQs", "Behaviour analytics"],
+            nodes: ["3D house hero, local pitch", "Offer formula you can check", "Service-area map, foreclosure help"],
           },
           {
             label: "02 Capture",
@@ -317,13 +321,22 @@ export const projects: Project[] = [
             nodes: ["Lead ID + source tagging", "Follow-ups and due actions", "Priority by quality + contact"],
           },
           { label: "04 Close", title: "CRM pipeline", nodes: ["7-stage kanban", "Offers and contracts tracked", "Archive and CSV export"] },
+          { label: "05 Resell", title: "Homes + buyer list", nodes: ["Renovated homes page", "Buyer-list sign-up", "Buying method + wish list captured"] },
         ],
-        crossCutting: ["Next.js front end", "Laravel REST API", "Authenticated admin", "Form input hidden from analytics"],
+        crossCutting: ["Laravel REST API", "Authenticated CRM", "Three.js hero", "Form input hidden from analytics"],
       },
       implementation: [
         {
+          title: "Show the math, not a black box",
+          body: "The homepage puts the offer formula on screen: value after repairs, times the ratio, minus repairs. Sellers change the numbers and watch the cash offer move, then compare it with what fixing and listing would cost them in commission, closing costs, repairs and holding costs. It is labeled as an illustration, not an offer.",
+        },
+        {
           title: "A form that feels like opening a file",
           body: 'Instead of a generic contact form, sellers open a "property file": four short steps that start with just the street address. A seller-intake record fills in beside the form as they type, so they can see exactly what they\'re sharing.',
+        },
+        {
+          title: "Local, and able to prove it",
+          body: "An interactive service-area map is centered on Cedar Park: hover a town to see how far it is. County lists, the neighborhoods the team knows, a foreclosure and bankruptcy section, and a plain \"when you shouldn't sell to us\" section all answer the questions wary sellers actually have.",
         },
         {
           title: "One lead model, every source",
@@ -331,20 +344,16 @@ export const projects: Project[] = [
         },
         {
           title: "A pipeline built around how deals move",
-          body: "Seven stages from New to Closed or Dead, as a drag-and-drop kanban or a board view. Quick filters surface what's due today, what's mine and what's under contract, and search is one keystroke away.",
+          body: "Seven stages from New to Closed or Dead, as a drag-and-drop kanban or a board view. Quick filters surface what's due today, what's mine and what's under contract, and built-in automation tracks follow-ups and ranks leads by quality and contact signals.",
         },
         {
-          title: "Nurture that doesn't depend on memory",
-          body: "Built-in automation tracks follow-ups and due actions and ranks leads by quality and contact signals, so the next call is always the right one.",
-        },
-        {
-          title: "Privacy designed into the funnel",
-          body: "What sellers type into the property form is masked from session analytics, and the site tells them plainly that their details are never sold or shared with other buyers.",
+          title: "Both sides of the business",
+          body: "A homes-for-sale page lists renovated houses with what was fixed, and a buyer list captures each buyer's contact, how they're buying and what they're looking for, so the team can reach them before a home is listed.",
         },
       ],
       outcome: [
-        "Live at jacksonproperties.us, serving Travis, Williamson and Hays counties",
-        "Seller acquisition and deal management run in one system the team owns",
+        "Live at jacksonproperties.us, based in Cedar Park and serving Travis, Williamson and Hays counties",
+        "Seller acquisition, the buyer list and deal management run in one system the team owns",
         "Every lead visible in a single pipeline, from intake to closing",
         "Follow-ups and due actions surfaced automatically instead of tracked by hand",
       ],
@@ -356,13 +365,28 @@ export const projects: Project[] = [
         },
         {
           src: jacksonSite,
-          alt: "Jackson Properties homepage: 'Sell your Austin house as-is, on your timeline, with a number you can check.'",
-          caption: "Seller site: a trust-first pitch to wary homeowners.",
+          alt: "Jackson Properties homepage: 'Sell your house as-is, on your date, with a number you can check,' beside a 3D low-poly house, with 0% commission, $0 repairs and 10–14 days to close.",
+          caption: "Seller site: a Three.js house and a promise sellers can check.",
+        },
+        {
+          src: jacksonCalculator,
+          alt: "Offer calculator: value after repairs times 70% minus repairs equals a rough cash offer, beside a fix-and-list cost breakdown with sliders.",
+          caption: "The offer formula, live. The figures are the site's own illustration.",
+        },
+        {
+          src: jacksonServiceArea,
+          alt: "Service-area section: Cedar Park home base, same-week walkthrough areas, neighborhood chips and an interactive map of nearby towns.",
+          caption: "Interactive service-area map, centered on Cedar Park.",
         },
         {
           src: jacksonIntake,
-          alt: "Four-step 'Open a property file' form beside a live seller intake record.",
-          caption: "Property file intake: four steps, with a live record of what the seller is sharing.",
+          alt: "Four-step 'Open a property file' form beside a seller intake record filling in as the seller types.",
+          caption: "Property file intake: the record fills in as the seller types.",
+        },
+        {
+          src: jacksonBuyerList,
+          alt: "Buyer list form: name, buying with, email, phone and what the buyer is looking for.",
+          caption: "Buyer list: buyers hear about each home before it's listed.",
         },
       ],
     },
