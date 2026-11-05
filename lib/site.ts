@@ -15,6 +15,8 @@ export const site = {
   location: "Naic, Cavite, Philippines",
   timezone: "PHT (UTC+8), overlapping US mornings and AU/NZ business hours",
   resume: "/Tenorio_EdishanLee_Resume.pdf",
+  /** Microsoft Clarity project ID. */
+  clarityId: "z93hq2a1to",
   socials: {
     github: "https://github.com/lfsh2",
     linkedin: "https://www.linkedin.com/in/edishan-lee-tenorio-0b3225171/",
