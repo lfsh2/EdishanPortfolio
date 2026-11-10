@@ -15,7 +15,7 @@ const layers: { name: string; builds: string; tools: string; cover: Cover[] }[] 
   {
     name: "Workflow & AI",
     builds: "n8n pipelines, AI qualification and routing, AI receptionists",
-    tools: "n8n · OpenAI · Twilio · Make",
+    tools: "GoHighLevel · n8n · OpenAI · Twilio · Make",
     cover: ["automation"],
   },
   {

@@ -1,9 +1,9 @@
 import Image from "next/image";
 
 /** Official marks, self-hosted in /public/logos. "APIs" is a capability, not a brand, so it gets a neutral glyph. */
-const tools: { name: string; logo?: string }[] = [
+const tools: { name: string; logo?: string; featured?: boolean }[] = [
   // Automation & AI
-  { name: "GoHighLevel", logo: "/logos/gohighlevel.svg" },
+  { name: "GoHighLevel", logo: "/logos/gohighlevel.svg", featured: true },
   { name: "n8n", logo: "/logos/n8n.svg" },
   { name: "Zapier", logo: "/logos/zapier.svg" },
   { name: "OpenAI", logo: "/logos/openai.svg" },
@@ -66,7 +66,9 @@ export function ToolMarquee() {
           {[...half, ...half].map((t, i) => (
             <span
               key={i}
-              className="flex items-center gap-2.5 rounded-full border border-line bg-surface py-2 pl-2 pr-4 text-[0.9375rem] text-fg"
+              className={`flex items-center gap-2.5 rounded-full border py-2 pl-2 pr-4 text-[0.9375rem] ${
+                t.featured ? "border-lime bg-lime font-medium text-on-lime" : "border-line bg-surface text-fg"
+              }`}
             >
               <span className="grid size-8 place-items-center rounded-full bg-canvas ring-1 ring-line">
                 {t.logo ? (
@@ -76,6 +78,7 @@ export function ToolMarquee() {
                 )}
               </span>
               {t.name}
+              {t.featured ? <span className="label rounded-[4px] bg-on-lime/10 px-1.5 py-0.5 text-[0.6rem]">Core</span> : null}
             </span>
           ))}
         </div>
