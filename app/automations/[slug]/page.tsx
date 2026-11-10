@@ -96,6 +96,7 @@ export default async function WorkflowPage({ params }: { params: Promise<Params>
               { k: "For", v: w.forWho },
               { k: "Built in", v: w.category.split(" · ")[1] ?? w.category },
               { k: "Stages", v: `${w.stages.length} stages, ${w.stages.reduce((n, st) => n + st.nodes.length, 0)} nodes` },
+              { k: "Updated", v: <time dateTime={w.updated ?? w.published}>{formatDate(w.updated ?? w.published)}</time> },
             ].map((row) => (
               <div key={row.k} className="flex items-baseline justify-between gap-6 border-b border-line py-3.5">
                 <dt className="label shrink-0 text-faint">{row.k}</dt>
@@ -232,6 +233,10 @@ export default async function WorkflowPage({ params }: { params: Promise<Params>
       />
     </article>
   );
+}
+
+function formatDate(iso: string) {
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
 }
 
 function Block({ id, n, title, children }: { id: string; n: number; title: string; children: ReactNode }) {

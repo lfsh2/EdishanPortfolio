@@ -43,7 +43,13 @@ ${workflows.map((w) => `- [${w.title}](${abs(`/automations/${w.slug}`)}) (${w.to
 - Book a strategy call: ${site.calendar}
 - LinkedIn: ${site.socials.linkedin}
 - GitHub: ${site.socials.github}
+- Instagram: ${site.socials.instagram}
+- WhatsApp: https://wa.me/${site.phoneHref.replace(/\D/g, "")}
 - Résumé: ${abs(site.resume)}
+
+## Optional
+
+- [Full text of every service and workflow page](${abs("/llms-full.txt")})
 `;
   return new Response(body, { headers: { "content-type": "text/plain; charset=utf-8" } });
 }

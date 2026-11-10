@@ -107,6 +107,8 @@ export interface Project {
   notes?: Note[];
   /** Headline result for the Work index. */
   result?: string;
+  /** Last time this project's page content changed (YYYY-MM-DD). Feeds dateModified and the sitemap. */
+  updated?: string;
   /** Only featured projects get a dedicated route at /work/[slug]. */
   caseStudy?: CaseStudy;
   /** Where an archive entry links when it has no page of its own. */
@@ -116,6 +118,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: "ai-lead-qualification",
+    updated: "2026-10-11",
     title: "AI Lead Qualification & CRM Automation",
     shortTitle: "AI Lead Qualification",
     seo: {
@@ -244,6 +247,7 @@ export const projects: Project[] = [
   },
   {
     slug: "jackson-properties",
+    updated: "2026-10-22",
     title: "Jackson Properties: Real Estate Platform & Built-in CRM",
     shortTitle: "Jackson Properties",
     seo: {
@@ -393,6 +397,7 @@ export const projects: Project[] = [
   },
   {
     slug: "teethly",
+    updated: "2026-10-11",
     title: "Teethly: Dental Marketplace & Clinic Platform",
     shortTitle: "Teethly",
     seo: {
@@ -531,6 +536,7 @@ export const projects: Project[] = [
   },
   {
     slug: "meeplecrate",
+    updated: "2026-10-11",
     title: "MeepleCrate: Rental & Delivery Platform",
     shortTitle: "MeepleCrate",
     seo: {

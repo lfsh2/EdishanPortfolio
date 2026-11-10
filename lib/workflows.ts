@@ -24,6 +24,9 @@ export interface Workflow {
   tools: string[];
   outcome: string;
   measures?: string[];
+  /** Page first published, and last content change (YYYY-MM-DD). */
+  published: string;
+  updated?: string;
   /** The two flagship workflows shown large. */
   highlight?: boolean;
   /** Related live proof elsewhere in the portfolio. */
@@ -34,6 +37,7 @@ export interface Workflow {
 export const workflows: Workflow[] = [
   {
     slug: "ai-voice-receptionist",
+    published: "2026-10-11",
     title: "AI Voice Receptionist & Missed-Call Text-Back",
     category: "Voice AI · n8n + GoHighLevel",
     forWho: "Local service businesses: dental, med spa, HVAC",
@@ -57,6 +61,7 @@ export const workflows: Workflow[] = [
   },
   {
     slug: "speed-to-lead",
+    published: "2026-10-11",
     title: "Speed-to-Lead & No-Show Recovery",
     category: "Lead response · n8n + GoHighLevel",
     forWho: "Agencies and service businesses running lead ads",
@@ -82,6 +87,7 @@ export const workflows: Workflow[] = [
   },
   {
     slug: "inbox-triage",
+    published: "2026-10-11",
     title: "AI Inbox Triage & Auto-Draft Replies",
     category: "AI agents · n8n + OpenAI",
     forWho: "Support and operations teams",
@@ -103,6 +109,7 @@ export const workflows: Workflow[] = [
   },
   {
     slug: "client-onboarding",
+    published: "2026-10-11",
     title: "Client Onboarding Automation",
     category: "Operations · n8n + GoHighLevel",
     forWho: "Agencies onboarding new clients",
@@ -124,6 +131,7 @@ export const workflows: Workflow[] = [
   },
   {
     slug: "reporting-dashboard",
+    published: "2026-10-11",
     title: "Daily Ads + Pipeline KPI Report",
     category: "Reporting · n8n",
     forWho: "Agency owners",
@@ -146,6 +154,7 @@ export const workflows: Workflow[] = [
   },
   {
     slug: "review-generation",
+    published: "2026-10-11",
     title: "Review Generation & Reputation Protection",
     category: "Reputation · n8n + GoHighLevel",
     forWho: "Local service businesses",
@@ -167,6 +176,7 @@ export const workflows: Workflow[] = [
   },
   {
     slug: "plumbing-missed-call-triage",
+    published: "2026-11-10",
     title: "Plumbing Missed-Call Recovery & Triage",
     category: "Missed calls · GoHighLevel",
     forWho: "Plumbers and other emergency trades",

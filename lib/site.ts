@@ -20,6 +20,8 @@ export const site = {
   socials: {
     github: "https://github.com/lfsh2",
     linkedin: "https://www.linkedin.com/in/edishan-lee-tenorio-0b3225171/",
+    instagram: "https://www.instagram.com/dshnlee/",
+    linktree: "https://linktr.ee/dshlee",
   },
 } as const;
 

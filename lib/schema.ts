@@ -21,7 +21,7 @@ export const personSchema = {
   email: `mailto:${site.email}`,
   address: { "@type": "PostalAddress", addressLocality: "Naic, Cavite", addressCountry: "PH" },
   alumniOf: { "@type": "CollegeOrUniversity", name: "Cavite State University" },
-  sameAs: [site.socials.linkedin, site.socials.github],
+  sameAs: Object.values(site.socials),
   knowsAbout: [
     "GoHighLevel",
     "n8n",
@@ -63,6 +63,14 @@ export function serviceSchema(service: Service) {
     url: abs(`/services/${service.slug}`),
     provider: { "@id": personId },
     areaServed: "Worldwide",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: service.name,
+      itemListElement: service.offerings.map((o) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: o.title, description: o.body },
+      })),
+    },
   };
 }
 
@@ -83,19 +91,30 @@ export function projectSchema(project: Project) {
     image: abs(project.cover.src.src),
     creator: { "@id": personId },
     ...(project.year ? { dateCreated: project.year.slice(0, 4) } : {}),
+    ...(project.updated ? { dateModified: project.updated } : {}),
     ...(project.liveUrl ? { sameAs: project.liveUrl } : {}),
     keywords: project.stack.join(", "),
   };
 }
 
 /** A workflow breakdown page: TechArticle, authored by the Person, illustrated by the real canvas. */
-export function workflowSchema(w: { slug: string; h1: string; definition: string; tools: string[]; image?: { src: { src: string } } }) {
+export function workflowSchema(w: {
+  slug: string;
+  h1: string;
+  definition: string;
+  tools: string[];
+  published: string;
+  updated?: string;
+  image?: { src: { src: string } };
+}) {
   return {
     "@type": "TechArticle",
     headline: w.h1,
     description: w.definition,
     url: abs(`/automations/${w.slug}`),
     author: { "@id": personId },
+    datePublished: w.published,
+    dateModified: w.updated ?? w.published,
     ...(w.image ? { image: abs(w.image.src.src) } : {}),
     keywords: w.tools.join(", "),
     inLanguage: "en",
