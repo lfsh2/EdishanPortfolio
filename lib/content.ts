@@ -150,7 +150,7 @@ export const services: Service[] = [
     name: "Custom Software",
     headline: "Build the applications and integration layers that automation platforms cannot.",
     intro:
-      "Custom CRMs, SaaS products, dashboards and APIs, built in React and Next.js on the front and Node.js, Laravel or Java Spring Boot on the back. 17+ applications shipped to production, including revenue-generating platforms.",
+      "Custom CRMs, SaaS products, dashboards and APIs, built in React and Next.js on the front and Node.js, Laravel or Java Spring Boot on the back. 20+ applications shipped to production, including revenue-generating platforms.",
     highlights: [
       "Custom CRMs and SaaS applications",
       "React and Next.js web applications",
@@ -299,7 +299,7 @@ export const experience: Role[] = [
     points: [
       "Automated workflows in GoHighLevel, n8n, Make.com and Zapier for agencies and service businesses, cutting manual tasks by up to 60%",
       "Built AI lead qualification and CRM systems connecting 15+ platforms with retry logic, fallbacks and alerts",
-      "Engineered 17+ web applications in React/Next.js, Laravel and Java Spring Boot",
+      "Engineered 20+ web applications in React/Next.js, Laravel and Java Spring Boot",
       "Integrated Stripe, PayMongo, geolocation and admin dashboards; deployed on AWS, Vercel, Azure and VPS",
     ],
   },

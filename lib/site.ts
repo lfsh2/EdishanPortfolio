@@ -25,7 +25,7 @@ export const site = {
 
 /** Figures carried over from shipped client work. Project-specific numbers say which project. */
 export const proof = [
-  { value: "17+", label: "Production applications" },
+  { value: "20+", label: "Production applications" },
   { value: "200+", label: "Leads a week · AI Lead Engine" },
   { value: "<5 min", label: "Lead response · AI Lead Engine" },
   { value: "15+", label: "Platform integrations" },
