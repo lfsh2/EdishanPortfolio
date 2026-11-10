@@ -27,6 +27,8 @@ import meepleGameDetail from "@/assets/work/meeplecrate/v21.png";
 import vantrippersCover from "@/assets/work/vantrippers/cover.png";
 import cozyCover from "@/assets/work/cozy-crave/cover.png";
 import echoCover from "@/assets/work/echo/cover.png";
+import heygenPodcastCover from "@/assets/work/heygen-podcast/cover.png";
+import teamBotCover from "@/assets/work/ai-team-bot/cover.png";
 import inmCover from "@/assets/work/inm/cover.png";
 import gymCover from "@/assets/work/gym/cover.png";
 import jkkCover from "@/assets/work/jkk/cover.png";
@@ -325,7 +327,11 @@ export const projects: Project[] = [
             nodes: ["Lead ID + source tagging", "Follow-ups and due actions", "Priority by quality + contact"],
           },
           { label: "04 Close", title: "CRM pipeline", nodes: ["7-stage kanban", "Offers and contracts tracked", "Archive and CSV export"] },
-          { label: "05 Resell", title: "Homes + buyer list", nodes: ["Renovated homes page", "Buyer-list sign-up", "Buying method + wish list captured"] },
+          {
+            label: "05 Resell",
+            title: "Homes + buyer list",
+            nodes: ["Renovated homes page", "Buyer-list sign-up", "Buying method + wish list captured"],
+          },
         ],
         crossCutting: ["Laravel REST API", "Authenticated CRM", "Three.js hero", "Form input hidden from analytics"],
       },
@@ -340,7 +346,7 @@ export const projects: Project[] = [
         },
         {
           title: "Local, and able to prove it",
-          body: "An interactive service-area map is centered on Cedar Park: hover a town to see how far it is. County lists, the neighborhoods the team knows, a foreclosure and bankruptcy section, and a plain \"when you shouldn't sell to us\" section all answer the questions wary sellers actually have.",
+          body: 'An interactive service-area map is centered on Cedar Park: hover a town to see how far it is. County lists, the neighborhoods the team knows, a foreclosure and bankruptcy section, and a plain "when you shouldn\'t sell to us" section all answer the questions wary sellers actually have.',
         },
         {
           title: "One lead model, every source",
@@ -700,6 +706,38 @@ export const projects: Project[] = [
     cover: { src: aiCanvasEnrichment, alt: "n8n canvas of the lead enrichment and call-booking workflow." },
     result: "Qualified leads get a booking link without a human in the loop",
     href: "/work/ai-lead-qualification#screens",
+  },
+  {
+    slug: "ai-team-bot",
+    title: "AI Team Bot: A Multi-Agent Workforce on OpenClaw",
+    shortTitle: "AI Team Bot",
+    client: "Private client",
+    year: "",
+    disciplines: ["automation"],
+    summary:
+      "A team of AI agents for one client, set up on OpenClaw. Each agent has its own role, such as HR, AI Developer and QA, with its own instructions and tools, so the client runs a whole AI team instead of a single chatbot.",
+    stack: ["OpenClaw", "AI agents", "LLMs"],
+    cover: {
+      src: teamBotCover,
+      alt: "Diagram: the client sends work to an OpenClaw coordinator, which routes it to HR, AI Developer, QA and other role agents.",
+    },
+    result: "One client, a full AI team: HR, AI Developer, QA and more",
+  },
+  {
+    slug: "heygen-podcast-avatar",
+    title: "AI Podcast Host: Custom HeyGen Avatar",
+    shortTitle: "AI Podcast Avatar",
+    client: "SoftlinkIQ client",
+    year: "",
+    disciplines: ["automation"],
+    summary:
+      "A custom HeyGen AI avatar that hosts the client's podcast, created with the client's approval, so episodes are produced without the client recording on camera.",
+    stack: ["HeyGen", "AI avatar", "AI video"],
+    cover: {
+      src: heygenPodcastCover,
+      alt: "Diagram: an episode script goes to a custom HeyGen avatar, which presents it as a podcast episode ready to publish.",
+    },
+    result: "Podcast episodes without a camera session",
   },
   {
     slug: "vantrippers",

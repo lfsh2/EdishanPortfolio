@@ -13,6 +13,7 @@ const abs = (path: string) => new URL(path, site.url).toString();
  */
 export function GET() {
   const live = projects.filter((p) => !p.caseStudy && p.live && p.liveUrl);
+  const otherBuilds = projects.filter((p) => !p.caseStudy && !(p.live && p.liveUrl));
   const body = `# ${site.name}
 
 > ${site.role}. ${site.description}
@@ -30,6 +31,10 @@ ${caseStudies.map((p) => `- [${p.title}](${abs(`/work/${p.slug}`)}): ${p.summary
 ## Other live work
 
 ${live.map((p) => `- [${p.title}](${p.liveUrl}): ${p.summary}`).join("\n")}
+
+## Other builds (no public site)
+
+${otherBuilds.map((p) => `- ${p.title} (${p.stack.join(", ")}): ${p.summary}`).join("\n")}
 
 ## Automation workflows
 
