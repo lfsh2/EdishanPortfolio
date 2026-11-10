@@ -267,19 +267,23 @@ export interface Role {
   company: string;
   title: string;
   points?: string[];
+  /** Platforms and tools used in the role, shown as tags. */
+  tools?: string[];
 }
 
 export const experience: Role[] = [
   {
     period: "Nov 2025 – Aug 2026",
     company: "SoftlinkIQ",
-    title: "Automation Specialist & Developer",
+    title: "Developer, AI Automation Specialist & GoHighLevel Developer",
     points: [
-      "Developed multiple CRM systems and business applications from requirements through production",
-      "Designed and built APIs connecting CRM data with external services",
-      "Built end-to-end automations in GoHighLevel, n8n and Make.com for lead capture, follow-ups, notifications and data sync",
-      "Provided production support for deployed CRMs, apps and automations",
+      "Built GoHighLevel sub-accounts, pipelines and workflows, and connected GoHighLevel, n8n and Make.com so leads, follow-ups, notifications and data stayed in sync",
+      "Handled A2P 10DLC brand and campaign registration so client SMS was approved by carriers and actually delivered",
+      "Built a custom dashboard for sending batch SMS campaigns without getting flagged by carriers",
+      "Created a HeyGen AI avatar that hosts the client's podcast in place of recording it on camera, with the client's approval",
+      "Developed CRM systems, business applications and the APIs connecting CRM data with external services, and supported them in production",
     ],
+    tools: ["GoHighLevel", "n8n", "Make.com", "A2P 10DLC", "HeyGen", "Twilio", "REST APIs"],
   },
   {
     period: "Aug 2025 – Feb 2026",
@@ -291,6 +295,7 @@ export const experience: Role[] = [
       "Integrated multiple third-party APIs into a unified interface",
       "Owned releases, bug fixes and production maintenance",
     ],
+    tools: ["TypeScript", "React", "Tailwind CSS", "shadcn/ui", "React Native"],
   },
   {
     period: "2023 – Present",
@@ -302,6 +307,7 @@ export const experience: Role[] = [
       "Engineered 20+ web applications in React/Next.js, Laravel and Java Spring Boot",
       "Integrated Stripe, PayMongo, geolocation and admin dashboards; deployed on AWS, Vercel, Azure and VPS",
     ],
+    tools: ["GoHighLevel", "n8n", "Make.com", "Zapier", "OpenAI", "Next.js", "Laravel", "Spring Boot"],
   },
   {
     period: "Aug 2023 – Dec 2024",
@@ -311,6 +317,7 @@ export const experience: Role[] = [
       "Built reusable UI components with React, Context API and Redux across three product modules",
       "Implemented role-based authentication, dynamic routing and modular architecture",
     ],
+    tools: ["React", "Redux", "Context API"],
   },
 ];
 
@@ -360,7 +367,20 @@ export const faq = [
 ];
 
 export const skills = [
-  { group: "Automation", items: ["GoHighLevel", "n8n", "Make.com", "Zapier", "OpenAI / LLM workflows", "Twilio", "A2P 10DLC registration", "Webhooks"] },
+  {
+    group: "Automation",
+    items: [
+      "GoHighLevel",
+      "n8n",
+      "Make.com",
+      "Zapier",
+      "OpenAI / LLM workflows",
+      "Twilio",
+      "A2P 10DLC registration",
+      "HeyGen AI avatars",
+      "Webhooks",
+    ],
+  },
   { group: "Backend", items: ["Node.js", "Laravel", "Java Spring Boot", "PHP", "PostgreSQL", "MySQL", "REST APIs"] },
   { group: "Frontend", items: ["TypeScript", "React", "Next.js", "Tailwind CSS", "shadcn/ui", "Three.js"] },
   { group: "Infrastructure", items: ["AWS (EC2, RDS, S3, Lambda)", "Vercel", "Azure", "VPS / cPanel", "CI/CD"] },

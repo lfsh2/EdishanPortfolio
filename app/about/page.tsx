@@ -100,6 +100,15 @@ export default function AboutPage() {
               <div className="lg:col-span-4">
                 <h3 className="text-2xl tracking-[-0.03em] text-fg">{role.company}</h3>
                 <p className="mt-1 text-muted">{role.title}</p>
+                {role.tools ? (
+                  <ul className="mt-4 flex flex-wrap gap-1.5" aria-label={`Tools used at ${role.company}`}>
+                    {role.tools.map((t) => (
+                      <li key={t} className="rounded-full border border-line bg-surface px-2.5 py-1 font-mono text-[0.7rem] text-fg">
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
               </div>
               {role.points ? (
                 <ul className="space-y-3 lg:col-span-5">
