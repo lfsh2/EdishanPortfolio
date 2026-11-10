@@ -6,6 +6,7 @@ import w03 from "@/assets/work/workflows/w03-inbox-triage.png";
 import w04 from "@/assets/work/workflows/w04-client-onboarding.png";
 import w05 from "@/assets/work/workflows/w05-ads-reporting.png";
 import w06 from "@/assets/work/workflows/w06-review-generation.png";
+import w07 from "@/assets/work/workflows/w07-plumbing-missed-call.png";
 
 /**
  * Automation workflows Edishan builds. Each one renders as a flow diagram until a
@@ -162,6 +163,30 @@ export const workflows: Workflow[] = [
     image: {
       src: w06,
       alt: "n8n canvas: appointment-completed webhook, rating request SMS, reminder, customer reply parsing, and routing by rating to a review link, owner alerts or team follow-up.",
+    },
+  },
+  {
+    slug: "plumbing-missed-call-triage",
+    title: "Plumbing Missed-Call Recovery & Triage",
+    category: "Missed calls · GoHighLevel",
+    forWho: "Plumbers and other emergency trades",
+    pitch:
+      "A missed call gets a text back in seconds asking if it's an emergency. Urgent replies go straight to a person, routine ones get a booking link, and anyone who goes quiet becomes a callback task.",
+    steps: [
+      "Inbound call missed: busy, no-answer or voicemail",
+      "Stop rules: opted out or already booked?",
+      "Text-back asks: emergency or something to book?",
+      "Wait 20 min for a reply",
+      "Urgent → owner alerted, caller told a tech is calling",
+      "Routine → booking link + opportunity",
+      "No reply → nudge SMS + callback task",
+    ],
+    tools: ["GoHighLevel", "Workflows", "SMS", "Pipelines", "Custom values", "Snapshots", "A2P 10DLC"],
+    outcome: "Every missed call gets a reply and an owner: emergencies reach a person in minutes, and nobody drops out of the pipeline unanswered.",
+    measures: ["Missed calls answered", "Emergency response time"],
+    image: {
+      src: w07,
+      alt: "GoHighLevel workflow canvas: stop rules for opted-out and already-booked contacts, the missed-call text-back, a 20-minute wait for reply, then triage into urgent, routine and no-reply paths with tags, alerts, SMS, opportunities and a callback task.",
     },
   },
 ];

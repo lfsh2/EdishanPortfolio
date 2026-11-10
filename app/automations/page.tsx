@@ -11,7 +11,7 @@ import { workflowPages } from "@/lib/workflow-details";
 export const metadata: Metadata = pageMeta({
   title: "Automation Workflows: GoHighLevel & n8n",
   description:
-    "Six production n8n and GoHighLevel workflows: AI receptionist, speed-to-lead, AI inbox triage, client onboarding, KPI reporting and review generation.",
+    "n8n and GoHighLevel workflows: AI receptionist, speed-to-lead, inbox triage, onboarding, KPI reporting, reviews and missed-call triage for plumbers.",
   path: "/automations",
 });
 

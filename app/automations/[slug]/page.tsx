@@ -42,6 +42,7 @@ export default async function WorkflowPage({ params }: { params: Promise<Params>
   if (!w) notFound();
 
   const number = `W0${w.index + 1}`;
+  const platform = w.category.includes("n8n") ? "n8n" : "GoHighLevel";
   const next = workflowPages[(w.index + 1) % workflowPages.length];
 
   return (
@@ -108,7 +109,7 @@ export default async function WorkflowPage({ params }: { params: Promise<Params>
       <div className="shell">
         <figure>
           <Canvas w={w} sizes="(min-width: 1280px) 1216px, 100vw" />
-          <figcaption className="label mt-3 text-faint">The production n8n canvas · open full size to read every node</figcaption>
+          <figcaption className="label mt-3 text-faint">The {platform} workflow canvas · open full size to read every node</figcaption>
         </figure>
       </div>
 
@@ -125,7 +126,7 @@ export default async function WorkflowPage({ params }: { params: Promise<Params>
                 <div>
                   <h3 className="font-display text-2xl leading-tight text-fg">{st.title}</h3>
                   <p className="mt-2 leading-relaxed text-muted">{st.body}</p>
-                  <ul className="mt-4 flex flex-wrap gap-1.5" aria-label="n8n nodes in this stage">
+                  <ul className="mt-4 flex flex-wrap gap-1.5" aria-label={`${platform} steps in this stage`}>
                     {st.nodes.map((node) => (
                       <li key={node} className="rounded-md border border-line bg-canvas px-2 py-1 font-mono text-[0.7rem] text-faint">
                         {node}

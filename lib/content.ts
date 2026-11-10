@@ -89,6 +89,7 @@ export const services: Service[] = [
       "GoHighLevel set up properly, or a custom CRM when your process doesn't fit a template. Pipelines, stages and follow-ups designed around how your deals really move, with the integrations to keep every system in sync.",
     highlights: [
       "GoHighLevel sub-accounts, pipelines, calendars and snapshots",
+      "A2P 10DLC brand and campaign registration, so texts actually reach phones",
       "Custom CRMs when an off-the-shelf platform won't fit",
       "Pipeline and stage design around your real sales process",
       "Lead nurture, follow-up tasks and due-date automation",
@@ -359,7 +360,7 @@ export const faq = [
 ];
 
 export const skills = [
-  { group: "Automation", items: ["GoHighLevel", "n8n", "Make.com", "Zapier", "OpenAI / LLM workflows", "Twilio", "Webhooks"] },
+  { group: "Automation", items: ["GoHighLevel", "n8n", "Make.com", "Zapier", "OpenAI / LLM workflows", "Twilio", "A2P 10DLC registration", "Webhooks"] },
   { group: "Backend", items: ["Node.js", "Laravel", "Java Spring Boot", "PHP", "PostgreSQL", "MySQL", "REST APIs"] },
   { group: "Frontend", items: ["TypeScript", "React", "Next.js", "Tailwind CSS", "shadcn/ui", "Three.js"] },
   { group: "Infrastructure", items: ["AWS (EC2, RDS, S3, Lambda)", "Vercel", "Azure", "VPS / cPanel", "CI/CD"] },

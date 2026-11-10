@@ -376,6 +376,78 @@ const details: Record<string, WorkflowDetail> = {
       { label: "AI Voice Receptionist & Missed-Call Text-Back", href: "/automations/ai-voice-receptionist" },
     ],
   },
+  "plumbing-missed-call-triage": {
+    seoTitle: "Plumbing Missed-Call Text-Back (GHL)",
+    seoDescription:
+      "GoHighLevel missed-call text-back for plumbers: the caller says if it's an emergency, urgent jobs go to a person, routine jobs get a booking link.",
+    h1: "Plumbing Missed-Call Recovery & Emergency Triage in GoHighLevel",
+    definition:
+      "A missed-call recovery workflow texts every caller who wasn't answered within seconds. This GoHighLevel build also asks whether it's an emergency, sends urgent jobs to a person, sends routine jobs a booking link, and turns callers who go quiet into a callback task.",
+    problem:
+      "Plumbers miss calls while they're under a sink. A missed emergency call is a job lost to whoever picks up next, and a voicemail only helps if someone has time to listen to it.",
+    stages: [
+      {
+        title: "Catch every missed inbound call",
+        body: "A Call details trigger fires when an incoming call ends as busy, no-answer or voicemail. Carriers report unanswered calls in all three ways, so filtering on one would lose some of them. Limiting it to incoming calls stops abandoned outbound calls from texting customers.",
+        nodes: ["Call details trigger", "Status: busy / no-answer / voicemail", "Direction: Incoming"],
+      },
+      {
+        title: "Stop rules before anything is sent",
+        body: "An opted-out contact exits with nothing sent or logged. A contact with a booking already isn't sent a booking link: the contact owner gets an SMS that a booked customer rang, because they're almost always calling to move or ask about the job.",
+        nodes: ["If/Else: Stop rules", "optout-sms → END", "appointment-booked → Alert office"],
+      },
+      {
+        title: "Text back and let the caller triage",
+        body: "The first SMS apologises for the missed call and asks if it's an emergency (burst pipe, leak, no water) or something to book in. STOP language is in this first message. The workflow then waits 20 minutes for a reply.",
+        nodes: ["SMS 1: Missed call text back", "Wait for reply: 20 min"],
+      },
+      {
+        title: "Urgent: route to a person",
+        body: "If the reply contains burst, flood, leak, no water or emergency, the contact is tagged, the contact owner is texted the caller's details, the caller is told a technician is calling and to turn off the stop tap, and an opportunity is created at Contacted.",
+        nodes: ["Triage: urgent or routine?", "Tag urgent-plumbing", "Alert on-call tech", "SMS 2: We are calling you", "Opportunity: urgent callout"],
+      },
+      {
+        title: "Routine: book it in",
+        body: "Any other reply is tagged routine, gets the booking link from a custom value, and becomes an opportunity at New Lead.",
+        nodes: ["Tag routine-plumbing", "SMS 3: Booking link", "Opportunity: routine job"],
+      },
+      {
+        title: "No reply: nudge, then a person",
+        body: "After 20 minutes of silence the caller gets one nudge offering both options, and the contact owner gets a task to call them back the next day.",
+        nodes: ["SMS 4: No-reply nudge", "Task: manual callback"],
+      },
+    ],
+    safeguards: [
+      "Opted-out contacts exit before any action runs, on top of GoHighLevel's own DND",
+      "Customers with a booking are passed to a person instead of being sent a booking link",
+      "Keywords use Contains, so full sentences like \"the kitchen is flooding\" still match",
+      "Re-entry is on, but someone who rings three times in five minutes gets one text, not three",
+      "The booking link is a custom value, so each client changes one field instead of every message",
+      "Snapshot checklist covers pipelines, users, tags, custom values and A2P 10DLC approval before publishing",
+    ],
+    faq: [
+      {
+        q: "How does it tell an emergency from a routine job?",
+        a: "The first text asks the caller directly and gives examples: burst pipe, leak, no water. If the reply contains burst, flood, leak, no water or emergency, it goes down the urgent path. The short keyword list matches the words the text put in the caller's head and avoids false positives.",
+      },
+      {
+        q: "What if the caller already has a job booked?",
+        a: "They aren't sent a booking link. The contact owner gets an SMS saying a booked customer rang, so a person calls them back.",
+      },
+      {
+        q: "Can it be deployed to another GoHighLevel sub-account?",
+        a: "Yes, as a snapshot. It comes with a deployment checklist: re-pick the pipeline and stages, set the booking link custom value, add users and assignment rules, confirm the tags, and get a number with approved A2P 10DLC registration before switching from Draft to Published.",
+      },
+      {
+        q: "Why does A2P 10DLC registration matter here?",
+        a: "US carriers filter SMS from unregistered numbers instead of bouncing it. Without approved brand and campaign registration the workflow looks like it's running while the texts never arrive.",
+      },
+    ],
+    related: [
+      { label: "AI Voice Receptionist & Missed-Call Text-Back", href: "/automations/ai-voice-receptionist" },
+      { label: "CRM systems & GoHighLevel builds", href: "/services/crm-systems" },
+    ],
+  },
 };
 
 export type WorkflowPage = Workflow & WorkflowDetail & { index: number };

@@ -121,9 +121,14 @@ function Highlight({ w, n }: { w: Workflow; n: number }) {
   );
 }
 
-function Standard({ w, n }: { w: Workflow; n: number }) {
+function Standard({ w, n, wide = false }: { w: Workflow; n: number; wide?: boolean }) {
   return (
-    <article data-reveal style={revealDelay((n % 2) * 80)} aria-labelledby={`wf-${w.slug}`} className="card flex flex-col p-5 md:p-6">
+    <article
+      data-reveal
+      style={revealDelay((n % 2) * 80)}
+      aria-labelledby={`wf-${w.slug}`}
+      className={`card flex flex-col p-5 md:p-6 ${wide ? "md:col-span-2" : ""}`}
+    >
       <p className="label text-faint">
         W0{n + 1} · {w.category}
       </p>
@@ -134,8 +139,8 @@ function Standard({ w, n }: { w: Workflow; n: number }) {
       </h3>
       <p className="mt-1.5 text-sm text-faint">For {w.forWho.charAt(0).toLowerCase() + w.forWho.slice(1)}</p>
       <p className="mt-3 text-[0.95rem] leading-relaxed text-muted">{w.pitch}</p>
-      <div className="mt-5 space-y-4">
-        <Canvas w={w} sizes="(min-width: 1024px) 520px, 100vw" />
+      <div className={`mt-5 space-y-4 ${wide ? "md:grid md:grid-cols-[3fr_2fr] md:items-start md:gap-4 md:space-y-0" : ""}`}>
+        <Canvas w={w} sizes={wide ? "(min-width: 1024px) 680px, 100vw" : "(min-width: 1024px) 520px, 100vw"} />
         <div className="rounded-xl border border-line bg-canvas p-4">
           <Flow steps={w.steps} />
         </div>
@@ -182,8 +187,9 @@ export function WorkflowLibrary({ id = "workflows", header = true }: { id?: stri
         ))}
       </div>
       <div className="mt-4 grid gap-4 md:grid-cols-2">
-        {rest.map((w) => (
-          <Standard key={w.slug} w={w} n={index(w)} />
+        {rest.map((w, i) => (
+          // An odd last card spans both columns instead of sitting alone.
+          <Standard key={w.slug} w={w} n={index(w)} wide={rest.length % 2 === 1 && i === rest.length - 1} />
         ))}
       </div>
     </section>
