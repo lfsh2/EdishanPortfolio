@@ -8,6 +8,7 @@ import { JsonLd } from "@/components/json-ld";
 import { Sidebar } from "@/components/sidebar";
 import { TopBar } from "@/components/top-bar";
 import { RevealObserver } from "@/components/ui/reveal-observer";
+import { WhatsAppChat } from "@/components/whatsapp-chat";
 import { graph, personSchema, websiteSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
@@ -76,6 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
         </div>
         <BottomNav />
+        <WhatsAppChat />
         <RevealObserver />
         {/* Microsoft Clarity: session recordings and heatmaps. */}
         <Script id="microsoft-clarity" strategy="afterInteractive">
