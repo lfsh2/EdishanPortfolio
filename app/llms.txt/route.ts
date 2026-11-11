@@ -49,7 +49,7 @@ ${workflows.map((w) => `- [${w.title}](${abs(`/automations/${w.slug}`)}) (${w.to
 - LinkedIn: ${site.socials.linkedin}
 - GitHub: ${site.socials.github}
 - Instagram: ${site.socials.instagram}
-- WhatsApp: https://wa.me/${site.phoneHref.replace(/\D/g, "")}
+- WhatsApp: ${site.whatsapp}
 - Résumé: ${abs(site.resume)}
 
 ## Optional

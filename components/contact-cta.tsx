@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 
 import { ButtonLink } from "@/components/ui/button";
 import { Mark } from "@/components/ui/mark";
+import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
 import { site } from "@/lib/site";
 
 interface Props {
@@ -14,6 +15,10 @@ const brief = [
   { k: "Your tools", v: "The CRM, forms and apps already in play." },
   { k: "Done looks like", v: "The outcome you want, and roughly when." },
 ];
+
+const whatsappMessage =
+  "Hi Edishan, I found your portfolio. Here's my project brief:\n1. The workflow: \n2. My tools: \n3. Done looks like: ";
+const whatsappHref = `${site.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
 
 export function ContactCTA({
   title = (
@@ -35,8 +40,16 @@ export function ContactCTA({
             {title}
           </h2>
           <p className="mt-6 max-w-xl text-lede text-muted">{body}</p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
             <ButtonLink href={site.calendar}>Book a strategy call</ButtonLink>
+            <ButtonLink
+              href={whatsappHref}
+              variant="outline"
+              icon={<WhatsAppIcon className="size-5 text-[#25D366]" />}
+              aria-label="Message me on WhatsApp (opens WhatsApp)"
+            >
+              Message on WhatsApp
+            </ButtonLink>
             <ButtonLink href={`mailto:${site.email}`} variant="text">
               {site.email}
             </ButtonLink>
@@ -60,7 +73,17 @@ export function ContactCTA({
               </li>
             ))}
           </ol>
-          <p className="label mt-6 text-faint">{site.timezone}</p>
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 flex min-h-11 items-center gap-2.5 text-sm text-fg transition-colors hover:text-accent"
+          >
+            <WhatsAppIcon className="size-4 text-[#25D366]" />
+            <span className="underline decoration-line underline-offset-4">Send the brief on WhatsApp</span>
+            <span aria-hidden>↗</span>
+          </a>
+          <p className="label mt-4 text-faint">{site.timezone}</p>
         </aside>
       </div>
     </section>

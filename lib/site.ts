@@ -12,6 +12,8 @@ export const site = {
   calendar: "https://calendar.app.google/tsPLERd6vJ4yJGgL9",
   phone: "+63 929 950 3384",
   phoneHref: "tel:+639299503384",
+  /** WhatsApp chat link (wa.me needs digits only). */
+  whatsapp: "https://wa.me/639299503384",
   location: "Naic, Cavite, Philippines",
   timezone: "PHT (UTC+8), overlapping US mornings and AU/NZ business hours",
   resume: "/Tenorio_EdishanLee_Resume.pdf",
