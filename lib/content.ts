@@ -378,7 +378,7 @@ export const skills = [
       "Twilio",
       "A2P 10DLC registration",
       "HeyGen AI avatars",
-      "OpenClaw AI agents",
+      "OpenClaw & Paperclip AI agents",
       "RAG & knowledge bases",
       "Webhooks",
     ],
