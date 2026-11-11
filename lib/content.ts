@@ -378,10 +378,12 @@ export const skills = [
       "Twilio",
       "A2P 10DLC registration",
       "HeyGen AI avatars",
+      "OpenClaw AI agents",
+      "RAG & knowledge bases",
       "Webhooks",
     ],
   },
-  { group: "Backend", items: ["Node.js", "Laravel", "Java Spring Boot", "PHP", "PostgreSQL", "MySQL", "REST APIs"] },
+  { group: "Backend", items: ["Node.js", "Laravel", "Java Spring Boot", "PHP", "PostgreSQL", "MySQL", "REST APIs", "GraphQL"] },
   { group: "Frontend", items: ["TypeScript", "React", "Next.js", "Tailwind CSS", "shadcn/ui", "Three.js"] },
   { group: "Infrastructure", items: ["AWS (EC2, RDS, S3, Lambda)", "Vercel", "Azure", "VPS / cPanel", "CI/CD"] },
 ];

@@ -715,13 +715,13 @@ export const projects: Project[] = [
     year: "",
     disciplines: ["automation"],
     summary:
-      "A team of AI agents for one client, set up on OpenClaw. Each agent has its own role, such as HR, AI Developer and QA, with its own instructions and tools, so the client runs a whole AI team instead of a single chatbot.",
-    stack: ["OpenClaw", "AI agents", "LLMs"],
+      'A team of AI agents for one client, set up on OpenClaw. Each agent has its own role, such as HR, AI Developer and QA, with its own instructions and tools, so the client runs a whole AI team instead of a single chatbot. The agents share an Obsidian "brain": the client\'s knowledge base, which they query through GraphQL and RAG to pull the right context before they answer or act.',
+    stack: ["OpenClaw", "AI agents", "Obsidian", "GraphQL", "RAG", "LLMs"],
     cover: {
       src: teamBotCover,
-      alt: "Diagram: the client sends work to an OpenClaw coordinator, which routes it to HR, AI Developer, QA and other role agents.",
+      alt: "Diagram: the client sends work to an OpenClaw coordinator, which routes it to HR, AI Developer, QA and other role agents. All agents pull context from a shared Obsidian brain through GraphQL and RAG.",
     },
-    result: "One client, a full AI team: HR, AI Developer, QA and more",
+    result: "A full AI team with a shared Obsidian brain: HR, AI Developer, QA and more",
   },
   {
     slug: "heygen-podcast-avatar",
