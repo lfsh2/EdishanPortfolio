@@ -683,13 +683,13 @@ export const projects: Project[] = [
     disciplines: ["automation", "full-stack"],
     live: true,
     summary:
-      'A 24/7 AI receptionist service for small businesses. I built the voice agent on Vapi, which answers calls in a natural voice, books appointments and sends a summary after every call, plus the React marketing site with a live "Talk with AI" demo visitors can try from the browser.',
-    stack: ["Vapi", "Voice AI", "React", "Vite"],
+      'A 24/7 AI receptionist service for small businesses. I built the voice agent on Vapi, which answers calls in a natural voice, books appointments and sends a summary after every call. I also built the React marketing site, now redesigned with a recorded demo call visitors can play, a live "Talk with AI" agent they can speak to from the browser, pricing plans and Calendly demo booking.',
+    stack: ["Vapi", "Voice AI", "React", "Vite", "Calendly"],
     cover: {
       src: echoCover,
-      alt: "Echo Call Solutions homepage: 'Never miss a call ever again', with a 24/7 AI receptionist pitch and a Talk with AI button.",
+      alt: "Redesigned Echo Call Solutions homepage: 'Never miss a call. Ever again.' on a dark background, with a recorded demo call player and a Talk with AI button.",
     },
-    liveUrl: "http://www.echocallsolutions.com/",
+    liveUrl: "https://www.echocallsolutions.com/",
     result: "AI receptionist that answers, books and summarises calls 24/7",
   },
   {
