@@ -79,20 +79,22 @@ export function Footer() {
             Live systems
           </p>
           <ul className="mt-4">
-            {caseStudies.map((p) => (
-              <li key={p.slug}>
-                <Link href={`/work/${p.slug}`} className={`${linkClass} gap-3`}>
-                  <Image
-                    src={p.cover.src}
-                    alt=""
-                    width={36}
-                    height={24}
-                    className="h-6 w-9 rounded object-cover object-top-left ring-1 ring-line"
-                  />
-                  {p.shortTitle}
-                </Link>
-              </li>
-            ))}
+            {caseStudies
+              .filter((p) => p.live)
+              .map((p) => (
+                <li key={p.slug}>
+                  <Link href={`/work/${p.slug}`} className={`${linkClass} gap-3`}>
+                    <Image
+                      src={p.cover.src}
+                      alt=""
+                      width={36}
+                      height={24}
+                      className="h-6 w-9 rounded object-cover object-top-left ring-1 ring-line"
+                    />
+                    {p.shortTitle}
+                  </Link>
+                </li>
+              ))}
           </ul>
         </nav>
       </div>

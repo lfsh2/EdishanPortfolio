@@ -68,7 +68,12 @@ export interface CaseStudy {
   architecture: { intro: string; stages: Stage[]; crossCutting?: string[] };
   implementation: { title: string; body: string }[];
   outcome: string[];
+  /** Screenshots. Can be empty when there is nothing public to show. */
   gallery: Shot[];
+  /** "Build one like it": a step-by-step guide for readers. */
+  guide?: { intro: string; steps: { title: string; body: string }[] };
+  faq?: { q: string; a: string }[];
+  related?: { label: string; href: string }[];
 }
 
 /** A numbered callout on a screenshot; x/y are percentages of the image box. */
@@ -722,6 +727,125 @@ export const projects: Project[] = [
       alt: "Diagram: the client sends work to a Paperclip org of OpenClaw agents, which routes it to HR, AI Developer, QA and other role agents. All agents pull context from a shared Obsidian brain through GraphQL and RAG.",
     },
     result: "A full AI team with a shared Obsidian brain: HR, AI Developer, QA and more",
+    seo: {
+      title: "AI Team Bot: Multi-Agent AI with OpenClaw & Paperclip",
+      description:
+        "How I built a multi-agent AI team for a client: role agents on OpenClaw, organised in Paperclip, sharing an Obsidian brain queried through GraphQL and RAG.",
+    },
+    updated: "2026-11-13",
+    caseStudy: {
+      kind: "Multi-agent AI system",
+      headline: "Not one chatbot. A whole AI team with a shared brain.",
+      metrics: [
+        { value: "3+", label: "Role agents: HR, AI Developer, QA and more" },
+        { value: "1", label: "Shared Obsidian brain every agent reads from" },
+        { value: "2", label: "Ways to pull context: GraphQL and RAG" },
+      ],
+      problem: [
+        "One general-purpose chatbot tries to be everything at once and ends up good at nothing. Its instructions grow long, its answers drift, and it has no idea what the business already knows.",
+        "The client wanted AI that works like a team: separate roles with clear jobs, all drawing on the same company knowledge instead of starting from zero in every conversation.",
+      ],
+      role: {
+        title: "AI automation engineer, agent design, setup and knowledge base",
+        scope: [
+          "Mapping the client's roles to AI agents",
+          "Building the agents on OpenClaw",
+          "Staffing the agents into a Paperclip org",
+          "Building and filling the Obsidian knowledge vault",
+          "Connecting retrieval through GraphQL and RAG",
+          "Testing the agents and handing over",
+        ],
+      },
+      architecture: {
+        intro:
+          "Work comes in from the client, Paperclip routes it to the agent whose role fits, and every agent pulls what it needs from the same Obsidian brain before it answers or acts.",
+        stages: [
+          { label: "01 Request", title: "Client", nodes: ["Tasks & questions", "Sent to a team, not one bot"] },
+          { label: "02 Route", title: "Paperclip org", nodes: ["Agents organised by role", "Work goes to the agent that owns it"] },
+          { label: "03 Act", title: "OpenClaw agents", nodes: ["HR", "AI Developer", "QA", "+ more roles"] },
+          { label: "04 Know", title: "Obsidian brain", nodes: ["Client knowledge vault", "GraphQL lookups", "RAG search"] },
+        ],
+        crossCutting: ["Each agent has its own instructions and tools", "One shared source of truth for every role"],
+      },
+      implementation: [
+        {
+          title: "One agent per role",
+          body: "Each agent is built on OpenClaw with its own instructions and tools, scoped to a single job such as HR, AI Developer or QA. Narrow roles keep the instructions short and the answers on-topic.",
+        },
+        {
+          title: "Paperclip as the org chart",
+          body: "The agents are staffed into Paperclip, which runs them like a company. Every agent has a role and a place in the team, so work goes to whoever owns it instead of to one catch-all bot.",
+        },
+        {
+          title: "An Obsidian vault as the brain",
+          body: "I filled an Obsidian vault with the client's knowledge as linked notes. Because it is plain Markdown, the client can read and edit what the AI knows without touching code.",
+        },
+        {
+          title: "GraphQL and RAG for retrieval",
+          body: "Agents query the brain through GraphQL to pull specific notes, and through RAG to search it by meaning, so each one has the relevant context before it answers or acts.",
+        },
+      ],
+      outcome: [
+        "A working AI team for one client, with HR, AI Developer, QA and more roles",
+        "Every agent answers from the client's own knowledge instead of guessing",
+        "What the AI knows stays readable and editable as plain Obsidian notes",
+        "New roles can join the Paperclip org without rebuilding the others",
+      ],
+      guide: {
+        intro: "The same pattern works for any business that wants more than one chatbot. This is the order I follow.",
+        steps: [
+          {
+            title: "List the roles first",
+            body: "Write down the jobs you want covered, such as HR, development or QA, and what each one should and shouldn't do. That list becomes each agent's instructions.",
+          },
+          {
+            title: "Build one agent per role",
+            body: "Set up each agent in an agent framework such as OpenClaw, with its own instructions and only the tools that role needs.",
+          },
+          {
+            title: "Give the team a structure",
+            body: "Use an orchestration layer such as Paperclip to organise the agents into a team, so every task has an owner.",
+          },
+          {
+            title: "Write the knowledge down",
+            body: "Put the business's processes, policies and FAQs into an Obsidian vault as short, linked notes. Clean notes matter more than clever prompts.",
+          },
+          {
+            title: "Connect retrieval",
+            body: "Let agents pull exact notes through an API such as GraphQL, and search by meaning with RAG, so answers come from your knowledge rather than the model's guesses.",
+          },
+          {
+            title: "Test with real tasks",
+            body: "Run each agent against real requests from the business, fix the notes and instructions where it goes wrong, then roll it out one role at a time.",
+          },
+        ],
+      },
+      faq: [
+        {
+          q: "What is a multi-agent AI team?",
+          a: "A set of AI agents where each one has a single role, such as HR, AI Developer or QA, with its own instructions and tools. A coordinating layer routes each task to the right agent, instead of one chatbot trying to do everything.",
+        },
+        {
+          q: "Why use Obsidian as the knowledge base?",
+          a: "Obsidian stores knowledge as plain Markdown notes that link to each other. That makes it easy for the client to read and update what the AI knows, and easy for the agents to retrieve.",
+        },
+        {
+          q: "What do GraphQL and RAG do here?",
+          a: "GraphQL lets an agent request exactly the notes or fields it needs. RAG (retrieval-augmented generation) searches the knowledge by meaning and passes the most relevant passages to the model, so its answer is grounded in the client's own information.",
+        },
+        {
+          q: "Can you build an AI team like this for my business?",
+          a: "Yes. I start by mapping the roles you need and the knowledge they should share, then build and test the agents one role at a time. Book a call or message me on WhatsApp to talk it through.",
+        },
+      ],
+      related: [
+        { label: "AI automation services", href: "/services/ai-automation" },
+        { label: "AI Podcast Avatar: another AI build", href: "/work/heygen-podcast-avatar" },
+        { label: "AI Lead Qualification Engine", href: "/work/ai-lead-qualification" },
+        { label: "Automation workflow breakdowns", href: "/automations" },
+      ],
+      gallery: [],
+    },
   },
   {
     slug: "heygen-podcast-avatar",
@@ -738,6 +862,116 @@ export const projects: Project[] = [
       alt: "Diagram: an episode script goes to a custom HeyGen avatar, which presents it as a podcast episode ready to publish.",
     },
     result: "Podcast episodes without a camera session",
+    seo: {
+      title: "AI Podcast Host: Custom HeyGen Avatar Case Study",
+      description:
+        "How I set up a custom HeyGen AI avatar to host a client's podcast, with the client's approval: script in, finished episode out, no camera session.",
+    },
+    updated: "2026-11-13",
+    caseStudy: {
+      kind: "AI video production",
+      headline: "A podcast that keeps publishing, without anyone in front of a camera.",
+      metrics: [
+        { value: "0", label: "Camera sessions needed per episode" },
+        { value: "1", label: "Custom HeyGen avatar hosting the show" },
+      ],
+      problem: [
+        "A video podcast needs the host on camera for every episode: setting up, recording, re-takes and editing. For a busy client, that time is usually why episodes stop coming out.",
+        "The client wanted to keep the show going without booking recording time for each episode.",
+      ],
+      role: {
+        title: "AI automation specialist, avatar setup and episode production",
+        scope: [
+          "Getting the client's approval for an AI host",
+          "Creating the custom avatar in HeyGen",
+          "Preparing episode scripts",
+          "Generating episodes with the avatar",
+          "Getting episodes ready to publish",
+        ],
+      },
+      architecture: {
+        intro:
+          "Each episode starts as a script, the custom avatar presents it in HeyGen, and the finished video goes out as a podcast episode.",
+        stages: [
+          { label: "01 Approve", title: "Client approval", nodes: ["Sign-off on an AI host", "Before anything is built"] },
+          { label: "02 Write", title: "Episode script", nodes: ["Topic & talking points", "Written to be spoken"] },
+          { label: "03 Present", title: "HeyGen avatar", nodes: ["Custom AI presenter", "Script rendered to video"] },
+          { label: "04 Publish", title: "Podcast episode", nodes: ["Video, ready to publish", "No camera session"] },
+        ],
+      },
+      implementation: [
+        {
+          title: "Approval before anything else",
+          body: "An avatar that hosts a show speaks for the client, so the project started with their approval to use one. Nothing about the avatar went ahead without it.",
+        },
+        {
+          title: "A custom avatar, not a stock one",
+          body: "The host is a custom avatar created in HeyGen for this podcast, so the show has the same presenter from episode to episode.",
+        },
+        {
+          title: "Scripts written to be spoken",
+          body: "Episodes start as scripts. Writing for the ear, with short sentences and clear transitions, is what makes an AI presenter sound natural instead of read aloud.",
+        },
+        {
+          title: "Script in, episode out",
+          body: "HeyGen renders the script with the avatar, and the result is a finished episode: no studio, no camera and no re-takes.",
+        },
+      ],
+      outcome: [
+        "The client's podcast is hosted by a custom AI avatar",
+        "New episodes no longer depend on a camera session",
+        "Built with the client's approval from the start",
+      ],
+      guide: {
+        intro: "You can run a show the same way. This is the process, step by step.",
+        steps: [
+          {
+            title: "Get consent first",
+            body: "Only create an avatar of a real person with their clear permission. HeyGen also asks for the person's consent when you build a custom avatar from their footage.",
+          },
+          {
+            title: "Create the avatar",
+            body: "Build a custom avatar in HeyGen. If it is based on a real presenter, record clean footage with good light and steady framing for the most natural result.",
+          },
+          {
+            title: "Write for the ear",
+            body: "Script each episode as spoken language: short sentences, one idea at a time and natural transitions.",
+          },
+          {
+            title: "Generate and review",
+            body: "Generate the video in HeyGen and watch it all the way through. Fix pronunciation or pacing in the script and regenerate where needed.",
+          },
+          {
+            title: "Publish",
+            body: "Export the episode and publish it where your audience watches or listens, such as YouTube or your podcast host.",
+          },
+        ],
+      },
+      faq: [
+        {
+          q: "What is a HeyGen AI avatar?",
+          a: "HeyGen is an AI video platform that creates talking avatars. You give it a script, and the avatar presents it on video with a matching voice and lip movement.",
+        },
+        {
+          q: "Is it okay to use an AI avatar for a podcast?",
+          a: "Yes, when the person it represents has agreed and the audience isn't misled. This avatar was created with the client's approval.",
+        },
+        {
+          q: "Do you still need to record anything?",
+          a: "Not for each episode. Once the avatar exists, new episodes are made from a script, without a camera session.",
+        },
+        {
+          q: "Can you set this up for my show?",
+          a: "Yes. I can set up the avatar, the script format and the production steps for your show. Book a call or message me on WhatsApp to talk it through.",
+        },
+      ],
+      related: [
+        { label: "SoftlinkIQ, where I built this", href: "/about" },
+        { label: "AI automation services", href: "/services/ai-automation" },
+        { label: "AI Team Bot: another AI build", href: "/work/ai-team-bot" },
+      ],
+      gallery: [],
+    },
   },
   {
     slug: "vantrippers",

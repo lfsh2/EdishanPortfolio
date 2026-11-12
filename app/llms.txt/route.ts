@@ -24,9 +24,9 @@ ${site.name} is an independent engineer based in ${site.location}, working remot
 
 ${services.map((s) => `- [${s.name}](${abs(`/services/${s.slug}`)}): ${s.headline}`).join("\n")}
 
-## Featured projects (live in production)
+## Case studies
 
-${caseStudies.map((p) => `- [${p.title}](${abs(`/work/${p.slug}`)}): ${p.summary}`).join("\n")}
+${caseStudies.map((p) => `- [${p.title}](${abs(`/work/${p.slug}`)})${p.live ? " (live)" : ""}: ${p.summary}`).join("\n")}
 
 ## Other live work
 

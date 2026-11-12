@@ -37,7 +37,7 @@ ${faq(s.faq)}`,
       return `## ${p.title}
 
 URL: ${abs(`/work/${p.slug}`)}${p.liveUrl ? `\nLive site: ${p.liveUrl}` : ""}
-Client: ${p.client}${p.year ? ` · ${p.year}` : ""}
+Client: ${p.client}${p.year ? ` · ${p.year}` : ""} · Status: ${p.live ? "live in production" : "delivered"}
 Stack: ${p.stack.join(", ")}
 
 ${p.summary}
@@ -46,9 +46,13 @@ ${cs.metrics.length ? `\nResults:\n${cs.metrics.map((m) => `- ${m.value} ${m.lab
 
 ${cs.problem.join("\n\n")}
 
+### How it's built
+
+${cs.implementation.map((i) => `**${i.title}.** ${i.body}`).join("\n\n")}
+
 ### Outcome
 
-${cs.outcome.join("\n\n")}`;
+${cs.outcome.join("\n\n")}${cs.guide ? `\n\n### Build one like it\n\n${cs.guide.intro}\n\n${cs.guide.steps.map((st, i) => `${i + 1}. **${st.title}.** ${st.body}`).join("\n")}` : ""}${cs.faq ? `\n\n### Questions\n\n${faq(cs.faq)}` : ""}`;
     })
     .join("\n\n---\n\n");
 
@@ -93,7 +97,7 @@ Contact: ${site.email} · Book a call: ${site.calendar} · Overview: ${abs("/llm
 
 ${servicesText}
 
-# Featured projects (live in production)
+# Case studies
 
 ${projectsText}
 

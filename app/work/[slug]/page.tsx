@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 
 import { ContactCTA } from "@/components/contact-cta";
+import { Faq } from "@/components/faq";
 import { JsonLd } from "@/components/json-ld";
 import { StageFlow } from "@/components/stage-flow";
 import { ButtonLink } from "@/components/ui/button";
@@ -13,7 +14,7 @@ import { LiveBadge } from "@/components/ui/live-badge";
 import { Mark } from "@/components/ui/mark";
 import { StackList } from "@/components/ui/stack-list";
 import { caseStudies, getCaseStudy } from "@/lib/projects";
-import { breadcrumbs, graph, projectSchema } from "@/lib/schema";
+import { breadcrumbs, faqSchema, graph, projectSchema } from "@/lib/schema";
 import { pageMeta } from "@/lib/seo";
 import { revealDelay } from "@/lib/utils";
 
@@ -38,15 +39,6 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   });
 }
 
-const sections = [
-  { id: "problem", label: "Problem" },
-  { id: "role", label: "My role" },
-  { id: "architecture", label: "System architecture" },
-  { id: "implementation", label: "Implementation" },
-  { id: "outcome", label: "Outcome" },
-  { id: "screens", label: "Screens" },
-];
-
 export default async function CaseStudyPage({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
   const project = getCaseStudy(slug);
@@ -56,12 +48,25 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
   const index = caseStudies.indexOf(project);
   const next = caseStudies[(index + 1) % caseStudies.length];
   const number = String(index + 1).padStart(2, "0");
+  const screens = cs.gallery.filter((shot) => shot.src !== project.cover.src);
+  const sections = [
+    { id: "problem", label: "Problem" },
+    { id: "role", label: "My role" },
+    { id: "architecture", label: "System architecture" },
+    { id: "implementation", label: "How it's built" },
+    { id: "outcome", label: "Outcome" },
+    ...(cs.guide ? [{ id: "build", label: "Build one like it" }] : []),
+    ...(screens.length ? [{ id: "screens", label: "Screens" }] : []),
+    ...(cs.related?.length ? [{ id: "related", label: "Related" }] : []),
+  ];
+  const n = (id: string) => sections.findIndex((s) => s.id === id) + 1;
 
   return (
     <article>
       <JsonLd
         data={graph(
           projectSchema(project),
+          ...(cs.faq ? [faqSchema(cs.faq)] : []),
           breadcrumbs([
             { name: "Home", path: "/" },
             { name: "Work", path: "/work" },
@@ -117,12 +122,14 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
                   cs.role.title.split(", ")[0]
                 ),
               },
-            ].map((row) => (
-              <div key={row.k} className="flex items-center justify-between gap-4 border-b border-line py-3.5">
-                <dt className="label text-faint">{row.k}</dt>
-                <dd className="text-right text-sm text-fg">{row.v}</dd>
-              </div>
-            ))}
+            ]
+              .filter((row) => row.v)
+              .map((row) => (
+                <div key={row.k} className="flex items-center justify-between gap-4 border-b border-line py-3.5">
+                  <dt className="label text-faint">{row.k}</dt>
+                  <dd className="text-right text-sm text-fg">{row.v}</dd>
+                </div>
+              ))}
           </dl>
         </div>
       </header>
@@ -138,23 +145,25 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
         />
       </div>
 
-      <section aria-label="Key results" className="shell mt-16 md:mt-24">
-        <dl className="grid border-t border-fg/80 sm:grid-cols-3">
-          {cs.metrics.map((m, i) => (
-            <div
-              key={m.label}
-              data-reveal
-              style={revealDelay(i * 80)}
-              className="flex flex-col-reverse justify-end gap-3 border-b border-line py-8 sm:pr-6"
-            >
-              <dt className="text-sm text-muted">{m.label}</dt>
-              <dd className="text-[clamp(2.25rem,1.6rem+2.6vw,3.75rem)] leading-none tracking-[-0.045em] text-fg tabular-nums">
-                {m.value}
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </section>
+      {cs.metrics.length ? (
+        <section aria-label="Key results" className="shell mt-16 md:mt-24">
+          <dl className="grid border-t border-fg/80 sm:grid-cols-3">
+            {cs.metrics.map((m, i) => (
+              <div
+                key={m.label}
+                data-reveal
+                style={revealDelay(i * 80)}
+                className="flex flex-col-reverse justify-end gap-3 border-b border-line py-8 sm:pr-6"
+              >
+                <dt className="text-sm text-muted">{m.label}</dt>
+                <dd className="text-[clamp(2.25rem,1.6rem+2.6vw,3.75rem)] leading-none tracking-[-0.045em] text-fg tabular-nums">
+                  {m.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      ) : null}
 
       <div className="shell grid gap-16 py-24 md:py-32 lg:grid-cols-12 lg:gap-12">
         <aside className="hidden lg:col-span-3 lg:block">
@@ -177,7 +186,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
         </aside>
 
         <div className="space-y-24 md:space-y-32 lg:col-span-9">
-          <Block id="problem" n={1} title="Problem">
+          <Block id="problem" n={n("problem")} title="Problem">
             <div className="space-y-5 text-lede text-muted">
               {cs.problem.map((p) => (
                 <p key={p.slice(0, 24)}>{p}</p>
@@ -185,7 +194,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
             </div>
           </Block>
 
-          <Block id="role" n={2} title="My role">
+          <Block id="role" n={n("role")} title="My role">
             <p className="text-title text-fg">{cs.role.title}</p>
             <ul className="mt-8 grid gap-x-8 sm:grid-cols-2">
               {cs.role.scope.map((item) => (
@@ -197,14 +206,14 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
             </ul>
           </Block>
 
-          <Block id="architecture" n={3} title="System architecture">
+          <Block id="architecture" n={n("architecture")} title="System architecture">
             <p className="max-w-2xl text-lede text-muted">{cs.architecture.intro}</p>
             <div className="mt-10" data-reveal>
               <StageFlow stages={cs.architecture.stages} crossCutting={cs.architecture.crossCutting} />
             </div>
           </Block>
 
-          <Block id="implementation" n={4} title="Implementation">
+          <Block id="implementation" n={n("implementation")} title="How it's built">
             <ol className="grid gap-x-10 gap-y-12 md:grid-cols-2">
               {cs.implementation.map((item, i) => (
                 <li key={item.title} data-reveal style={revealDelay((i % 2) * 80)} className="border-t border-line pt-6">
@@ -218,7 +227,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
             </ol>
           </Block>
 
-          <Block id="outcome" n={5} title="Outcome">
+          <Block id="outcome" n={n("outcome")} title="Outcome">
             <ul className="border-t border-fg/80">
               {cs.outcome.map((o) => (
                 <li key={o} className="flex gap-4 border-b border-line py-4 text-[1.0625rem] leading-snug tracking-[-0.01em] text-fg">
@@ -244,11 +253,27 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
             ) : null}
           </Block>
 
-          <Block id="screens" n={6} title="Screens">
-            <div className="grid gap-12 md:grid-cols-2 md:gap-x-8">
-              {cs.gallery
-                .filter((shot) => shot.src !== project.cover.src)
-                .map((shot, i) => (
+          {cs.guide ? (
+            <Block id="build" n={n("build")} title="Build one like it">
+              <p className="max-w-2xl text-lede text-muted">{cs.guide.intro}</p>
+              <ol className="mt-10 border-t border-fg/80">
+                {cs.guide.steps.map((step, i) => (
+                  <li key={step.title} className="grid gap-2 border-b border-line py-6 sm:grid-cols-[4rem_1fr]">
+                    <span className="label text-accent">Step {i + 1}</span>
+                    <span>
+                      <span className="block text-lg tracking-[-0.015em] text-fg">{step.title}</span>
+                      <span className="mt-2 block leading-relaxed text-muted">{step.body}</span>
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </Block>
+          ) : null}
+
+          {screens.length ? (
+            <Block id="screens" n={n("screens")} title="Screens">
+              <div className="grid gap-12 md:grid-cols-2 md:gap-x-8">
+                {screens.map((shot, i) => (
                   <Figure
                     key={shot.caption ?? i}
                     src={shot.src}
@@ -259,10 +284,33 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
                     className={i === 0 ? "md:col-span-2" : ""}
                   />
                 ))}
-            </div>
-          </Block>
+              </div>
+            </Block>
+          ) : null}
+
+          {cs.related?.length ? (
+            <Block id="related" n={n("related")} title="Related">
+              <ul className="border-t border-fg/80">
+                {cs.related.map((r) => (
+                  <li key={r.href}>
+                    <Link
+                      href={r.href}
+                      className="group flex min-h-14 items-center justify-between gap-4 border-b border-line py-4 text-fg transition-colors hover:text-muted"
+                    >
+                      {r.label}
+                      <span aria-hidden className="text-faint transition-transform duration-300 group-hover:translate-x-1">
+                        →
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </Block>
+          ) : null}
         </div>
       </div>
+
+      {cs.faq ? <Faq items={cs.faq} title={`Questions about the ${project.shortTitle}.`} /> : null}
 
       <nav aria-label="Next project" className="shell pb-24 md:pb-32">
         <Link
