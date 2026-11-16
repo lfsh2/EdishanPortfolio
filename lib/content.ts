@@ -312,10 +312,12 @@ export const experience: Role[] = [
   {
     period: "Aug 2023 – Dec 2024",
     company: "Private client",
-    title: "React Developer (part-time)",
+    title: "Lead Developer (Frontend & Backend)",
     points: [
+      "Led development of the application end to end, owning both the frontend and the backend",
+      "Built the backend services and APIs behind the app, and connected them to the frontend",
       "Built reusable UI components with React, Context API and Redux across three product modules",
-      "Implemented role-based authentication, dynamic routing and modular architecture",
+      "Implemented role-based authentication, dynamic routing and a modular architecture",
     ],
     tools: ["React", "Redux", "Context API"],
   },
