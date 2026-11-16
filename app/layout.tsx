@@ -33,7 +33,17 @@ export const metadata: Metadata = {
   description: site.description,
   applicationName: site.name,
   authors: [{ name: site.name, url: site.url }],
-  keywords: ["AI automation", "GoHighLevel", "n8n", "CRM automation", "full-stack developer", "Next.js", "Laravel", "Philippines"],
+  keywords: [
+    "AI engineer",
+    "AI automation",
+    "GoHighLevel",
+    "n8n",
+    "CRM automation",
+    "full-stack developer",
+    "Next.js",
+    "Laravel",
+    "Philippines",
+  ],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",

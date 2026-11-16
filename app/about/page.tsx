@@ -17,9 +17,9 @@ import { site } from "@/lib/site";
 import { revealDelay } from "@/lib/utils";
 
 export const metadata: Metadata = pageMeta({
-  title: "About: AI Automation & CRM Developer",
+  title: "About: AI Engineer & Automation Developer",
   description:
-    "Edishan Lee Tenorio is an AI automation specialist and CRM developer in the Philippines building GoHighLevel and n8n systems and the software beneath them.",
+    "Edishan Lee Tenorio is an AI engineer, AI automation specialist and CRM developer in the Philippines building AI agents, GoHighLevel and n8n systems and the software beneath them.",
   path: "/about",
 });
 

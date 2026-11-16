@@ -300,14 +300,15 @@ export const experience: Role[] = [
   {
     period: "2023 – Present",
     company: "Independent client work",
-    title: "Automation Engineer & Full-Stack Developer",
+    title: "AI Engineer, Automation Engineer & Full-Stack Developer",
     points: [
       "Automated workflows in GoHighLevel, n8n, Make.com and Zapier for agencies and service businesses, cutting manual tasks by up to 60%",
+      "Built AI agents and multi-agent systems on OpenClaw and Paperclip, with RAG and GraphQL retrieval over a shared Obsidian knowledge base",
       "Built AI lead qualification and CRM systems connecting 15+ platforms with retry logic, fallbacks and alerts",
       "Engineered 20+ web applications in React/Next.js, Laravel and Java Spring Boot",
       "Integrated Stripe, PayMongo, geolocation and admin dashboards; deployed on AWS, Vercel, Azure and VPS",
     ],
-    tools: ["GoHighLevel", "n8n", "Make.com", "Zapier", "OpenAI", "Next.js", "Laravel", "Spring Boot"],
+    tools: ["OpenAI", "OpenClaw", "Paperclip", "RAG", "GoHighLevel", "n8n", "Make.com", "Zapier", "Next.js", "Laravel", "Spring Boot"],
   },
   {
     period: "Aug 2023 – Dec 2024",

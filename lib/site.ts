@@ -4,7 +4,7 @@ export const site = {
   wordmark: "EDISHAN.",
   role: "AI Automation Specialist & CRM Developer",
   /** Secondary titles shown under the role in the sidebar. */
-  titles: ["Software Engineer", "Full-Stack Developer", "Mobile Developer"],
+  titles: ["AI Engineer", "Software Engineer", "Full-Stack Developer", "Mobile Developer"],
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://edishan-portfolio.vercel.app",
   description:
     "Edishan Lee Tenorio builds GoHighLevel, n8n and AI automations that capture, qualify and book leads, plus custom software when platforms fall short.",

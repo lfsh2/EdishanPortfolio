@@ -13,7 +13,7 @@ export function Hero() {
       <div className="lg:col-span-7">
         <p className="label flex items-center gap-2.5 text-faint">
           <span aria-hidden className="size-1.5 rounded-full bg-lime ring-2 ring-lime/30" />
-          AI Automation &amp; CRM Systems
+          AI Engineering, Automation &amp; CRM
         </p>
         <h1 id="hero-title" className="mt-6 text-display text-fg">
           Make your business run without the <Mark onLoad>busywork.</Mark>

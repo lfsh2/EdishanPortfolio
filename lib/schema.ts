@@ -13,9 +13,9 @@ export const personSchema = {
   "@type": "Person",
   "@id": personId,
   name: site.name,
-  jobTitle: site.role,
+  jobTitle: ["AI Engineer", site.role],
   description:
-    "AI automation specialist and CRM developer who builds GoHighLevel, n8n and AI workflows, and the custom software underneath them, for agencies and growing businesses.",
+    "AI engineer, AI automation specialist and CRM developer who builds AI agents and GoHighLevel, n8n and AI workflows, and the custom software underneath them, for agencies and growing businesses.",
   url: site.url,
   image: abs(headshot.src),
   email: `mailto:${site.email}`,
@@ -25,6 +25,9 @@ export const personSchema = {
   knowsAbout: [
     "GoHighLevel",
     "n8n",
+    "AI engineering",
+    "AI agents",
+    "Retrieval-augmented generation (RAG)",
     "AI automation",
     "AI receptionists",
     "CRM development",
