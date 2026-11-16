@@ -319,6 +319,15 @@ export const experience: Role[] = [
     ],
     tools: ["React", "Redux", "Context API"],
   },
+  {
+    period: "2021 – 2022 · 8 months",
+    company: "Freelance client",
+    title: "Social Media Manager & Executive Assistant",
+    points: [
+      "Managed the client's social media accounts: planning, scheduling and publishing content",
+      "Supported the client as an executive assistant with day-to-day admin, scheduling and communication",
+    ],
+  },
 ];
 
 export const education = [{ period: "2021 – 2025", title: "BS Information Technology", place: "Cavite State University" }];
@@ -369,21 +378,43 @@ export const faq = [
 export const skills = [
   {
     group: "Automation",
+    items: ["GoHighLevel", "n8n", "Make.com", "Zapier", "Webhooks", "GHL pipelines & snapshots", "A2P 10DLC registration"],
+  },
+  {
+    group: "AI & agents",
     items: [
-      "GoHighLevel",
-      "n8n",
-      "Make.com",
-      "Zapier",
       "OpenAI / LLM workflows",
-      "Twilio",
-      "A2P 10DLC registration",
-      "HeyGen AI avatars",
-      "OpenClaw & Paperclip AI agents",
+      "Codex",
+      "OpenClaw",
+      "Paperclip",
       "RAG & knowledge bases",
-      "Webhooks",
+      "Obsidian",
+      "Vapi voice AI",
+      "ElevenLabs",
+      "HeyGen AI avatars",
     ],
   },
-  { group: "Backend", items: ["Node.js", "Laravel", "Java Spring Boot", "PHP", "PostgreSQL", "MySQL", "REST APIs", "GraphQL"] },
+  {
+    group: "Integrations",
+    items: [
+      "Twilio",
+      "Stripe",
+      "PayMongo",
+      "DocuSign",
+      "RabbitSign",
+      "Calendly",
+      "Slack",
+      "Gmail",
+      "Google Sheets & Calendar",
+      "ClickUp",
+      "Meta Ads & Google Ads",
+      "Looker Studio",
+    ],
+  },
+  {
+    group: "Backend",
+    items: ["Node.js", "Laravel", "CodeIgniter", "Java Spring Boot", "PHP", "PostgreSQL", "MySQL", "REST APIs", "GraphQL"],
+  },
   { group: "Frontend", items: ["TypeScript", "React", "Next.js", "Tailwind CSS", "shadcn/ui", "Three.js"] },
   { group: "Infrastructure", items: ["AWS (EC2, RDS, S3, Lambda)", "Vercel", "Azure", "VPS / cPanel", "CI/CD"] },
 ];

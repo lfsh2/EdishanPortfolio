@@ -145,7 +145,7 @@ export default function AboutPage() {
               </>
             }
           />
-          <div className="mt-16 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {skills.map((group, i) => (
               <div key={group.group} data-reveal style={revealDelay(i * 70)} className="rounded-lg border border-line bg-surface p-7">
                 <p className="label text-accent">{group.group}</p>
