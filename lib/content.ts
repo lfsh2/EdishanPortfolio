@@ -322,6 +322,18 @@ export const experience: Role[] = [
     tools: ["React", "Redux", "Context API"],
   },
   {
+    period: "2022 – 2024",
+    company: "Freelance clients",
+    title: "PHP Developer (Laravel, CodeIgniter & native PHP)",
+    points: [
+      "Developed web systems for about two years in Laravel, CodeIgniter and native PHP, from database design to deployment",
+      "Built scalable systems on a multi-system architecture, with separate applications sharing one data layer so each part could grow on its own",
+      "Designed the systems around generating income and supporting growth, helping the businesses that ran on them grow beyond their expected market valuation",
+      "Delivered client systems including the INM Audio 3D customizer and store (CodeIgniter, PayMongo), the JKK Construction site and appointment system (native PHP), an HOA management system (CodeIgniter) and the Vantrippers travel platform (Laravel)",
+    ],
+    tools: ["PHP", "Laravel", "CodeIgniter", "MySQL", "PayMongo", "PHPMailer", "REST APIs"],
+  },
+  {
     period: "2021 – 2022 · 8 months",
     company: "Freelance client",
     title: "Social Media Manager & Executive Assistant",
