@@ -26,7 +26,7 @@ export function ShortAbout() {
             I&apos;m also a full-stack developer, I can build the missing piece when a platform runs out of road. Every system I ship is
             documented, so it keeps working after handover.
           </p>
-          <p className="mt-4 text-sm text-faint">Recently: SoftlinkIQ · Tippler · independent clients since 2023</p>
+          <p className="mt-4 text-sm text-faint">Recently: SoftlinkIQ · Tippler · TheGeniusStudio · independent clients since 2023</p>
           <ArrowLink href="/about" className="mt-4">
             More about me
           </ArrowLink>
